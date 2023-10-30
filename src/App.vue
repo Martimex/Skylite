@@ -56,13 +56,13 @@ function setComponentToPiano() {
   <Piano v-if="comp_name === 'piano'" :age="age" :component="comp_name" @changeComponent="setComponentToStart" />
   <Start v-else-if="comp_name === 'start'" :msg="'Welcome to the start component'" @changeComponent="setComponentToPiano" />
   <Intro />
-  <OfferShowcase /> <!-- TODO -->
-  <TeamShowcase /> <!-- TODO -->
+  <OfferShowcase />
+  <TeamShowcase />
   <Reviews />
   <Stats />
   <Companies />
   <Newsletter />
-  <FAQ /> <!-- TODO -->
+  <FAQ />
   <Footer /> <!-- TODO -->
   
   <!-- <component :is="routedComponent"></component> -->
