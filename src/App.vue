@@ -16,7 +16,7 @@ import Footer from './components/Footer.vue';
 import { ref } from 'vue';
 
 const age: number = 12;
-const comp_name = ref('piano');
+const comp_name = ref('start');
 
 const comp_name2 = 'piano';
 
@@ -31,8 +31,10 @@ function setComponentToPiano() {
 </script>
 
 <template>
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Audiowide:300,400,600,700&amp;lang=en" />
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,600,700&amp;lang=en" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Audiowide:300,400,600,700,800&amp;lang=en" />
+  <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Tenor+Sans:300,400,600,700,800&amp;lang=en" /> -->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playpen+Sans:300,400,600,700&amp;lang=en" />
+  <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,600,700&amp;lang=en" /> -->
   <link href="../dist/output.css" rel="stylesheet" />
 <!--   <header>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
@@ -51,10 +53,12 @@ function setComponentToPiano() {
 <!--   <main>
     HEY !!!
   </main> -->
+
+  
   <Navbar />
 
   <Piano v-if="comp_name === 'piano'" :age="age" :component="comp_name" @changeComponent="setComponentToStart" />
-  <Start v-else-if="comp_name === 'start'" :msg="'Welcome to the start component'" @changeComponent="setComponentToPiano" />
+  <Start v-if="comp_name === 'start'" :msg="'Welcome to the start component'" @changeComponent="setComponentToPiano" />
   <Intro />
   <OfferShowcase />
   <TeamShowcase />
@@ -71,7 +75,7 @@ function setComponentToPiano() {
 
 <style scoped>
 
-  #app {
+  #app, body {
     overflow-x: hidden !important;
     width: 100% !important;
     margin: 0 auto !important;

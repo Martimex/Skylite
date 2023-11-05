@@ -170,15 +170,9 @@
         border-radius: 9999px;
     }
 
-/*     .paragraph-main::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        padding-block: .1em;
-        background: #222;
-    } */
+    .paragraph-main {
+        filter: drop-shadow(0 0 .75em #222);
+    }
 
     .footer-section {
         display: flex;

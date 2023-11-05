@@ -17,7 +17,7 @@ function setScrollState() {
     const htmlElem = document.documentElement;
     const percentOfScreenHeightScrolled = htmlElem.scrollTop / htmlElem.clientHeight;
     htmlElem.style.setProperty("--scroll", `${Math.min(percentOfScreenHeightScrolled * 100, 100)}`);
-    console.log('SCREEN SCROLL IS: ', Math.min(percentOfScreenHeightScrolled * 100, 100));
+    /* console.log('SCREEN SCROLL IS: ', Math.min(percentOfScreenHeightScrolled * 100, 100)); */
 }
 
 setScrollState(); // Fire this initially - useful in cases where a page is refreshed when the page is being already scrolled

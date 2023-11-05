@@ -28,6 +28,10 @@ defineProps<{
 </template>
 
 <style scoped>
+
+    .greetings {
+        min-height: 100vh;
+    }
     .btn-go {
         position: absolute;
         bottom: 65%;
