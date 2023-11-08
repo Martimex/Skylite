@@ -17,7 +17,6 @@ const observer = new IntersectionObserver((entries) => {
 onMounted(() => {
     const targets = document.querySelectorAll('.grid-container');
     targets && targets.forEach(target => observer.observe(target));
-    console.log(targets);
 
     gsap.registerPlugin(ScrollTrigger);
 
