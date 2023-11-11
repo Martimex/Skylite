@@ -73,7 +73,7 @@ function setComponentToPiano() {
   <!-- <RouterView />  --><!--   standard routing (SSR) -->
 </template>
 
-<style scoped>
+<style>
 
   #app, body {
     overflow-x: hidden !important;

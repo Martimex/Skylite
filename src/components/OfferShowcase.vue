@@ -149,7 +149,7 @@ onMounted(() => {
             endTrigger: `.outro-box`,
             start: '-100% 25%',
             end: '50% 25%',
-            scrub: true,
+            scrub: .35,
             toggleActions: 'play pause reverse pause',
         },
         y: '-25vh',
@@ -161,7 +161,7 @@ onMounted(() => {
             endTrigger: `.outro-box`,
             start: '-100% 25%',
             end: '50% 25%',
-            scrub: true,
+            scrub: .35,
             toggleActions: 'play pause reverse pause',
         },
         y: '-25vh',
@@ -408,7 +408,7 @@ onMounted(() => {
     }
 
     .outro {
-        margin-block: 50vh 50vh;
+        margin-block: 50vh 25vh;
     }
 
     .outro-box {
