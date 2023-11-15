@@ -44,7 +44,6 @@ onMounted(() => {
             start: '-20% 50%',
             end: '-20% 25%',
             scrub: true,
-            /* markers: true, */
             toggleActions: 'play pause restart pause',
         },
         opacity: 0.75,
@@ -112,9 +111,11 @@ onMounted(() => {
 
         <!-- EMP #1 -->
         <div class="emp-bio" data-no="1">
-            <div class="photo-wrapper">
-                <div class="photo-box">
-                    <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+            <div class="emp-visual">
+                <div class="photo-wrapper">
+                    <div class="photo-box">
+                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+                    </div>
                 </div>
             </div>
             <div class="emp-info">
@@ -137,9 +138,11 @@ onMounted(() => {
 
         <!-- EMP #2 -->
         <div class="emp-bio" data-no="2">
-            <div class="photo-wrapper">
-                <div class="photo-box">
-                    <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+            <div class="emp-visual">
+                <div class="photo-wrapper">
+                    <div class="photo-box">
+                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+                    </div>
                 </div>
             </div>
             <div class="emp-info">
@@ -161,9 +164,11 @@ onMounted(() => {
 
         <!-- EMP #3 -->
         <div class="emp-bio" data-no="3">
-            <div class="photo-wrapper">
-                <div class="photo-box">
-                    <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+            <div class="emp-visual">
+                <div class="photo-wrapper">
+                    <div class="photo-box">
+                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+                    </div>
                 </div>
             </div>
             <div class="emp-info">
@@ -186,9 +191,11 @@ onMounted(() => {
 
         <!-- EMP #4 -->
         <div class="emp-bio" data-no="4">
-            <div class="photo-wrapper">
-                <div class="photo-box">
-                    <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+            <div class="emp-visual">
+                <div class="photo-wrapper">
+                    <div class="photo-box">
+                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+                    </div>
                 </div>
             </div>
             <div class="emp-info">
@@ -263,6 +270,7 @@ onMounted(() => {
         padding: 5vh 12vw;  /* WHEN USING MEDIA QUERIES, LOWER THE 12vw padding to some lower values */
         background-color: #eeeeee;
 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23222222' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+        box-shadow: 0 .25rem .5rem .3rem #eee;
     }
 
     .emp-bio {
@@ -273,6 +281,8 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         align-items: center;
         color: #111;
         padding-block: 10vh;
+        margin-block: 1.5rem;
+        /* min-height: clamp(10rem, 100%, 30rem); */
 
         transition: all 500ms ease-in-out;
             transform: translateX(-2rem);
@@ -297,9 +307,20 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         justify-content: end;
     }
 
+    .emp-visual, .emp-info {
+        min-height: 30rem !important;
+    }
+
+    .emp-visual {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
     .photo-wrapper {
-        margin: 1.5rem;
-        max-width: 30rem;
+        /* margin: 1.5rem; */
+        margin-inline: 1.5rem;
+        /* max-width: 30rem; */
         display: flex;
     }
 
@@ -316,6 +337,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     .emp-photo {
         font-size: 1rem;
         width: 100%;
+        /* height: clamp(10rem, 100%, 30rem); */
         border-radius: 50%;
         /* border: .25em solid #222; */
         /* box-shadow: 0 0 .5em .25em #333; */
@@ -323,6 +345,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
     .emp-info {
         height: calc(100% - 3rem);
+        /* min-height: clamp(10rem, 100%, 30rem); */
         margin-block: 3rem;
         margin-right: auto;
         margin-left: 2rem;

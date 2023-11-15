@@ -28,6 +28,15 @@ function setComponentToPiano() {
   comp_name.value = 'piano';
 }
 
+/*
+  This function can navigate user back to the very top of Landing Page every page refresh / reload
+
+  window.onbeforeunload = () => {  
+    window.scrollTo(0, 0);  
+  }; 
+
+*/
+
 </script>
 
 <template>
