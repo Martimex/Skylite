@@ -34,63 +34,7 @@ onMounted(() => {
 
     // Employees section observers
     const targets = document.querySelectorAll(`.emp-main .emp-bio`);
-    targets && targets.forEach(target => observer.observe(target))
-
-    // Animations for employees sections
-    // 1
-    gsap.from(`.emp-main .emp-bio[data-no="1"]`, {
-        scrollTrigger: {
-            trigger: `.emp-main .emp-bio[data-no="1"]`,
-            start: '-20% 50%',
-            end: '-20% 25%',
-            scrub: true,
-            toggleActions: 'play pause restart pause',
-        },
-        opacity: 0.75,
-        filter: 'grayscale(50%)',
-    });
-
-    // 2
-    gsap.from(`.emp-main .emp-bio[data-no="2"]`, {
-        scrollTrigger: {
-            trigger: `.emp-main .emp-bio[data-no="2"]`,
-            start: '-20% 50%',
-            end: '-20% 25%',
-            scrub: true,
-            /* markers: true, */
-            toggleActions: 'play pause restart pause',
-        },
-        opacity: 0.75,
-        filter: 'grayscale(50%)',
-    });
-
-    // 3
-    gsap.from(`.emp-main .emp-bio[data-no="3"]`, {
-        scrollTrigger: {
-            trigger: `.emp-main .emp-bio[data-no="3"]`,
-            start: '-20% 50%',
-            end: '-20% 25%',
-            scrub: true,
-            /* markers: true, */
-            toggleActions: 'play pause restart pause',
-        },
-        opacity: 0.75,
-        filter: 'grayscale(50%)',
-    });
-
-    // 4
-    gsap.from(`.emp-main .emp-bio[data-no="4"]`, {
-        scrollTrigger: {
-            trigger: `.emp-main .emp-bio[data-no="4"]`,
-            start: '-20% 50%',
-            end: '-20% 25%',
-            scrub: true,
-            /* markers: true, */
-            toggleActions: 'play pause restart pause',
-        },
-        opacity: 0.75,
-        filter: 'grayscale(50%)',
-    });
+    targets && targets.forEach(target => observer.observe(target));
 
 })
 
@@ -114,7 +58,7 @@ onMounted(() => {
             <div class="emp-visual">
                 <div class="photo-wrapper">
                     <div class="photo-box">
-                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/sarah.jpg" />
                     </div>
                 </div>
             </div>
@@ -141,7 +85,7 @@ onMounted(() => {
             <div class="emp-visual">
                 <div class="photo-wrapper">
                     <div class="photo-box">
-                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/jack.jpg" />
                     </div>
                 </div>
             </div>
@@ -167,18 +111,18 @@ onMounted(() => {
             <div class="emp-visual">
                 <div class="photo-wrapper">
                     <div class="photo-box">
-                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/natalie.jpg" />
                     </div>
                 </div>
             </div>
             <div class="emp-info">
                 <div class="emp-segment">
-                    <p class="emp-credentials"> Adrien Groth </p>
+                    <p class="emp-credentials"> Natalie Groth </p>
                     <p class="emp-role"> Web developer </p>
                 </div>
                 <div class="emp-segment">
                     <span class="emp-desc">
-                        Adrien takes care of the aesthetic side of things, from tiny details to huge ideas. He works closely with our partners to direct & produce work
+                        Natalie takes care of the aesthetic side of things, from tiny details to huge ideas. He works closely with our partners to direct & produce work
                         you can shout about. 
                     </span>
                     <div class="emp-button">
@@ -194,18 +138,18 @@ onMounted(() => {
             <div class="emp-visual">
                 <div class="photo-wrapper">
                     <div class="photo-box">
-                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/reviews-img/pobierz.jpg" />
+                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/julia.jpg" />
                     </div>
                 </div>
             </div>
             <div class="emp-info">
                 <div class="emp-segment">
-                    <p class="emp-credentials"> Monica Reese </p>
+                    <p class="emp-credentials"> Julia Reese </p>
                     <p class="emp-role"> UX designer </p>
                 </div>
                 <div class="emp-segment">
                     <span class="emp-desc">
-                        Monica takes care of the aesthetic side of things, from tiny details to huge ideas. He works closely with our partners to direct & produce work
+                        Julia takes care of the aesthetic side of things, from tiny details to huge ideas. He works closely with our partners to direct & produce work
                         you can shout about.
                     </span>
                     <div class="emp-button">
@@ -286,11 +230,15 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
         transition: all 500ms ease-in-out;
             transform: translateX(-2rem);
+            filter: grayscale(0%);
+            opacity: .75;
             
     }
 
     .emp-bio.show {
         transform: translateX(0rem);
+        filter: grayscale(0%);
+        opacity: 1;
     }
 
     .emp-bio:nth-child(even) .emp-info {
@@ -341,6 +289,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         border-radius: 50%;
         /* border: .25em solid #222; */
         /* box-shadow: 0 0 .5em .25em #333; */
+        filter: saturate(120%);
     }
 
     .emp-info {

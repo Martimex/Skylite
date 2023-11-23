@@ -30,7 +30,7 @@
                 end: '25% 25%',
                 scrub: true,
                 /* markers: true, */
-                toggleActions: 'play pause reverse pause',
+                toggleActions: 'play reverse restart pause',
             },
             y: '100%',
         });
@@ -57,7 +57,7 @@
                     trigger: review,
                     start: '-50% 0%',
                     end: '50% 0%',
-                    scrub: true,
+                    scrub: 1,
                     /* markers: true, */
                 },
                 x: '-15vw',
@@ -73,7 +73,7 @@
                     trigger: review,
                     start: '-50% 0%',
                     end: '50% 0%',
-                    scrub: true,
+                    scrub: 1,
                 },
                 x: '15vw',
                 y: '-5vh',
