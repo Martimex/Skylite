@@ -46,7 +46,7 @@ onMounted(() => {
         animation: t1,
         trigger: `.collab-box`,
         start: 'top top',
-        end: '+=3500',
+        end: '+=3000',
         scrub: true,
         pin: true,
         /* anticipatePin: 1, */
@@ -198,7 +198,7 @@ onMounted(() => {
 
     <!-- OLD -->
 
-    <p class="section-title text-center text-blue-400 font-bold text-5xl tracking-wide my-16"> Not convinced yet? Let the numbers do the job <!-- Company in numbers --> </p>
+<!--     <p class="section-title text-center text-blue-400 font-bold text-5xl tracking-wide my-16"> Not convinced yet? Let the numbers do the job </p>
 
     <div class="flex justify-center align-middle min-h-screen min-w-full">
         <ul class="custom-ul bg-blue-500 w-screen grid grid-cols-1 grid-rows-3">
@@ -234,7 +234,7 @@ onMounted(() => {
                 We have helped more than 800 of companies from all over the world to get recognized. Many of them used our services more than once. 
             </span>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <style scoped>
@@ -316,7 +316,7 @@ onMounted(() => {
 
     .bg-layer {
         /* position: relative; */
-        padding-block: 5vh;
+        padding-block: 5vh 15vh;
         padding-inline: 5vw;
         /* background: linear-gradient(45deg, #ddd, #eee); */
         /* gap: 10vh; */

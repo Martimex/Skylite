@@ -1,8 +1,178 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/src/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+onMounted(() => {
+
+    const t1 = gsap.timeline();
+        t1.from(`.slide-1`, {xPercent: -110, /* width: 0,  */opacity: 0.75})
+            .from(`.slide-3`, {xPercent: 110, /* width: 0,  */opacity: 0.75}, "<")
+            .to(`.companies-introduction`, {scale: 0}, "<")
+            .from(`.transition-layer`, {opacity: 0}, "<")
+
+    ScrollTrigger.create({
+        animation: t1,
+        trigger: `.main-box`,
+        start: 'top top',
+        end: '+=2000',
+        scrub: .5,
+        pin: true,
+    })
+
+})
+
 </script>
 
 <template>
-    <p class="section-title text-center text-blue-400 font-bold text-5xl tracking-wide my-16"> Trusted by the best </p>
+
+    <div class="bg-layer">
+        <div class="main-box h-full flex justify-center items-center">
+            <p class="companies-introduction"> Meet our collaborators </p>
+
+            <div class="transition-layer"></div>
+
+            <div class="slide slide-1 flex justify-evenly items-center">  
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-shopify" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-algolia" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-dribbble" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-rev" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-jira" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-speaker-deck" class="custom-icon scale-150" />
+            </span>
+        </div>
+
+<!--         <div class="slide slide-2">
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-sketch" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-joomla" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-redhat" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-xing" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-slack" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-telegram" class="custom-icon scale-150" />
+            </span>
+        </div> -->
+
+        <div class="slide slide-3 flex justify-evenly items-center">
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-sketch" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-joomla" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-redhat" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-xing" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-slack" class="custom-icon scale-150" />
+            </span>
+            <span class="rd-box flex items-center justify-center">
+                <font-awesome-icon icon="fa-brands fa-telegram" class="custom-icon scale-150" />
+            </span>
+        </div>
+        </div>
+
+        
+
+        <!-- <div class="custom-div cd-2 grid grid-cols-1 grid-rows-3 content-evenly h-screen bg-black">
+            <div class="slide-1 flex justify-evenly items-center">  
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-shopify" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-algolia" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-dribbble" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-rev" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-jira" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-speaker-deck" class="custom-icon scale-150" />
+                </span>
+            </div>
+            <div class="slide-2 flex justify-evenly items-center">
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-sketch" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-joomla" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-redhat" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-xing" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-slack" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-telegram" class="custom-icon scale-150" />
+                </span>
+            </div>
+            <div class="slide-3 flex justify-evenly items-center">
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-dropbox" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-vk" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-viacoin" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-quora" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-bandcamp" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-twitter" class="custom-icon scale-150" />
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <font-awesome-icon icon="fa-brands fa-unity" class="custom-icon scale-150" />
+                </span>
+            </div>
+        </div> -->
+    </div>
+
+
+
+
+    <!-- OLD -->
+
+<!--     <p class="section-title text-center text-blue-400 font-bold text-5xl tracking-wide my-16"> Trusted by the best </p>
 
     <div class="h-screen relative">
         <div class="custom-div cd-1 flex flex-col justify-evenly items-center bg-black absolute">
@@ -73,23 +243,106 @@
                 <span class="rd-box flex items-center justify-center">
                     <font-awesome-icon icon="fa-brands fa-twitter" class="custom-icon scale-150" />
                 </span>
-<!--                 <span class="rd-box flex items-center justify-center">
+                <span class="rd-box flex items-center justify-center">
                     <font-awesome-icon icon="fa-brands fa-unity" class="custom-icon scale-150" />
-                </span> -->
+                </span>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </template>
 
 <style scoped>
+
+    /* NEW */
+
+    .bg-layer {
+        min-height: 100vh;
+        background-color: #eeeeee;
+        background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23111111' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+        position: relative;
+    }
+
+    .main-box {
+        padding-inline: 7.5vw;
+        min-height: 100vh;
+    }
+
+    .companies-introduction {
+        font-size: 6rem;
+        font-weight: 700;
+        /* font-family: Playpen Sans,  Geneva, Tahoma, sans-serif; */
+        color: #000;
+        text-align: center;
+        position: relative;
+        line-height: 1.1;
+        text-transform: uppercase;
+        -webkit-text-stroke: .12rem #000;
+        color: #0000;
+        overflow: hidden;
+       /*  z-index: 1; */
+    }
+
+    .transition-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+    }
+
+    .slide {
+        position: absolute;
+        height: 50%;
+        width: 100%;
+    }
+
+    .slide-1 {
+        top: 0;
+        left: 0;
+        background-image: linear-gradient(45deg, #000, #111, #112);
+        transform: rotate(-2.5deg);
+        box-shadow:  0 .3em .5em 0 #000c,  0  .6em .5em #0005, 0 .75em  .4em #0003;
+        border-bottom: .1em solid #222;
+        /* transform: translateX(-90%); */
+    }
+
+    .slide-2 {
+        top: 0;
+
+        display: flex;
+        flex-flow: column;
+        background-image: linear-gradient(45deg, #223, #222, #111);
+        border: .3em double #222;
+        /* transform: rotate(10deg); */
+    }
+
+    .slide-3 {
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(135deg, #112, #111, #000);
+        transform: rotate(2.5deg);
+        box-shadow:  0 -.3em .5em 0 #000c,  0  -.6em .5em #0005, 0 -.75em  .4em #0003;
+        border-top: .1em solid #222;
+        /* transform: translateX(90%); */
+    }
+
+    .custom-icon {
+        font-size: 4rem;
+        color: lightskyblue;
+       /*  color: #111; */
+    }
+
+
+    /* OLD */
 
     .section-title {
         font-family: Audiowide, 'Courier New', Courier, monospace;
     }
 
     .custom-div {
-    
+        
     }
 
     .cd-1 {
@@ -115,7 +368,7 @@
     .cd-2 {
         position: relative;
         overflow: hidden;
-        box-shadow: .6em 0 4.5em 0 greenyellow, inset .6em 0 7.5em 0 #333;
+       /*  box-shadow: .6em 0 4.5em 0 greenyellow, inset .6em 0 7.5em 0 #333; */
     }
 
     .cd-2::after {
@@ -137,34 +390,8 @@
         border-radius: 10%; 
     }
 
-    .custom-icon {
-        font-size: 4rem;
-        color: cyan;
-        color: #111;
-    }
-
-    .custom-icon/* [icon="fa-brands fa-quora"] * */ {
+    /* .custom-icon[icon="fa-brands fa-quora"] {
         color: greenyellow;
-    }
-
-    .slide-1 {
-        background-image: linear-gradient(45deg, #111, #222, #223);
-        transform: translateX(5%) rotate(-5deg);
-        box-shadow:  0 .3em .5em 0 #000c,  0  .6em .5em #0005, 0 .75em  .4em #0003;
-        border-bottom: .1em solid #222;
-    }
-
-    .slide-2 {
-        background-image: linear-gradient(45deg, #223, #222, #111);
-        border: .3em double #222;
-        /* transform: rotate(10deg); */
-    }
-
-    .slide-3 {
-        background-image: linear-gradient(45deg, #111, #222, #223);
-        transform: translateX(5%) rotate(5deg);
-        box-shadow:  0 -.3em .5em 0 #000c,  0  -.6em .5em #0005, 0 -.75em  .4em #0003;
-        border-top: .1em solid #222;
-    }
+    } */
 
 </style>

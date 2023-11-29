@@ -37,9 +37,9 @@
 
         const [reviewsBlock1, reviewsBlock2] = [document.querySelector(`.reviews-block[data-no="1"]`), document.querySelector(`.reviews-block[data-no="2"]`)];
 
-        console.warn(reviewsBlock1, reviewsBlock2);
+        /* console.warn(reviewsBlock1, reviewsBlock2); */
 
-        console.log(document.querySelectorAll(`.weird-box`));
+        /* console.log(document.querySelectorAll(`.weird-box`)); */
 
 /*         const [reviews_odd, reviews_even] = reviewsBlock2?.classList.contains(`hidden`)?
             [document.querySelectorAll('.reviews-block[data-no="1"] .weird-box:nth-child(odd)'), document.querySelectorAll('.reviews-block[data-no="1"] .weird-box:nth-child(even)')] // it's a mobile / mid-screen view
@@ -49,7 +49,7 @@
 
         const [reviews_odd, reviews_even] = [document.querySelectorAll(`.reviews-block .weird-box:nth-child(odd)`), document.querySelectorAll(`.reviews-block .weird-box:nth-child(even)`)]
 
-        console.warn('reviews odd: ', reviews_odd, '   and reviews even: ', reviews_even);
+        /* console.warn('reviews odd: ', reviews_odd, '   and reviews even: ', reviews_even); */
 
         reviews_odd.forEach(review => {
             gsap.to(review, {
@@ -57,7 +57,7 @@
                     trigger: review,
                     start: '-50% 0%',
                     end: '50% 0%',
-                    scrub: 1,
+                    scrub: true /* 1 */,
                     /* markers: true, */
                 },
                 x: '-15vw',
