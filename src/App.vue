@@ -12,6 +12,7 @@ import Stats from './components/Stats.vue';
 import Companies from './components/Companies.vue';
 import Newsletter from './components/Newsletter.vue';
 import FAQ from './components/FAQ.vue';
+import ContactShowcase from './components/ContactShowcase.vue';
 import Footer from './components/Footer.vue';
 import { ref } from 'vue';
 
@@ -76,7 +77,8 @@ function setComponentToPiano() {
   <Companies />
   <Newsletter />
   <FAQ />
-  <Footer /> <!-- TODO -->
+  <ContactShowcase />
+  <Footer />
   
   <!-- <component :is="routedComponent"></component> -->
   <!-- <RouterView />  --><!--   standard routing (SSR) -->

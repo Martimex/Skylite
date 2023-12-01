@@ -7,12 +7,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        if(entry.target.classList.contains(`news-box`) && entry.intersectionRatio > 0) {
+/*         if(entry.target.classList.contains(`news-box`) && entry.intersectionRatio > 0) {
             entry.target.classList.add('show');
             observer.unobserve(entry.target);
         } else {
             entry.target.classList.toggle('show', entry.isIntersecting);
-        }
+        } */
+
+        entry.target.classList.toggle('show', entry.isIntersecting);
         
     });
 }, {threshold: 0.5})

@@ -1,9 +1,18 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
+
+const observer = new IntersectionObserver((entries => {
+    entries.forEach((entry) => entry.target.classList.toggle('show', entry.isIntersecting))
+}), {threshold: 0.6});
+
+onMounted(() => {
+    const footer = document.querySelector(`.footer`);
+    footer && observer.observe(footer);
+})
 
 </script>
 
 <template>
-    <div class="some-box h-screen"></div>
 
     <div class="footer">
 
@@ -68,12 +77,6 @@
                         </a>
                     </li>
                 </ul>
-<!--                 <a href="#">
-                    <span class="link-text"> Terms of Service </span>
-                </a>
-                <a href="#">
-                    <span class="link-text"> Privacy Policy </span>
-                </a> -->
             </div>
 
             <div class="footer-section section-contact">
@@ -109,16 +112,15 @@
         position: relative;
         /* background: linear-gradient(45deg, #fdc830, #f37335); */
         padding: 10em 5vw;
-        background-image: linear-gradient(180deg,  #fff, #bbb, #888, #000);
+        background-image: linear-gradient(180deg,  #fff, #bbb, #888, #444);
 
        /*  box-shadow: inset 0rem 0rem 1.4rem 11.2rem pink; */
-
-
-       --mask:
-    radial-gradient(8.94rem at 50% 12.00rem,#000 99%,#0000 101%) calc(50% - 8rem) 0/16rem 100%,
-    radial-gradient(8.94rem at 50% -8rem,#0000 99%,#000 101%) 50% 4rem/16rem 100% repeat-x;
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
+        /* Creates wave effect */
+        --mask:
+        radial-gradient(8.94rem at 50% 12.00rem,#000 99%,#0000 101%) calc(50% - 8rem) 0/16rem 100%,
+        radial-gradient(8.94rem at 50% -8rem,#0000 99%,#000 101%) 50% 4rem/16rem 100% repeat-x;
+        -webkit-mask: var(--mask);
+        mask: var(--mask);
 
     }
 
@@ -150,6 +152,15 @@
         /* border: .3em solid salmon; */
         display: flex;
         justify-content: space-between;
+
+        transition: all 600ms ease-in-out;
+            opacity: 0;
+            transform: translateX(-1rem);
+    }
+
+    .footer.show .footer-content {
+        opacity: 1;
+        transform: translateX(0rem);
     }
 
     .main {
@@ -158,6 +169,13 @@
         display: flex;
         align-items: center;
         justify-content: start;
+
+        transition: all 600ms ease-in-out;
+            opacity: 0;
+    }
+
+    .footer.show .main {
+        opacity: 1;
     }
     
     .line-main {
@@ -359,7 +377,16 @@
         bottom: 0%;
         left: 0%;
         text-align: center;
-        color: #bbb;
+        color: #111;
+
+        transition: all 600ms ease-in-out;
+            opacity: 0;
+            transform: translateY(-1rem);
+    }
+
+    .footer.show .copyright-note {
+        opacity: 1;
+        transform: translateY(0rem);
     }
 
 
