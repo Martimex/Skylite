@@ -25,9 +25,9 @@ onMounted(() => {
         trigger: '.bubble-section',
         endTrigger: '.bubble-section',
         start: 'center center',
-        end: "+=1500",
+        end: "+=1000",
         /* markers: true, */
-        scrub: true,
+        scrub: .7,
         pin: true,
         anticipatePin: 1,
     });
@@ -169,7 +169,8 @@ onMounted(() => {
 
     .bubble-section {
         min-height: 100vh;
-        background: #000;
+        background-color: #000000;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23999999' fill-opacity='0.18'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         position: relative;
         display: flex;
         align-items: center;
@@ -181,9 +182,9 @@ onMounted(() => {
     .bubble {
         font-size: 1rem;
         position: absolute;
-        top: 0%;
+        top: -5%;
         left: -5%;
-        height: 100%;
+        height: 110%;
         width: 110%;
         background: #eee;
         border-radius: 5%;

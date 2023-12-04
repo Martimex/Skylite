@@ -33,8 +33,26 @@ onMounted(() => {
             scrub: true,
             toggleActions: 'play pause reverse pause',
         },
-        backgroundImage: 'linear-gradient(135deg, #222, #111)',
+        backgroundImage: 'linear-gradient(135deg, #222b, #111b)',
         opacity: 1,
+    });
+
+    gsap.to(`.offer-item[data-no="1"] .neon-layer`, {
+        scrollTrigger: {
+            trigger: `.offer-item[data-no="1"] .offer-content`,
+            start: '-20% 0%',
+            end: '100% 0%',
+            scrub: 1,
+            toggleActions: `play pause reverse pause`,
+        },
+        backgroundImage: `
+        radial-gradient(at 72% 83%, hsl(162.00, 77%, 40%) 0, transparent 59%), 
+        radial-gradient(at 100% 100%, hsl(198, 44%, 29%) 0, transparent 55%)`,
+
+        /*
+            radial-gradient(at 47% 83%, hsl(65.00, 77%, 40%) 0, transparent 59%), 
+            radial-gradient(at 82% 100%, hsl(38, 44%, 39%) 0, transparent 55%);
+         */
     });
 
     gsap.to(`.offer-item[data-no="1"] .offer-dash`, {
@@ -64,10 +82,23 @@ onMounted(() => {
             toggleActions: 'play pause reverse pause',
         },
         /* background:'#222', */
-        backgroundImage: 'linear-gradient(135deg, #222, #111)',
+        backgroundImage: 'linear-gradient(135deg, #222b, #111b)',
         /* width: '80vw', */
         /* height: '100vh', */
         /* borderRadius: '2rem', */
+    });
+
+    gsap.to(`.offer-item[data-no="2"] .neon-layer`, {
+        scrollTrigger: {
+            trigger: `.offer-item[data-no="2"] .offer-content`,
+            start: '-20% 0%',
+            end: '100% 0%',
+            scrub: 1,
+            toggleActions: `play pause reverse pause`,
+        },
+        backgroundImage: `
+            radial-gradient(at 28% 83%, hsl(52.00, 77%, 40%) 0, transparent 59%), 
+            radial-gradient(at 0% 100%, hsl(1, 44%, 29%) 0, transparent 55%)`,
     });
 
     gsap.to(`.offer-item[data-no="2"] .offer-dash`, {
@@ -96,7 +127,20 @@ onMounted(() => {
             scrub: true,
             toggleActions: 'play pause reverse pause',
         },
-        backgroundImage: 'linear-gradient(135deg, #222, #111)',
+        backgroundImage: 'linear-gradient(135deg, #222b, #111b)',
+    });
+
+    gsap.to(`.offer-item[data-no="3"] .neon-layer`, {
+        scrollTrigger: {
+            trigger: `.offer-item[data-no="3"] .offer-content`,
+            start: '-20% 0%',
+            end: '100% 0%',
+            scrub: 1,
+            toggleActions: `play pause reverse pause`,
+        },
+        backgroundImage: `
+            radial-gradient(at 72% 83%, hsl(199.00, 77%, 40%) 0, transparent 59%), 
+            radial-gradient(at 100% 100%, hsl(235, 44%, 29%) 0, transparent 55%)`,
     });
 
     gsap.to(`.offer-item[data-no="3"] .offer-dash`, {
@@ -125,7 +169,20 @@ onMounted(() => {
             scrub: true,
             toggleActions: 'play pause reverse pause',
         },
-        backgroundImage: 'linear-gradient(135deg, #222, #111)',
+        backgroundImage: 'linear-gradient(135deg, #222b, #111b)',
+    });
+
+    gsap.to(`.offer-item[data-no="4"] .neon-layer`, {
+        scrollTrigger: {
+            trigger: `.offer-item[data-no="4"] .offer-content`,
+            start: '-20% 0%',
+            end: '100% 0%',
+            scrub: 1,
+            toggleActions: `play pause reverse pause`,
+        },
+        backgroundImage: `
+            radial-gradient(at 28% 83%, hsl(333.00, 77%, 40%) 0, transparent 59%), 
+            radial-gradient(at 0% 100%, hsl(222, 44%, 29%) 0, transparent 55%)`,
     });
 
     gsap.to(`.offer-item[data-no="4"] .offer-dash`, {
@@ -149,10 +206,10 @@ onMounted(() => {
             endTrigger: `.outro-box`,
             start: '-100% 25%',
             end: '50% 25%',
-            scrub: .35,
+            scrub: true,
             toggleActions: 'play pause reverse pause',
         },
-        y: '-25vh',
+        y: '-10vh',
     });
 
     gsap.to(`.outro-button`, {
@@ -161,10 +218,10 @@ onMounted(() => {
             endTrigger: `.outro-box`,
             start: '-100% 25%',
             end: '50% 25%',
-            scrub: .35,
+            scrub: true,
             toggleActions: 'play pause reverse pause',
         },
-        y: '-25vh',
+        y: '-10vh',
     });
 
 })
@@ -172,102 +229,110 @@ onMounted(() => {
 </script>
 
 <template>
-    <p class="section-title text-center text-blue-400 font-bold text-5xl tracking-wide my-16"> How can we help you </p>
+    <!-- <p class="section-title text-center text-blue-400 font-bold text-5xl tracking-wide my-16"> How can we help you </p> -->
 
-    <div class="offer-all">
-        <div class="offer-item" data-no="1">
-            <div class="offer-circle">
-                <font-awesome-icon icon="fa-solid fa-rectangle-ad" class="offer-icon" />
-            </div>
-            <div class="offer-dash"></div>
-            <p class="offer-semititle"> ONLINE ADVERTISING </p>
-            <div class="offer-content">
-                <p class="offer-heading"> Sell more products online </p>
-                <span class="offer-description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
-                    turpis, id aliquam tellus malesuada sed. Aliquam in porttitor nisi. Nullam eu magna nunc. Phasellus rutrum mauris nec auctor egestas. Nulla mattis
-                    libero nec ex ullamcorper porttitor. Aenean rhoncus tortor id neque placerat accumsan. Phasellus dui augue, iaculis vitae ornare at, malesuada a
-                    diam. In imperdiet varius felis, non ultricies dolor venenatis nec. Nunc neque eros, semper vitae massa quis, suscipit fringilla erat. Nullam a
-                    suscipit.
-                </span>
-                <div class="buttons-box">
-                    <div class="offer-button button-get"> Get offer </div>
-                    <div class="offer-button button-learn"> Learn more </div>
+    <div class="bg-layer-dark">
+        <div class="offer-all">
+            <div class="offer-item" data-no="1">
+                <div class="offer-circle">
+                    <font-awesome-icon icon="fa-solid fa-rectangle-ad" class="offer-icon" />
                 </div>
-            </div>
-        </div>
-        <div class="offer-item" data-no="2">
-            <div class="offer-circle">
-                <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="offer-icon" />
-            </div>
-            <div class="offer-dash"></div>
-            <p class="offer-semititle"> SEO PRINCIPLES </p>
-            <div class="offer-content">
-                <p class="offer-heading"> Reach the top of search results </p>
-                <span class="offer-description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
-                    turpis, id aliquam tellus malesuada sed. Aliquam in porttitor nisi. Nullam eu magna nunc. Phasellus rutrum mauris nec auctor egestas. Nulla mattis
-                    libero nec ex ullamcorper porttitor. Aenean rhoncus tortor id neque placerat accumsan. Phasellus dui augue, iaculis vitae ornare at, malesuada a
-                    diam. In imperdiet varius felis, non ultricies dolor venenatis nec. Nunc neque eros, semper vitae massa quis, suscipit fringilla erat. Nullam a
-                    suscipit.
-                </span>
-                <div class="buttons-box">
-                    <div class="offer-button button-get"> Get offer </div>
-                    <div class="offer-button button-learn"> Learn more </div>
-                </div>
-            </div>
-        </div>
-        <div class="offer-item" data-no="3">
-            <div class="offer-circle">
-                <font-awesome-icon icon="fa-solid fa-globe" class="offer-icon" />
-            </div>
-            <div class="offer-dash"></div>
-            <p class="offer-semititle"> BRAND AWARENESS </p>
-            <div class="offer-content">
-                <p class="offer-heading"> Establish a well-known brand </p>
-                <span class="offer-description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
-                    turpis, id aliquam tellus malesuada sed. Aliquam in porttitor nisi. Nullam eu magna nunc. Phasellus rutrum mauris nec auctor egestas. Nulla mattis
-                    libero nec ex ullamcorper porttitor. Aenean rhoncus tortor id neque placerat accumsan. Phasellus dui augue, iaculis vitae ornare at, malesuada a
-                    diam. In imperdiet varius felis, non ultricies dolor venenatis nec. Nunc neque eros, semper vitae massa quis, suscipit fringilla erat. Nullam a
-                    suscipit.
-                </span>
-                <div class="buttons-box">
-                    <div class="offer-button button-get"> Get offer </div>
-                    <div class="offer-button button-learn"> Learn more </div>
-                </div>
-            </div>
-        </div>
-        <div class="offer-item" data-no="4">
-            <div class="offer-circle">
-                <font-awesome-icon icon="fa-solid fa-store" class="offer-icon" />
-            </div>
-            <div class="offer-dash"></div>
-            <p class="offer-semititle"> MARKETING EVENTS </p>
-            <div class="offer-content">
-                <p class="offer-heading"> Make things happen </p>
-                <span class="offer-description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
-                    turpis, id aliquam tellus malesuada sed. Aliquam in porttitor nisi. Nullam eu magna nunc. Phasellus rutrum mauris nec auctor egestas. Nulla mattis
-                    libero nec ex ullamcorper porttitor. Aenean rhoncus tortor id neque placerat accumsan. Phasellus dui augue, iaculis vitae ornare at, malesuada a
-                    diam. In imperdiet varius felis, non ultricies dolor venenatis nec. Nunc neque eros, semper vitae massa quis, suscipit fringilla erat. Nullam a
-                    suscipit.
-                </span>
-                <div class="buttons-box">
-                    <div class="offer-button button-get"> Get offer </div>
-                    <div class="offer-button button-learn"> Learn more </div>
-                </div>
-            </div>
-        </div>
+                <div class="offer-dash"></div>
+                <p class="offer-semititle"> ONLINE ADVERTISING </p>
+                <div class="offer-content">
+                    <div class="neon-layer"></div>
+                    <p class="offer-heading minimal-weight"> Sell more products online </p>
+                    <div class="offer-details">
+                        <span class="offer-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
+                            turpis, id aliquam tellus malesuada sed. Aliquam in porttitor nisi. Nullam eu magna nunc. Phasellus rutrum mauris nec auctor egestas. Nulla mattis
+                        </span>
+                        <div class="buttons-box">
+                            <div class="offer-button button-get"> Get offer </div>
+                            <div class="offer-button button-learn"> Learn more </div>
+                        </div>
+                    </div>
 
-        <div class="outro">
-            <div class="outro-box">
-                <p class="outro-heading"> AND MANY MORE </p>
-                <div class="outro-button"> See full offer </div>
+                </div>
             </div>
-        </div>
+            <div class="offer-item" data-no="2">
+                <div class="offer-circle">
+                    <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="offer-icon" />
+                </div>
+                <div class="offer-dash"></div>
+                <p class="offer-semititle"> SEO PRINCIPLES </p>
+                <div class="offer-content">
+                    <div class="neon-layer"></div>
+                    <p class="offer-heading minimal-weight"> Reach the top of search results </p>
+                    <div class="offer-details">
+                        <span class="offer-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
+                            turpis, id aliquam tellus malesuada sed. Aliquam in porttitor nisi. Nullam eu magna nunc. Phasellus rutrum mauris nec auctor egestas. Nulla mattis
+                            libero nec ex ullamcorper porttitor. Aenean rhoncus tortor id neque placerat accumsan. Phasellus dui augue, iaculis vitae ornare at, malesuada a
+                            diam.
+                        </span>
+                        <div class="buttons-box">
+                            <div class="offer-button button-get"> Get offer </div>
+                            <div class="offer-button button-learn"> Learn more </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="offer-item" data-no="3">
+                <div class="offer-circle">
+                    <font-awesome-icon icon="fa-solid fa-globe" class="offer-icon" />
+                </div>
+                <div class="offer-dash"></div>
+                <p class="offer-semititle"> BRAND AWARENESS </p>
+                <div class="offer-content">
+                    <div class="neon-layer"></div>
+                    <p class="offer-heading minimal-weight"> Establish a well-known brand </p>
+                    <div class="offer-details">
+                        <span class="offer-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
+                            turpis, id aliquam tellus malesuada sed. Aliquam in porttitor nisi. Nullam eu magna nunc. Phasellus rutrum mauris nec auctor egestas. Nulla mattis
+                            libero nec ex ullamcorper porttitor. Aenean rhoncus tortor id neque
+                        </span>
+                        <div class="buttons-box">
+                            <div class="offer-button button-get"> Get offer </div>
+                            <div class="offer-button button-learn"> Learn more </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="offer-item" data-no="4">
+                <div class="offer-circle">
+                    <font-awesome-icon icon="fa-solid fa-store" class="offer-icon" />
+                </div>
+                <div class="offer-dash"></div>
+                <p class="offer-semititle"> MARKETING EVENTS </p>
+                <div class="offer-content">
+                    <div class="neon-layer"></div>
+                    <p class="offer-heading minimal-weight"> Make things happen </p>
+                    <div class="offer-details">
+                        <span class="offer-description">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
+                            turpis, id aliquam tellus malesuada. oin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
+                            turpis, id aliquam tellus malesuada
+                        </span>
+                        <div class="buttons-box">
+                            <div class="offer-button button-get"> Get offer </div>
+                            <div class="offer-button button-learn"> Learn more </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="outro">
+                <div class="outro-box">
+                    <p class="outro-heading"> AND MANY MORE </p>
+                    <div class="outro-button"> See full offer </div>
+                </div>
+            </div>
+
+        </div>
     </div>
+    
 
 </template>
 
@@ -275,9 +340,15 @@ onMounted(() => {
 
     /* NEW STYLES */
 
+    .bg-layer-dark {
+        background-color: #000000;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23999999' fill-opacity='0.18'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
     .offer-all {
         /* background: #111; */
         margin-inline: 10vw;
+        margin-top: 25vh;
         min-height: 50vh;
     }
 
@@ -297,6 +368,7 @@ onMounted(() => {
 
         font-size: 1rem;
         padding-bottom: 15vh;
+        z-index: 0;
         /* border-bottom: 2.5em solid pink; */
         position: relative;
        /*  margin-bottom: 50vh;  EITHER 50vh or 100vh */
@@ -313,45 +385,107 @@ onMounted(() => {
         background: #222;
     }
 
+    .offer-item:nth-child(2n) .offer-circle {
+        right: 0;
+    }
+
     .offer-dash {
         font-size: 1rem;
         position: absolute;
         top: 6em;
         padding: .15em;
         height: 0%; /* GSAP will animate this back to 100% */
-        margin-left: calc(3em - .15em);
+        margin-inline: calc(3em - .15em) 0;
         border-radius: 9999px;
+    }
+
+    .offer-item:nth-child(2n) .offer-dash {
+        right: 0;
+        margin-inline: 0 calc(3em - .15em) ;
     }
 
     .offer-semititle {
         font-size: 4rem;
-        margin-left: 2.5em;
+        margin-inline: 2.5em 0;
         font-weight: 800;
         color: #000;
-        display: inline-block;
+        /* display: inline-block; */
         /* padding-block: 20vh; */
     }
 
+    .offer-item:nth-child(2n) .offer-semititle {
+        text-align: right;
+        margin-inline: 0 2.5em;
+    }
+
     .offer-content {
+        position: relative;
         font-size: 1rem;
         margin-top: 5vh;
-        margin-left: 6em;
+        margin-inline: 6em 0;
         min-height: 75vh;
         /* background: #2220; */
         background-image: linear-gradient(45deg, #2221, #1111);
         border-radius: 1em;
-        padding: 5% 7.5%;
+        padding-block: 5%;
+        padding-inline: 10% 7%;
+
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 20% 80%;
+
+/*         backdrop-filter: blur(17px) saturate(176%);
+        -webkit-backdrop-filter: blur(17px) saturate(176%);
+        background-color: rgba(17, 25, 40, 0.68);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.125); */
+        
+    }
+
+    .offer-item:nth-child(2n) .offer-content {
+        margin-inline: 0 6em;
+    }
+
+    .neon-layer {
+        content: '';
+        font-size: 1rem;
+        border-radius: 1em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #111927;
+/*         background-image: 
+        radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%), 
+        radial-gradient(at 82% 65%, hsl(198, 44%, 39%) 0, transparent 55%); */
+        z-index: -1;
+
+        transition: all 700ms ease-in-out;
+            opacity: 0;
+            filter: blur(0px);
+    }
+
+    .offer-item.show .neon-layer{
+        opacity: 1;
+        filter: blur(10px);
+        /* transform: translateY(5%) scaleY(90%); */
+    }
+
+    .offer-content * {
+        /* border: 1px solid white; */
     }
 
     .offer-heading {
         font-size: 2.7rem;
-        font-weight: 750;
-        text-align: center;
+        /* font-weight: 700; */
+        /* text-align: center; */
         line-height: 1.2;
-        color: var(--green-heading);
-        text-shadow: 0 0 .2rem #111;
+        color: #0000;
+        /* text-shadow: 0 0 .2rem #111; */
         /* -webkit-text-stroke: .05rem #444; */
         /* margin-bottom: 3.75vh; */
+        align-self: flex-end;
 
         transition: all 500ms linear;
             opacity: 0;
@@ -359,15 +493,19 @@ onMounted(() => {
             transform: translateY(-.5rem);
     }
 
+    .offer-details {
+
+    }
+
     .offer-description {
         font-size: 1.2rem;
         /* font-family: Playpen Sans,  Geneva, Tahoma, sans-serif; */
-        text-align: center;
+        /* text-align: center; */
         display: inline-block;
         line-height: 1.5;
         color: #ccc;
         margin-block: 7.5vh;
-        margin-inline: 5%; /* ONLY FOR HUGE SCREENS */
+        /* margin-inline: 5%; */ /* ONLY FOR HUGE SCREENS */
 
         transition: all 600ms linear;
             opacity: 0;
@@ -376,7 +514,7 @@ onMounted(() => {
     .buttons-box {
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .offer-button {
@@ -396,6 +534,16 @@ onMounted(() => {
             opacity: 0;
     }
 
+    .button-get {
+        border-top-left-radius: 0%;
+        border-bottom-left-radius: 0%;
+    }
+
+    .button-learn {
+        border-top-right-radius: 0%;
+        border-bottom-right-radius: 0%;
+    }
+
     .offer-icon {
         font-size: 2rem;
         position: absolute;
@@ -408,7 +556,7 @@ onMounted(() => {
     }
 
     .outro {
-        margin-block: 50vh 25vh;
+        padding-block: 50vh 25vh;
     }
 
     .outro-box {
@@ -454,6 +602,12 @@ onMounted(() => {
         
     }
 
+    /* Adjustment class */
+
+    .minimal-weight {
+        font-weight: 300;
+    }
+
     /* An utility class for intersection observer purposes */
 
     .show {
@@ -489,6 +643,12 @@ onMounted(() => {
 
     /* And finally - some color based styling */
 
+    .offer-item[data-no="1"] .neon-layer {
+        background-image: 
+            radial-gradient(at 37% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%), 
+            radial-gradient(at 82% 65%, hsl(198, 44%, 29%) 0, transparent 55%);
+    }
+
     .offer-item[data-no="1"] .offer-circle {
         background-image: radial-gradient(#000 55%, var(--green));
         box-shadow: 0 0 1.2em .3em var(--green);
@@ -502,8 +662,13 @@ onMounted(() => {
         -webkit-text-stroke: .05rem var(--green);
     }
 
-    .offer-item[data-no="1"] .offer-heading, .offer-item[data-no="1"] .offer-button {
+    .offer-item[data-no="1"] .offer-button {
         color: var(--green-heading);
+    }
+
+    .offer-item[data-no="1"] .offer-heading {
+        -webkit-text-stroke: .05rem var(--green-heading);
+        color: var(--green-heading)
     }
 
     .offer-item[data-no="1"] .offer-icon {
@@ -512,9 +677,15 @@ onMounted(() => {
 
     .offer-item[data-no="1"] .offer-button:hover {
         cursor: pointer;
-        scale: 1.1;
+        scale: 1.05;
         transform: translateY(.25rem);
         border-color: var(--green-lite);
+    }
+
+    .offer-item[data-no="2"] .neon-layer {
+        background-image: 
+            radial-gradient(at 63% 33%, hsl(52.00, 77%, 40%) 0, transparent 59%), 
+            radial-gradient(at 18% 65%, hsl(1, 44%, 29%) 0, transparent 55%);
     }
 
     .offer-item[data-no="2"] .offer-circle {
@@ -530,8 +701,13 @@ onMounted(() => {
         -webkit-text-stroke: .05rem var(--yellow);
     }
 
-    .offer-item[data-no="2"] .offer-heading, .offer-item[data-no="2"] .offer-button {
+    .offer-item[data-no="2"] .offer-button {
         color: var(--yellow-heading);
+    }
+
+    .offer-item[data-no="2"] .offer-heading {
+        -webkit-text-stroke: .05rem var(--yellow-heading); 
+        color: var(--yellow-heading) 
     }
 
     .offer-item[data-no="2"] .offer-icon {
@@ -540,9 +716,15 @@ onMounted(() => {
 
     .offer-item[data-no="2"] .offer-button:hover {
         cursor: pointer;
-        scale: 1.1;
+        scale: 1.05;
         transform: translateY(.25rem);
         border-color: var(--yellow-lite);
+    }
+
+    .offer-item[data-no="3"] .neon-layer {
+        background-image: 
+            radial-gradient(at 37% 33%, hsl(199.00, 77%, 40%) 0, transparent 59%), 
+            radial-gradient(at 82% 65%, hsl(235, 44%, 29%) 0, transparent 55%);
     }
 
     .offer-item[data-no="3"] .offer-circle {
@@ -558,7 +740,12 @@ onMounted(() => {
         -webkit-text-stroke: .05rem var(--blue);
     }
 
-    .offer-item[data-no="3"] .offer-heading, .offer-item[data-no="3"] .offer-button {
+    .offer-item[data-no="3"] .offer-button {
+        color: var(--blue-heading);
+    }
+
+    .offer-item[data-no="3"] .offer-heading {
+        -webkit-text-stroke: .05rem var(--blue-heading);
         color: var(--blue-heading);
     }
 
@@ -568,9 +755,15 @@ onMounted(() => {
 
     .offer-item[data-no="3"] .offer-button:hover {
         cursor: pointer;
-        scale: 1.1;
+        scale: 1.05;
         transform: translateY(.25rem);
         border-color: var(--blue-lite);
+    }
+
+    .offer-item[data-no="4"] .neon-layer {
+        background-image: 
+            radial-gradient(at 63% 33%, hsl(333.00, 77%, 40%) 0, transparent 59%), 
+            radial-gradient(at 18% 65%, hsl(222, 44%, 29%) 0, transparent 55%);
     }
 
     .offer-item[data-no="4"] .offer-circle {
@@ -586,7 +779,12 @@ onMounted(() => {
         -webkit-text-stroke: .05rem var(--red);
     }
 
-    .offer-item[data-no="4"] .offer-heading, .offer-item[data-no="4"] .offer-button {
+    .offer-item[data-no="4"] .offer-button {
+        color: var(--red-heading);
+    }
+
+    .offer-item[data-no="4"] .offer-heading {
+        -webkit-text-stroke: .05rem var(--red-heading);
         color: var(--red-heading);
     }
 
@@ -596,7 +794,7 @@ onMounted(() => {
 
     .offer-item[data-no="4"] .offer-button:hover {
         cursor: pointer;
-        scale: 1.1;
+        scale: 1.05;
         transform: translateY(.25rem);
         border-color: var(--red-lite);
     }
