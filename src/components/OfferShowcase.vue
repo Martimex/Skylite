@@ -13,10 +13,17 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => entry.target.classList.toggle("show", entry.isIntersecting));
 }, options);
 
+const observer2 = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => entry.target.classList.toggle("show", entry.isIntersecting));
+}, {threshold: .5});
+
 onMounted(() => {
 
-    const targets = [...document.querySelectorAll('.offer-item'), ...document.querySelectorAll('.outro')];
+    const targets = [...document.querySelectorAll('.offer-item')];
     targets && targets.forEach(target => observer.observe(target));
+
+    const bubble_section = document.querySelector('.bubble-section');
+    bubble_section && observer2.observe(bubble_section);
     
 
     gsap.registerPlugin(ScrollTrigger);
@@ -200,7 +207,7 @@ onMounted(() => {
 
     /* Outro */
     
-    gsap.to(`.outro-heading`, {
+/*     gsap.to(`.outro-heading`, {
         scrollTrigger: {
             trigger: `.outro-box`,
             endTrigger: `.outro-box`,
@@ -212,7 +219,7 @@ onMounted(() => {
         y: '-10vh',
     });
 
-    gsap.to(`.outro-button`, {
+    gsap.from(`.outro-button`, {
         scrollTrigger: {
             trigger: `.outro-box`,
             endTrigger: `.outro-box`,
@@ -221,7 +228,23 @@ onMounted(() => {
             scrub: true,
             toggleActions: 'play pause reverse pause',
         },
-        y: '-10vh',
+    }); */
+
+    const main = gsap.timeline();
+    main
+        .to(`.bubble-section .outro`, {scale: 0.75, opacity: 0/* , duration: 3 */})
+        .to(`.bubble-section .bubble`, {scale: 1, opacity: 1/* , duration: 3 */}/* , "<50%" */)
+        
+
+    ScrollTrigger.create({
+        animation: main,
+        trigger: '.bubble-section',
+        endTrigger: '.bubble-section',
+        start: 'center center',
+        end: "+=2250",
+        scrub: .7,
+        pin: true,
+        /* anticipatePin: 1, */
     });
 
 })
@@ -322,15 +345,26 @@ onMounted(() => {
                     </div>
                 </div>
             </div>
-
-            <div class="outro">
-                <div class="outro-box">
-                    <p class="outro-heading"> AND MANY MORE </p>
-                    <div class="outro-button"> See full offer </div>
-                </div>
-            </div>
-
         </div>
+        
+<!--         <div class="outro">
+            <div class="outro-box">
+                <p class="outro-heading"> AND MANY MORE </p>
+                <div class="outro-button"> See full offer </div>
+            </div>
+        </div> -->
+
+        <div class="bubble-section">
+            <div class="outro">
+                <p class="outro-heading"> AND MANY MORE </p>
+                <div class="outro-button"> See full offer </div>
+            </div>
+            <div class="bubble"></div>
+            <p class="emp-introduction"> 
+                We are not just a regular PR company. We primarily perceive ourselves as a team of professionals willing to bring help to the others 
+            </p>
+        </div>
+
     </div>
     
 
@@ -556,7 +590,16 @@ onMounted(() => {
     }
 
     .outro {
-        padding-block: 50vh 25vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
     }
 
     .outro-box {
@@ -600,6 +643,53 @@ onMounted(() => {
         filter: invert(100%);
         border-radius: 10%;
         
+    }
+
+    .bubble-section {
+        min-height: 100vh;
+        background-color: #000000;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23999999' fill-opacity='0.18'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        position: relative;
+/*         display: flex;
+        align-items: center;
+        justify-content: center; */
+        padding-inline: 10%;
+        overflow: hidden;
+       /*  border: 4px solid yellow; */
+    }
+
+    .bubble {
+        font-size: 1rem;
+        position: absolute;
+        top: -5%;
+        left: -5%;
+        height: 110%;
+        width: 110%;
+        background: #eee;
+        border-radius: 5%;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23222222' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+        overflow: hidden;
+        /* Will be animated back to 1 */
+        scale: 0;
+        opacity: 0;
+    }
+
+    .emp-introduction {
+        font-size: 4rem;
+        font-weight: 700;
+        /* font-family: Playpen Sans,  Geneva, Tahoma, sans-serif; */
+        color: #000;
+        text-align: center;
+        position: relative;
+        line-height: 1.1;
+        text-transform: uppercase;
+        -webkit-text-stroke: .12rem #000;
+        color: #0000;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
     }
 
     /* Adjustment class */

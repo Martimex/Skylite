@@ -17,7 +17,7 @@ onMounted(() => {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const main = gsap.timeline();
+/*     const main = gsap.timeline();
     main.to(`.bubble-section .bubble`, {scale: 1, duration: 3});
 
     ScrollTrigger.create({
@@ -26,11 +26,10 @@ onMounted(() => {
         endTrigger: '.bubble-section',
         start: 'center center',
         end: "+=1000",
-        /* markers: true, */
         scrub: .7,
         pin: true,
         anticipatePin: 1,
-    });
+    }); */
 
     // Employees section observers
     const targets = document.querySelectorAll(`.emp-main .emp-bio`);
@@ -44,12 +43,12 @@ onMounted(() => {
 
 <template>
 
-    <div class="bubble-section">
+<!--     <div class="bubble-section">
         <div class="bubble"></div>
         <p class="emp-introduction"> 
             We are not just a regular PR company. We primarily perceive ourselves as a team of professionals willing to bring help to the others 
         </p>
-    </div>
+    </div> -->
     
     <div class="emp-main">
 
@@ -216,6 +215,7 @@ onMounted(() => {
         background-color: #eeeeee;
 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23222222' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
         box-shadow: 0 .25rem .5rem .3rem #eee;
+        transform: translateZ(1px); /* It partially solves a (pinning?) problem, where a gray thick line appears between bubble and TeamShowcase main section - thanks to this declaration, the line becomes white  */
     }
 
     .emp-bio {
