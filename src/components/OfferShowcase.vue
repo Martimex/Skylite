@@ -382,7 +382,7 @@ onMounted(() => {
     .offer-all {
         /* background: #111; */
         margin-inline: 10vw;
-        margin-top: 25vh;
+        padding-top: 10vh;
         min-height: 50vh;
     }
 

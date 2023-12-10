@@ -167,13 +167,15 @@ onMounted(() => {
     
         transition: all 500ms ease-in-out;
             /* scale: .5;  SCALE EFFECT MAY CAUSE BUGS, AVOID USING IT WITH INTERSECTION OBSERVERS */
-            scale: .85;
+            scale: .925;
             opacity: .5;
+            transform: translateY(1rem);
     }
 
     .news-box.show {
         opacity: 1;
         scale: 1;
+        transform: translateX(0rem);
     }
 
     .news-box.show .news-content {

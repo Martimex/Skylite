@@ -4,8 +4,8 @@ import { onMounted } from 'vue';
 
 onMounted(() => {
     const tl = gsap.timeline();
-    gsap.to("._animation-block_1", {/* y: -500,  */height: '50%', rotate: 45, scale: 1, duration: 1});
-    gsap.to("._animation-block_2", {/* y: 500, */ height: '50%', rotate: 135, duration: 1});
+/*     gsap.to("._animation-block_1", {height: '50%', rotate: 45, scale: 1, duration: 1});
+    gsap.to("._animation-block_2", {height: '50%', rotate: 135, duration: 1}); */
     /* gsap.to(".main-layout", {background: "#a0d", duration: 1}); */
     gsap.from("._pgraph_1", {opacity: 0, y: -50, duration: 1.5});
 });
