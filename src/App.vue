@@ -65,7 +65,7 @@ function setComponentToPiano() {
   </main> -->
 
   
-  <!-- <Navbar /> -->
+  <Navbar />
 
   <Piano v-if="comp_name === 'piano'" :age="age" :component="comp_name" @changeComponent="setComponentToStart" />
   <Start v-if="comp_name === 'start'" :msg="'Welcome to the start component'" @changeComponent="setComponentToPiano" />

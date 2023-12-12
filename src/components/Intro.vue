@@ -31,7 +31,7 @@ onMounted(() => {
                 trigger: el,
                 start: "bottom bottom",
                 pin: true,
-                scrub: true,
+                scrub: 2,
                 pinSpacing: false,
             })
         }
@@ -94,7 +94,7 @@ onMounted(() => {
             <!-- <p class="section-title text-center text-blue-400 font-bold text-5xl tracking-wide"> Who we are </p> -->
             <!-- 1 -->
             <div class="photo-content">
-                <div class="grid-container  text-white grid-cols-2 grid-rows-1 justify-items-center gap-x-6 shadow-inner shadow-gray-700" data-grid-order="normal" data-no="1">
+                <div class="grid-container  text-white grid-cols-2 grid-rows-1 justify-items-center gap-x-6" data-grid-order="normal" data-no="1">
                     <div class="grid-img items-center justify-center bg-cover bg-center rounded-xl shadow-md shadow-slate-100"></div>
                     <div class="grid-content">
                         <p class="heading-name text-blue-400 font-bold text-5xl tracking-wide"> Who we are </p>
@@ -108,7 +108,7 @@ onMounted(() => {
             </div>
             <!-- 2 -->
             <div class="photo-content">
-                <div class="grid-container  text-white grid-cols-2 grid-rows-1 justify-items-center gap-x-6 shadow-inner shadow-emerald-400" data-grid-order="reverse" data-no="2">
+                <div class="grid-container  text-white grid-cols-2 grid-rows-1 justify-items-center gap-x-6" data-grid-order="reverse" data-no="2">
                     <div class="grid-img items-center justify-center bg-cover bg-center rounded-xl shadow-md shadow-slate-100"></div>
                     <div class="grid-content">
                         <p class="heading-name text-blue-400 font-bold text-5xl tracking-wide"> What do we do </p>
@@ -122,7 +122,7 @@ onMounted(() => {
 
             <!-- 3 -->
             <div class="photo-content">
-                <div class="grid-container  text-white grid-cols-2 grid-rows-1 justify-items-center gap-x-6 shadow-inner shadow-emerald-400" data-grid-order="normal" data-no="3">
+                <div class="grid-container  text-white grid-cols-2 grid-rows-1 justify-items-center gap-x-6" data-grid-order="normal" data-no="3">
                     <div class="grid-img items-center justify-center bg-cover bg-center rounded-xl shadow-md shadow-slate-100"></div>
                     <div class="grid-content">
                         <p class="heading-name text-blue-400 font-bold text-5xl tracking-wide"> Why us </p>
@@ -172,8 +172,8 @@ onMounted(() => {
     .bg-layer-dark {
         padding-top: 25vh;
         background-color: #000000;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23999999' fill-opacity='0.18'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    }
+/*         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23999999' fill-opacity='0.18'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+ */    }
 
     .section-sec {
         overflow: hidden; /* Very important when we are to make those scroll based animations, do not remove this line ! */
@@ -224,7 +224,7 @@ onMounted(() => {
         inset: 0 auto auto 0;
         background-size: cover;
         /* filter: invert(100%); */
-        filter: saturate(125%) brightness(70%) blur(2px);
+        filter: saturate(105%) brightness(70%) blur(2px);
     }
 
 

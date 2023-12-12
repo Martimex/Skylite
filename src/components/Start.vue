@@ -1,26 +1,62 @@
 <script setup lang="ts">
-import  { gsap } from 'gsap';
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/src/ScrollTrigger';
 import { onMounted } from 'vue';
 
+gsap.registerPlugin(ScrollTrigger);
+
 onMounted(() => {
-    const tl = gsap.timeline();
-/*     gsap.to("._animation-block_1", {height: '50%', rotate: 45, scale: 1, duration: 1});
-    gsap.to("._animation-block_2", {height: '50%', rotate: 135, duration: 1}); */
-    /* gsap.to(".main-layout", {background: "#a0d", duration: 1}); */
-    gsap.from("._pgraph_1", {opacity: 0, y: -50, duration: 1.5});
+/*     const tl = gsap.timeline();
+    gsap.to("._animation-block_1", {height: '50%', rotate: 45, scale: 1, duration: 1});
+    gsap.to("._animation-block_2", {height: '50%', rotate: 135, duration: 1});
+    gsap.to(".main-layout", {background: "#a0d", duration: 1});
+    gsap.from("._pgraph_1", {opacity: 0, y: -50, duration: 1.5}); */
+
+    gsap.to((`.gridbox-side`), {
+        scrollTrigger: {
+            trigger: `.main-layout`,
+            start: '0% 0%',
+            end: '90% 0%',
+            scrub: 1,
+            /* markers: true, */
+            toggleActions: 'play pause reverse pause',
+        },
+        scale: 1.15,
+    })
+
+    gsap.from(`.gridbox-letter`, {
+        opacity: 0,
+        /* yPercent: 20, */
+        /* xPercent: 10, */
+        scale: 0.5,
+        duration: 2,
+        stagger: 0.35,
+        ease: "power2.out",
+    })
+
+    gsap.from(`.gridbox-side`, {
+        scale: 0,
+        duration: 5,
+        ease: "power4.out",
+    })
+
+    gsap.from([`.bottom-text`, '#navbar-top'], {
+        opacity: 0,
+        duration: 3,
+        ease: "power4.in",
+    })
 });
 
-window.addEventListener("scroll", setScrollState); // fire a listener for every scroll
-window.addEventListener("resize", setScrollState); // resize is also essential because it actually can affect scroll values
+//window.addEventListener("scroll", setScrollState); // fire a listener for every scroll
+//window.addEventListener("resize", setScrollState); // resize is also essential because it actually can affect scroll values
 
-function setScrollState() {
+/* function setScrollState() {
     const htmlElem = document.documentElement;
     const percentOfScreenHeightScrolled = htmlElem.scrollTop / htmlElem.clientHeight;
     htmlElem.style.setProperty("--scroll", `${Math.min(percentOfScreenHeightScrolled * 100, 100)}`);
-    /* console.log('SCREEN SCROLL IS: ', Math.min(percentOfScreenHeightScrolled * 100, 100)); */
-}
+} */
 
-setScrollState(); // Fire this initially - useful in cases where a page is refreshed when the page is being already scrolled
+//setScrollState(); // Fire this initially - useful in cases where a page is refreshed when the page is being already scrolled
 
 const emit = defineEmits(['changeComponent']);
 
@@ -48,7 +84,22 @@ defineProps<{
         <div class="animation-block--initial _animation-block_1 --absolute"></div>
         <div class="animation-block--initial _animation-block_2 --absolute"></div>
         <div class="main-layout --flex-container --no-overflow-x">
-            <p class="pgraph--7 _pgraph_1 --text-centered"> WELCOME </p>
+            <div class="gridbox-side gs-1"></div>
+            <div class="gridbox-content">
+                <p class="gridbox-letter"> S </p>
+                <p class="gridbox-letter"> K </p>
+                <p class="gridbox-letter"> Y </p>
+                <p class="gridbox-letter"> L </p>
+                <p class="gridbox-letter"> I </p>
+                <p class="gridbox-letter"> T </p>
+                <p class="gridbox-letter"> E </p>
+            </div>
+            <div class="gridbox-side gs-2"></div>
+            <p class="bottom-text"> Designed by MTX</p>
+            <!-- <p class="pgraph--7 _pgraph_1 --text-centered"> WELCOME </p> -->
+<!--             <video width="1680" height="1420" src="../assets/video.mp4" type="video/mp4" autoplay muted playsinline loop>
+                Your browser does not support HTML5 video.
+            </video> --> 
         </div>
         <!-- <section class="section-sec">
             <div>
@@ -122,18 +173,127 @@ body {
     background: teal;
 }
 
+video {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover; /*  use "cover" to avoid distortion */
+    /* position: absolute; */
+}
+
 .main-layout {
     min-height: 100vh;
     width: 100%;
-    background: hsl(0, 0%, 87%, var(--background-opacity));
+    /* background: hsl(0, 0%, 87%, var(--background-opacity)); */
     color: #333;
-
-    position: sticky;
+    background: #000;
+    background-image: url(../assets/sky1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
     top: 0;
+    overflow: hidden;
     /* Dynamic, animated value here ! */
     /* formula is: (oldVal - oldMin) * newRange / oldRange  + newMin */
     translate: 0 calc(-1% * (max(var(--scroll), 25) - 25) * 100 / (75 + 0));
     --background-opacity: calc(100%  - 1% * min(var(--scroll), 30) * 100 / (30 + 0));
+
+    box-shadow: inset 0 0 1rem .125rem #222;
+}
+
+/* .start-gridbox {
+    display: grid;
+    grid-template-columns: 1fr 50% 1fr;
+    grid-template-rows: 1fr;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    backdrop-filter: saturate(50%);
+    background: #0004;
+} */
+
+.gridbox-side {
+    position: absolute;
+    width: 50vw;
+    height: 100%;
+    backdrop-filter: blur(1px) grayscale(50%);
+    box-shadow: 0 0 1rem .2rem #222;
+    /* padding: 10%; */
+}
+
+.gs-1 {
+    top: -50%;
+    left: -35%;
+    background: #0003;
+    transform: rotate(45deg) scaleY(2);
+    /* border-bottom-right-radius: 50%; */
+}
+
+.gs-2 {
+    top: 50%;
+    left: 85%;
+    background: #0002;
+    transform: rotate(45deg) scaleY(2);
+    /* border-bottom-left-radius: 50%; */
+}
+
+.gridbox-content {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: #0004; */
+    /* backdrop-filter: blur(9px) hue-rotate(120deg); */
+    box-shadow: inset 0 0 44rem 44rem #2220;
+    backdrop-filter: saturate(50%);
+    background: #0004;
+    overflow: hidden;
+}
+
+.gridbox-letter {
+    
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-size: 12rem;
+    /* padding: .2rem; */
+    font-weight: 800;
+    color: #1110;
+    /* background: pink; */
+    filter: drop-shadow(0 0 0.75rem cyan);
+    text-shadow: 0rem 0rem 1em #000;
+    letter-spacing: .25rem;
+    -webkit-text-stroke: .0125em cyan;
+}
+
+.gridbox-letter::before {
+    content: '';
+    z-index: 0;
+    position: absolute;
+    font-size: 10rem;
+    top: 0%;
+    left: 0%;
+    padding: 1rem;
+    border-radius: 50%;
+    /* background: radial-gradient( hsla(180, 100%, 50%, .5), #1111); */
+    color: #111;
+    /* background: pink; */
+    filter: drop-shadow(0 0 0.75rem cyan);
+    text-shadow: -.2rem -.2rem .25rem red;
+    letter-spacing: -.1rem;
+    -webkit-text-stroke: .01em cyan;
+}
+
+.bottom-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ddd;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    display: inline-block;
+    margin: 5vh 5vw;
+    text-decoration: underline;
 }
 
 .section-sec {

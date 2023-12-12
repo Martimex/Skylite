@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <header id="navbar-top" class="--fixed --flex-content-start --font-size-base _input-bg-color_ bg-white text-xl">
+    <header id="navbar-top" class="--fixed --flex-content-start --font-size-base _input-bg-color_  text-xl">
         <!-- 1 -->
         <div class="nav-box--logo">
             <div>
@@ -31,10 +31,12 @@
 <style scoped>
 
 #navbar-top {
-    color: #222;
+    /* filter: invert(100%); */
+    color: #ddd;
     z-index: 2; /* At least 2, so it will not be covered by any other element */
     padding: 2em 3em;
     width: 100vw;
+    backdrop-filter: blur(2px);
 }
 
 .nav-box--logo {
@@ -56,8 +58,10 @@
 }
 
 .link-text {
+    font-size: 1.25rem;
+    letter-spacing: .1rem;
     font-weight: 600;
-    font-family: 'Audiowide', sans-serif;
+    /* font-family: 'Audiowide', sans-serif; */
     border-bottom: .1em solid transparent;
     border-bottom-width: 0;
 }
