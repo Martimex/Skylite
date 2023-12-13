@@ -5,6 +5,10 @@ import { onMounted } from 'vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => entry.target.classList.add(`show`));
+}, {threshold: .9});
+
 onMounted(() => {
 /*     const tl = gsap.timeline();
     gsap.to("._animation-block_1", {height: '50%', rotate: 45, scale: 1, duration: 1});
@@ -12,13 +16,15 @@ onMounted(() => {
     gsap.to(".main-layout", {background: "#a0d", duration: 1});
     gsap.from("._pgraph_1", {opacity: 0, y: -50, duration: 1.5}); */
 
+    const main_layout = document.querySelector(`.main-layout`);
+    main_layout && observer.observe(main_layout);
+
     gsap.to((`.gridbox-side`), {
         scrollTrigger: {
             trigger: `.main-layout`,
             start: '0% 0%',
             end: '90% 0%',
             scrub: 1,
-            /* markers: true, */
             toggleActions: 'play pause reverse pause',
         },
         scale: 1.15,
@@ -26,25 +32,23 @@ onMounted(() => {
 
     gsap.from(`.gridbox-letter`, {
         opacity: 0,
-        /* yPercent: 20, */
-        /* xPercent: 10, */
         scale: 0.5,
-        duration: 2,
+        duration: 1,
         stagger: 0.35,
         ease: "power2.out",
     })
 
-    gsap.from(`.gridbox-side`, {
+/*     gsap.from(`.gridbox-side`, {
         scale: 0,
-        duration: 5,
+        duration: 4,
         ease: "power4.out",
-    })
+    }) */
 
-    gsap.from([`.bottom-text`, '#navbar-top'], {
+/*     gsap.from([`.bottom-text`, '#navbar-top'], {
         opacity: 0,
         duration: 3,
         ease: "power4.in",
-    })
+    }) */
 });
 
 //window.addEventListener("scroll", setScrollState); // fire a listener for every scroll
@@ -218,7 +222,14 @@ video {
     backdrop-filter: blur(1px) grayscale(50%);
     box-shadow: 0 0 1rem .2rem #222;
     /* padding: 10%; */
+
+/*     transition: all 1000ms ease-out;
+        scale: 0.5;  */
 }
+
+/* .main-layout.show .gridbox-side {
+    scale: 1;
+} */
 
 .gs-1 {
     top: -50%;
@@ -294,6 +305,13 @@ video {
     display: inline-block;
     margin: 5vh 5vw;
     text-decoration: underline;
+
+    transition: all 2000ms ease-in;
+        opacity: 0;
+}
+
+.main-layout.show .bottom-text {
+    opacity: 1;
 }
 
 .section-sec {

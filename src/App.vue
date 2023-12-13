@@ -4,6 +4,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import Navbar from './components/Navbar.vue';
 import Piano from './components/Piano.vue';
 import Start from './components/Start.vue';
+import Quote from './components/Quote.vue';
 import Intro from './components/Intro.vue';
 import OfferShowcase from './components/OfferShowcase.vue';
 import TeamShowcase from './components/TeamShowcase.vue';
@@ -69,6 +70,7 @@ function setComponentToPiano() {
 
   <Piano v-if="comp_name === 'piano'" :age="age" :component="comp_name" @changeComponent="setComponentToStart" />
   <Start v-if="comp_name === 'start'" :msg="'Welcome to the start component'" @changeComponent="setComponentToPiano" />
+  <Quote />
   <Intro />
   <OfferShowcase />
   <TeamShowcase />
