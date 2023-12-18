@@ -9,6 +9,18 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => entry.target.classList.add(`show`));
 }, {threshold: .9});
 
+const navBurgerObserver = new IntersectionObserver((entries => {
+    /* This observer helps dealing with clicking on burger navbar too early (being partially inside this and Start components, which causes a bug obviously).
+    The .no-click class is defined in the NavBurger Component, since this approach make the whole solution working   */
+
+    entries.forEach(entry => {
+        if(entry.target.classList.contains(`main-layout`)) {
+            const navBurgerIcon = document.querySelector(`.burger-icon`);
+            navBurgerIcon?.classList.toggle(`no-click`, entry.isIntersecting);
+        }
+    })
+}), {threshold: 0.001});
+
 onMounted(() => {
 /*     const tl = gsap.timeline();
     gsap.to("._animation-block_1", {height: '50%', rotate: 45, scale: 1, duration: 1});
@@ -16,8 +28,11 @@ onMounted(() => {
     gsap.to(".main-layout", {background: "#a0d", duration: 1});
     gsap.from("._pgraph_1", {opacity: 0, y: -50, duration: 1.5}); */
 
+    const targetElems = [...document.querySelectorAll(`.main-layout`), ...document.querySelectorAll(`#navbar-top`)];
+    targetElems && targetElems.forEach(el => observer.observe(el));
+
     const main_layout = document.querySelector(`.main-layout`);
-    main_layout && observer.observe(main_layout);
+    main_layout && navBurgerObserver.observe(main_layout);
 
     gsap.to((`.gridbox-side`), {
         scrollTrigger: {
@@ -62,7 +77,7 @@ onMounted(() => {
 
 //setScrollState(); // Fire this initially - useful in cases where a page is refreshed when the page is being already scrolled
 
-const emit = defineEmits(['changeComponent']);
+/* const emit = defineEmits(['changeComponent']);
 
 function newComponent() {
     emit('changeComponent', 'piano');
@@ -70,19 +85,34 @@ function newComponent() {
 
 defineProps<{
     msg: string
-}>()
+}>() */
 </script>
 
 <template>
-<!--     <div class="greetings">
-        <h1 class="green">{{ msg }}</h1>
-        <h3>
-            You’ve successfully created a project with
-            <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-            <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
-        </h3>
-        <button @click="newComponent"> Return to Piano Component ! </button>
-    </div> -->
+
+    <header id="navbar-top">
+        <!-- 1 -->
+        <div class="nav-box--logo">
+            <div>
+                <p class="link-text"> Logo </p>
+            </div>
+        </div>
+        <!-- 2 -->
+        <div class="nav-box--links">
+            <ul class="hyperlink-box --flex-content-between">
+                <li class="link-text"> Our story </li>
+                <li class="link-text"> Team </li>
+                <li class="link-text"> Offer </li>
+            </ul>
+
+            <div class="contact-box">
+                <div> 
+                    <p class="link-text"> Contact -> </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <!-- THIS SECTION IS BELOW THE 'WELCOME' MESSAGE AND SLOWLY APPEARS RIGHT UNDER THE FADING TEXT & BG WHILE SCROLLING -->
     <main class="--no-overflow-x">
         <div class="animation-block--initial _animation-block_1 --absolute"></div>
@@ -100,73 +130,11 @@ defineProps<{
             </div>
             <div class="gridbox-side gs-2"></div>
             <p class="bottom-text"> Designed by MTX</p>
-            <!-- <p class="pgraph--7 _pgraph_1 --text-centered"> WELCOME </p> -->
-<!--             <video width="1680" height="1420" src="../assets/video.mp4" type="video/mp4" autoplay muted playsinline loop>
-                Your browser does not support HTML5 video.
-            </video> --> 
         </div>
-        <!-- <section class="section-sec">
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis velit felis. Pellentesque pretium semper ex, eget porttitor purus porta id. Ut efficitur pharetra nunc, et bibendum felis aliquam vitae. Pellentesque sem nisl, lobortis non fringilla nec, finibus a neque. Vestibulum sagittis, nibh dictum sollicitudin malesuada, eros erat tempus neque, vitae sollicitudin urna eros ac nisl. Cras cursus, quam ac semper porta, tellus neque pulvinar libero, eu ultricies ex ligula eget diam. Phasellus id purus laoreet, ornare felis ac, luctus nisl. Nullam pharetra dictum odio lobortis volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla eu erat quis eros interdum imperdiet. Vivamus lacinia, quam nec lacinia iaculis, magna nisi tempus metus, quis blandit eros felis non tortor. Curabitur egestas eleifend augue id ultricies. Vestibulum placerat ut urna nec scelerisque. Morbi felis orci, vehicula ut ipsum sed, congue fermentum turpis.
-            </div>
-            <div>
-                Etiam scelerisque risus eu sollicitudin cursus. Proin ultricies id nisi ac consequat. Cras at mollis diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec justo massa, convallis vitae mi a, vehicula commodo mauris. Nulla facilisi. Nam ac egestas ex, eget sagittis tellus. Quisque a feugiat mauris, non pharetra lacus. Suspendisse congue ultricies ligula, vel sagittis lacus. Vestibulum ornare, nunc at rhoncus vehicula, dolor nulla blandit leo, id dictum metus lacus rutrum erat. Praesent venenatis elit enim, eu scelerisque leo sodales a. Integer tincidunt risus nisi, at viverra magna varius in. Aliquam et leo sodales, semper enim id, luctus metus. Duis sit amet lectus odio. Donec bibendum massa dictum, pellentesque enim sit amet, rutrum risus.
-            </div>
-            <div>
-                Nulla sit amet felis dolor. Nulla vitae eros nec orci rutrum blandit. Aenean placerat enim non venenatis volutpat. Vestibulum erat risus, cursus non urna ut, placerat dignissim purus. Nulla luctus lectus purus, id venenatis dolor ornare non. Etiam tempus condimentum elit et sodales. Maecenas fringilla, metus quis imperdiet rhoncus, nunc urna ultrices elit, sit amet convallis ipsum nibh vitae lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </div>
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis velit felis. Pellentesque pretium semper ex, eget porttitor purus porta id. Ut efficitur pharetra nunc, et bibendum felis aliquam vitae. Pellentesque sem nisl, lobortis non fringilla nec, finibus a neque. Vestibulum sagittis, nibh dictum sollicitudin malesuada, eros erat tempus neque, vitae sollicitudin urna eros ac nisl. Cras cursus, quam ac semper porta, tellus neque pulvinar libero, eu ultricies ex ligula eget diam. Phasellus id purus laoreet, ornare felis ac, luctus nisl. Nullam pharetra dictum odio lobortis volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla eu erat quis eros interdum imperdiet. Vivamus lacinia, quam nec lacinia iaculis, magna nisi tempus metus, quis blandit eros felis non tortor. Curabitur egestas eleifend augue id ultricies. Vestibulum placerat ut urna nec scelerisque. Morbi felis orci, vehicula ut ipsum sed, congue fermentum turpis.
-            </div>
-            <div>
-                Etiam scelerisque risus eu sollicitudin cursus. Proin ultricies id nisi ac consequat. Cras at mollis diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec justo massa, convallis vitae mi a, vehicula commodo mauris. Nulla facilisi. Nam ac egestas ex, eget sagittis tellus. Quisque a feugiat mauris, non pharetra lacus. Suspendisse congue ultricies ligula, vel sagittis lacus. Vestibulum ornare, nunc at rhoncus vehicula, dolor nulla blandit leo, id dictum metus lacus rutrum erat. Praesent venenatis elit enim, eu scelerisque leo sodales a. Integer tincidunt risus nisi, at viverra magna varius in. Aliquam et leo sodales, semper enim id, luctus metus. Duis sit amet lectus odio. Donec bibendum massa dictum, pellentesque enim sit amet, rutrum risus.
-            </div>
-            <div>
-                Nulla sit amet felis dolor. Nulla vitae eros nec orci rutrum blandit. Aenean placerat enim non venenatis volutpat. Vestibulum erat risus, cursus non urna ut, placerat dignissim purus. Nulla luctus lectus purus, id venenatis dolor ornare non. Etiam tempus condimentum elit et sodales. Maecenas fringilla, metus quis imperdiet rhoncus, nunc urna ultrices elit, sit amet convallis ipsum nibh vitae lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </div>
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis velit felis. Pellentesque pretium semper ex, eget porttitor purus porta id. Ut efficitur pharetra nunc, et bibendum felis aliquam vitae. Pellentesque sem nisl, lobortis non fringilla nec, finibus a neque. Vestibulum sagittis, nibh dictum sollicitudin malesuada, eros erat tempus neque, vitae sollicitudin urna eros ac nisl. Cras cursus, quam ac semper porta, tellus neque pulvinar libero, eu ultricies ex ligula eget diam. Phasellus id purus laoreet, ornare felis ac, luctus nisl. Nullam pharetra dictum odio lobortis volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla eu erat quis eros interdum imperdiet. Vivamus lacinia, quam nec lacinia iaculis, magna nisi tempus metus, quis blandit eros felis non tortor. Curabitur egestas eleifend augue id ultricies. Vestibulum placerat ut urna nec scelerisque. Morbi felis orci, vehicula ut ipsum sed, congue fermentum turpis.
-            </div>
-            <div>
-                Etiam scelerisque risus eu sollicitudin cursus. Proin ultricies id nisi ac consequat. Cras at mollis diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec justo massa, convallis vitae mi a, vehicula commodo mauris. Nulla facilisi. Nam ac egestas ex, eget sagittis tellus. Quisque a feugiat mauris, non pharetra lacus. Suspendisse congue ultricies ligula, vel sagittis lacus. Vestibulum ornare, nunc at rhoncus vehicula, dolor nulla blandit leo, id dictum metus lacus rutrum erat. Praesent venenatis elit enim, eu scelerisque leo sodales a. Integer tincidunt risus nisi, at viverra magna varius in. Aliquam et leo sodales, semper enim id, luctus metus. Duis sit amet lectus odio. Donec bibendum massa dictum, pellentesque enim sit amet, rutrum risus.
-            </div>
-            <div>
-                Nulla sit amet felis dolor. Nulla vitae eros nec orci rutrum blandit. Aenean placerat enim non venenatis volutpat. Vestibulum erat risus, cursus non urna ut, placerat dignissim purus. Nulla luctus lectus purus, id venenatis dolor ornare non. Etiam tempus condimentum elit et sodales. Maecenas fringilla, metus quis imperdiet rhoncus, nunc urna ultrices elit, sit amet convallis ipsum nibh vitae lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </div>
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis velit felis. Pellentesque pretium semper ex, eget porttitor purus porta id. Ut efficitur pharetra nunc, et bibendum felis aliquam vitae. Pellentesque sem nisl, lobortis non fringilla nec, finibus a neque. Vestibulum sagittis, nibh dictum sollicitudin malesuada, eros erat tempus neque, vitae sollicitudin urna eros ac nisl. Cras cursus, quam ac semper porta, tellus neque pulvinar libero, eu ultricies ex ligula eget diam. Phasellus id purus laoreet, ornare felis ac, luctus nisl. Nullam pharetra dictum odio lobortis volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla eu erat quis eros interdum imperdiet. Vivamus lacinia, quam nec lacinia iaculis, magna nisi tempus metus, quis blandit eros felis non tortor. Curabitur egestas eleifend augue id ultricies. Vestibulum placerat ut urna nec scelerisque. Morbi felis orci, vehicula ut ipsum sed, congue fermentum turpis.
-            </div>
-            <div>
-                Etiam scelerisque risus eu sollicitudin cursus. Proin ultricies id nisi ac consequat. Cras at mollis diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec justo massa, convallis vitae mi a, vehicula commodo mauris. Nulla facilisi. Nam ac egestas ex, eget sagittis tellus. Quisque a feugiat mauris, non pharetra lacus. Suspendisse congue ultricies ligula, vel sagittis lacus. Vestibulum ornare, nunc at rhoncus vehicula, dolor nulla blandit leo, id dictum metus lacus rutrum erat. Praesent venenatis elit enim, eu scelerisque leo sodales a. Integer tincidunt risus nisi, at viverra magna varius in. Aliquam et leo sodales, semper enim id, luctus metus. Duis sit amet lectus odio. Donec bibendum massa dictum, pellentesque enim sit amet, rutrum risus.
-            </div>
-            <div>
-                Nulla sit amet felis dolor. Nulla vitae eros nec orci rutrum blandit. Aenean placerat enim non venenatis volutpat. Vestibulum erat risus, cursus non urna ut, placerat dignissim purus. Nulla luctus lectus purus, id venenatis dolor ornare non. Etiam tempus condimentum elit et sodales. Maecenas fringilla, metus quis imperdiet rhoncus, nunc urna ultrices elit, sit amet convallis ipsum nibh vitae lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </div>
-            <div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque mollis velit felis. Pellentesque pretium semper ex, eget porttitor purus porta id. Ut efficitur pharetra nunc, et bibendum felis aliquam vitae. Pellentesque sem nisl, lobortis non fringilla nec, finibus a neque. Vestibulum sagittis, nibh dictum sollicitudin malesuada, eros erat tempus neque, vitae sollicitudin urna eros ac nisl. Cras cursus, quam ac semper porta, tellus neque pulvinar libero, eu ultricies ex ligula eget diam. Phasellus id purus laoreet, ornare felis ac, luctus nisl. Nullam pharetra dictum odio lobortis volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla eu erat quis eros interdum imperdiet. Vivamus lacinia, quam nec lacinia iaculis, magna nisi tempus metus, quis blandit eros felis non tortor. Curabitur egestas eleifend augue id ultricies. Vestibulum placerat ut urna nec scelerisque. Morbi felis orci, vehicula ut ipsum sed, congue fermentum turpis.
-            </div>
-            <div>
-                Etiam scelerisque risus eu sollicitudin cursus. Proin ultricies id nisi ac consequat. Cras at mollis diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec justo massa, convallis vitae mi a, vehicula commodo mauris. Nulla facilisi. Nam ac egestas ex, eget sagittis tellus. Quisque a feugiat mauris, non pharetra lacus. Suspendisse congue ultricies ligula, vel sagittis lacus. Vestibulum ornare, nunc at rhoncus vehicula, dolor nulla blandit leo, id dictum metus lacus rutrum erat. Praesent venenatis elit enim, eu scelerisque leo sodales a. Integer tincidunt risus nisi, at viverra magna varius in. Aliquam et leo sodales, semper enim id, luctus metus. Duis sit amet lectus odio. Donec bibendum massa dictum, pellentesque enim sit amet, rutrum risus.
-            </div>
-            <div>
-                Nulla sit amet felis dolor. Nulla vitae eros nec orci rutrum blandit. Aenean placerat enim non venenatis volutpat. Vestibulum erat risus, cursus non urna ut, placerat dignissim purus. Nulla luctus lectus purus, id venenatis dolor ornare non. Etiam tempus condimentum elit et sodales. Maecenas fringilla, metus quis imperdiet rhoncus, nunc urna ultrices elit, sit amet convallis ipsum nibh vitae lorem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-            </div>
-        </section> -->
     </main>
 </template>
 
 <style scoped>
-/* h1 {
-    font-weight: 500;
-    font-size: 2.6rem;
-    position: relative;
-    top: -10px;
-}
-
-h3 {
-    font-size: 1.2rem;
-}
- */
 
 :root {
     --scroll: 0;
@@ -177,12 +145,86 @@ body {
     background: teal;
 }
 
-video {
-    height: 100vh;
+/* "Header" navbar */
+
+#navbar-top {
+    font-size: 1.1rem;
+    color: #ddd;
+    z-index: 3; /* At least 3, so it will not be covered by any other element */
+    padding: 2em 3em;
+    /* width: 100vw; */
+    backdrop-filter: blur(2px);
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* display: flex; */
     width: 100%;
-    object-fit: cover; /*  use "cover" to avoid distortion */
-    /* position: absolute; */
+    /* padding: 1em; */
+
+    transition: all 2000ms ease-in;
+        opacity: 0;
 }
+
+#navbar-top.show {
+    opacity: 1;
+}
+
+.nav-box--logo {
+    width: 40%;
+}
+
+.nav-box--links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+}
+
+.hyperlink-box {
+    display: block;
+    list-style: none;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contact-box {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.link-text {
+    font-size: 1.25rem;
+    letter-spacing: .1rem;
+    font-weight: 600;
+    /* font-family: 'Audiowide', sans-serif; */
+    border-bottom: .1em solid transparent;
+    border-bottom-width: 0;
+}
+
+.link-text::after {
+    content: '';
+    display: block;
+    position: relative;
+    width: 100%;
+    height: .5rem;
+    color: blue;
+}
+
+.link-text:hover {
+
+}
+
+
+/* Landing page initial section */
 
 .main-layout {
     min-height: 100vh;
@@ -190,7 +232,7 @@ video {
     /* background: hsl(0, 0%, 87%, var(--background-opacity)); */
     color: #333;
     background: #000;
-    background-image: url(../assets/sky1.jpg);
+    background-image: url(../assets/sky1_minified.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -202,6 +244,8 @@ video {
     --background-opacity: calc(100%  - 1% * min(var(--scroll), 30) * 100 / (30 + 0));
 
     box-shadow: inset 0 0 1rem .125rem #222;
+
+    z-index: 2;
 }
 
 /* .start-gridbox {

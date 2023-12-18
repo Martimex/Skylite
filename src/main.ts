@@ -5,14 +5,16 @@ import App from './App.vue'
 import router from './router'
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faDropbox, faVk, faViacoin, faQuora, faBandcamp, faTwitter, faUnity, faTelegram, faSlack, faXing, faRedhat, faJoomla, faSketch, faSpeakerDeck, faJira, faRev, faDribbble, faAlgolia, faStackOverflow, faShopify, faFacebook, faXTwitter, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faPhone, faGlobe, faStore, faMagnifyingGlass, faRectangleAd, faAngleDown, faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faDropbox, faVk, faViacoin, faQuora, faBandcamp, faTwitter, faUnity, faTelegram, faSlack, faXing, faRedhat, faAirbnb, faSketch, faSpeakerDeck, faJira, faRev, faDribbble, faAlgolia, faStackOverflow, faShopify, faTwitch, faFacebook, faXTwitter, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faPhone, faGlobe, faStore, faMagnifyingGlass, faRectangleAd, faAngleDown, faCheck, faBars, faFileContract } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(
+    /* Burger NAV manu icon */ faBars,
     /* Icons for 'comapny in numbers' */ faPhone,
-    /* Brands for companies section */ faDropbox, faVk, faViacoin, faQuora, faBandcamp, faTwitter, faUnity, faTelegram, faSlack, faXing, faRedhat, faJoomla, faSketch, faSpeakerDeck, faJira, faRev, faDribbble, faAlgolia, faShopify,
+    /* Brands for companies section */ faDropbox, faVk, faViacoin, faQuora, faBandcamp, faTwitter, faUnity, faTelegram, faSlack, faXing, faRedhat, faAirbnb, faSketch, faSpeakerDeck, faJira, faRev, faDribbble, faAlgolia, faShopify, faTwitch,
     /* Icons for Offer Showcase section */ faGlobe, faStore, faMagnifyingGlass, faRectangleAd,
+    /* Icons for Stats Collaboration apply steps */ faFileContract,
     /* Icon for FAQ */ faAngleDown,
     /* Icons for Footer 'Follow us' section */ faFacebook, faXTwitter, faYoutube, faLinkedin,
     /* Icons for Newsletter section */ faCheck

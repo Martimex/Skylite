@@ -34,11 +34,17 @@ onMounted(() => {
 
     const t1 = gsap.timeline();
         t1.to(`.collab-desc-1`, {yPercent: 10, opacity: 1, scale: .8})
+            .to(`.collab-image`, {scale: 1.5, rotateZ: 0}, "<")
             .to(`.collab-desc-1`, {opacity: 0})
+            .to(`.collab-image`, {scale: 2, rotateZ: 10}, "<")
             .to(`.collab-desc-2`, {yPercent: 10, opacity: 1, scale: .8, delay: .5})
+            .to(`.collab-image`, {scale: 2.5, rotateZ: 20}, "<")
             .to(`.collab-desc-2`, {opacity: 0})
+            .to(`.collab-image`, {scale: 3, rotateZ: 30}, "<")
             .to(`.collab-desc-3`, {yPercent: 10, opacity: 1, scale: .8, delay: .5})
+            .to(`.collab-image`, {scale: 3.5}, "<")
             .to(`.collab-desc-3`, {opacity: 0})
+            .to(`.collab-image`, {scale: 4}, "<")
             .to(`.collab-image`, {opacity: 0})
 
 
@@ -56,7 +62,7 @@ onMounted(() => {
         scrollTrigger: {
             trigger: `.collab-presentation`,
             start: `0% 0%`,
-            end: `+=4000`,
+            end: `+=3200`,
             /* markers: true, */
             scrub: 1,
             pin: true,
@@ -93,11 +99,12 @@ onMounted(() => {
             <div class="collab-benefits-box">
                 <div class="collab-benefit">
                     <div class="benefit-frame">
-                        <font-awesome-icon icon="phone" class="benefit-icon" />
+                        <font-awesome-icon icon="check" class="benefit-icon" />
                     </div>
                     <span class="benefit-text"> 
                         Our model and service-oriented software approach not only results in significant savings in typical implementation costs, but also in
-                        infrastructure and operating costs. This is due to our flexible and high-performance ability
+                        infrastructure and operating costs. This is due to our flexible and high-performance ability infrastructure and operating costs. This is
+                        due to our flexible and high-performance ability
                     </span>
                 </div>
                 <div class="collab-benefit">
@@ -106,16 +113,18 @@ onMounted(() => {
                     </div>
                     <span class="benefit-text"> 
                         Our model and service-oriented software approach not only results in significant savings in typical implementation costs, but also in
-                        infrastructure and operating costs. This is due to our flexible and high-performance ability
+                        infrastructure and operating costs. This is due to our flexible and high-performance ability infrastructure and operating costs. This is
+                        due to our flexible and high-performance ability
                     </span>
                 </div>
                 <div class="collab-benefit">
                     <div class="benefit-frame">
-                        <font-awesome-icon icon="phone" class="benefit-icon" />
+                        <font-awesome-icon icon="magnifying-glass" class="benefit-icon" />
                     </div>
                     <span class="benefit-text"> 
                         Our model and service-oriented software approach not only results in significant savings in typical implementation costs, but also in
-                        infrastructure and operating costs. This is due to our flexible and high-performance ability
+                        infrastructure and operating costs. This is due to our flexible and high-performance ability infrastructure and operating costs. This is
+                        due to our flexible and high-performance ability
                     </span>
                 </div>
             </div>
@@ -138,7 +147,7 @@ onMounted(() => {
             <div class="collab-slider">
                 <div class="collab-slide">
                     <font-awesome-icon icon="phone" class="slide-icon" />
-                    <p class="slide-title"> Lower CPX </p>
+                    <p class="slide-title"> Send a request </p>
                     <span class="slide-text">
                         Our model and service-oriented software approach not only results in significant savings in typical implementation costs, but also in
                         infrastructure and operating costs. This is due to our flexible and high-performance ability to execute digital models during operation 
@@ -148,7 +157,7 @@ onMounted(() => {
                 </div>
                 <div class="collab-slide">
                     <font-awesome-icon icon="phone" class="slide-icon" />
-                    <p class="slide-title"> Lower CPX </p>
+                    <p class="slide-title"> Video call meeting </p>
                     <span class="slide-text">
                         Our model-driven technique significantly reduces implementation and change costs. In addition, it enables the capture of all process 
                         information, which reduces process, maintenance, and product quality costs, such as Overall Equipment Effectiveness (OEE), while enabling 
@@ -157,7 +166,7 @@ onMounted(() => {
                 </div>
                 <div class="collab-slide">
                     <font-awesome-icon icon="phone" class="slide-icon" />
-                    <p class="slide-title"> Lower CPX </p>
+                    <p class="slide-title"> Wait for response </p>
                     <span class="slide-text">
                         The time-consuming and complex work on site becomes less significant as employees from planning and operations, even those without any IT/OT
                         knowledge, can now define, test, and finally implement changes at the process control and plant levels. The tasks that previously required only 
@@ -165,30 +174,33 @@ onMounted(() => {
                     </span>
                 </div>
                 <div class="collab-slide">
-                    <font-awesome-icon icon="phone" class="slide-icon" />
-                    <p class="slide-title"> Lower CPX </p>
+                    <font-awesome-icon icon="file-contract" class="slide-icon" />
+                    <p class="slide-title"> Sign the contract </p>
                     <span class="slide-text">
                         Make your value creation process agile and resilient to changes with our model-driven approach. Quickly realize changes without time-consuming 
                         implementations. Variations in the process flow or the control logic can be implemented and validated remotely, whether by humans or AI. Changes 
                         at the model level can be released for use on site, transferred and executed directly. 
                     </span>
                 </div>
-                <div class="collab-slide">
+<!--                 <div class="collab-slide">
                     <font-awesome-icon icon="phone" class="slide-icon" />
                     <p class="slide-title"> Lower CPX </p>
                     <span class="slide-text">
                         Our solution is designed to adapt to the changing needs of your business. Our low code user interface enables planners and operators to optimize
                         and modify without coding. 
                     </span>
-                </div>
+                </div> -->
 
                 <!-- Last one is actually a CTA button -->
-                <div class="collab-slide">
+                <div class="collab-slide slide-action">
                     <font-awesome-icon icon="phone" class="slide-icon" />
-                    <p class="slide-title"> :) </p>
+                    <p class="slide-title"> Join the list now </p>
                     <span class="slide-text">
-                        Click here to join our collaboration list
+                        Click on the button below to send a request for collaboration. Don't miss the opportunity to join the list today and become our business partner.
                     </span>
+                    <div class="container-action">
+                        <div class="btn-action"> Join now </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -295,11 +307,104 @@ onMounted(() => {
         background: linear-gradient(135deg, hsl(199, 70%, 90%), hsl(234, 70%, 90%));
     }
 
+    .slide-action {
+        background: linear-gradient(135deg, #eee, #eee, #ddd);
+        position: relative;
+    }
+
+    .slide-action .slide-title {
+        text-align: left;
+    }
+
+    .slide-action .slide-text {
+        font-weight: 600;
+    }
+
+    .container-action {
+        /* Used to position .btn-action inside the main container */
+        position: absolute;
+        top: 75%;
+        left: 0%;
+        height: 10%;
+        width: 100%;
+    }
+
+    .btn-action {
+        font-size: 1.25rem;
+        font-weight: 600;
+        position: relative;
+        z-index: 0;
+        display: inline-block;
+        max-width: 40%;
+        border-radius: 9999px;
+        border-top-left-radius: 5%;
+        border-bottom-left-radius: 5%;
+        margin-left: 2.5rem;
+        padding: .5rem 2rem;
+        color: #222;
+        border: .1em solid #222;
+        box-shadow: 0 0 .125em .125em #222a;
+
+        transition: all 400ms ease-in;
+    }
+
+    .btn-action::before, .btn-action::after {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        border-radius: 9999px;
+        border-top-left-radius: 5%;
+        border-bottom-left-radius: 5%;
+    }
+
+    .btn-action::before {
+        border: .2rem groove #222;
+        border-left-width: .4rem;
+
+        transition: all 400ms ease-out;
+            width: 0%;
+    }
+
+    .btn-action:hover:before {
+        width: 100%;
+    }
+
+    .btn-action::after {
+        background: #222;
+        width: 100%;
+
+        transition: all 400ms ease-out 200ms;
+            opacity: 0;
+    }
+
+    .btn-action:hover:after {
+        opacity: 1;
+        
+    }
+
+    .btn-action:hover {
+        cursor: pointer;
+        color: #ddd;
+    }
+
+
     .slide-icon {
         font-size: 3rem;
         /* color: #bbb; */
-        color: #555;
+        color: #444;
+        filter: drop-shadow(0 0 .25rem  #777);
     }
+
+/*     .collab-slide:nth-child(2n) .slide-icon {
+        filter: drop-shadow(0 0 .5rem hsl(199, 70%, 70%));
+    }
+
+    .slide-action .slide-icon {
+        filter: drop-shadow(0 0 .5rem hsl(167, 70%, 90%));
+    } */
 
     .slide-title {
         font-size: 1.7rem;
@@ -362,6 +467,7 @@ onMounted(() => {
         border-radius: 50%;
         padding: 3em;
         margin-inline: auto;
+        backdrop-filter: blur(1px);
     }
 
     .benefit-icon {
@@ -383,7 +489,7 @@ onMounted(() => {
         top: 0;
         left: 0;
         width: 100%;
-        transform: scaleX(1); /* Will be animated to 1.2 with Intersection observer */
+        /* transform: scaleX(1); */ /* Will be animated to 1.2 with Intersection observer  */
         height: 100%;
         background-color: #ddd;
         background-image: url(../assets/bg5.png);
@@ -391,12 +497,15 @@ onMounted(() => {
         border-radius: 2.5%;
         box-shadow: 0 0 .5rem .2rem #222;
         filter: sepia(100%) saturate(150%) invert(100%);
+        pointer-events: none;
 
         transition: 500ms all ease-in-out;
     }
 
     .collab-image.show {
-        transform: scaleX(1.2);
+        /* transform: scaleX(1.2); */
+        width: 105vw;
+        left: -7.5vw;
     }
 
     .collab-content {

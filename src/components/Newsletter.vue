@@ -83,8 +83,8 @@ onMounted(() => {
             <div class="news-content">
                 <p class="content-title justify-center"> Sign up </p>
                 <div class="content-signup">
-                    <input aria-required="true" type="text"  required aria-invalid="false" aria-placeholder="First name" placeholder="Name..." class="form-box valid bg-red-600 text-yellow-300" />
-                    <input aria-required="true" type="text"  required aria-invalid="false" aria-placeholder="Last name"  placeholder="E-mail..." class="form-box bg-red-600" />
+                    <input aria-required="true" type="text" autocomplete="off"  required aria-invalid="false" aria-placeholder="First name" placeholder="Name..." class="form-box valid" />
+                    <input aria-required="true" type="text" autocomplete="off"  required aria-invalid="false" aria-placeholder="Last name"  placeholder="E-mail..." class="form-box" />
                     <div class="content-cta"> SUBSCRIBE </div>
                 </div>
             </div>
@@ -159,7 +159,7 @@ onMounted(() => {
     .news-box {
         min-height: 100vh;
         padding-block: 5%;
-        background: #111;
+        background: linear-gradient(#222, #111);
         display: grid;
         grid-template-columns: 60% 40%;
         grid-template-rows: 1fr;
@@ -167,7 +167,7 @@ onMounted(() => {
     
         transition: all 500ms ease-in-out;
             /* scale: .5;  SCALE EFFECT MAY CAUSE BUGS, AVOID USING IT WITH INTERSECTION OBSERVERS */
-            scale: .925;
+            scale: .95;
             opacity: .5;
             transform: translateY(1rem);
     }
@@ -194,16 +194,16 @@ onMounted(() => {
     }
 
     .textbox-desc {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         line-height: 150%;
-        font-weight: 600;
+        font-weight: 500;
         display: inline-block;
         margin-block: .75em 1.5em;
     }
 
     .qualities-item {
-        font-size: 1.25rem;
-        font-weight: 550;
+        font-size: 1.15rem;
+        font-weight: 400;
         line-height: 200%;
     }
 
@@ -226,8 +226,9 @@ onMounted(() => {
         font-size: 3.2rem;
         line-height: 110%;
         font-weight: 600;
-        letter-spacing: .2rem;
+        /* letter-spacing: .2rem; */
         color: #ddd;
+        text-shadow: 0 0 .5rem #aaa;
         display: flex;
         align-items: center;
     }
@@ -243,17 +244,17 @@ onMounted(() => {
         font-size: 1.05rem;
         box-sizing: border-box;
         /* width: 23%; */ /* 23% + (margin_left + margin-right) = 33%  */
-        /* border-radius: 9999px; */
+        border-radius: 9999px;
         /* margin: 0 5%; */
         padding: 1.25em;
-        box-shadow: inset .1em .1em .2em .3em #333, 0 0 .3em .5em #222;
+        box-shadow: inset 0em 0em .2em .3em #333, 0 0 .3em .5em #222;
         background: #444;
         color: #ccc;
-        text-shadow: .2em .2em .1em #222;
+        /* text-shadow: .2em .2em .1em #222; */
         min-width: 60%;
     }
 
-    .valid {
+    .valid1 {
         border: .1rem solid hsl(120, 73%, 75%);
         box-shadow: inset .1em .1em .2em .3em #333, 0 0 .1em .15em #111, 0 0 .15em .25em hsl(120, 53%, 75%);
     }
@@ -265,15 +266,27 @@ onMounted(() => {
 
     .content-cta {
         font-size: 1.1rem;
+        font-weight: 600;
         text-align: center;
         padding: 1.5em;
         margin-top: 1.5em;
-        color: #ccc;
-        background: #444;
         min-width: 50%;
+        letter-spacing: .1rem;
+        border-radius: 5%;
         box-sizing: border-box;
         box-shadow: inset .1em .1em .2em .3em #333, 0 0 .3em .5em #222;
-        text-shadow: .2em .2em .1em #222;
+        /* text-shadow: .2em .2em .1em #222; */
+
+        transition: all 500ms ease-in-out;
+            background: #444;
+            color: #ccc9;
+    }
+
+    .content-cta:hover {
+        cursor: pointer;
+        background: #222;
+        color: #eeef;
+        border-radius: 12.5%;
     }
 
     /* OLD */

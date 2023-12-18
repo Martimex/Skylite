@@ -224,7 +224,7 @@ onMounted(() => {
         inset: 0 auto auto 0;
         background-size: cover;
         /* filter: invert(100%); */
-        filter: saturate(105%) brightness(70%) blur(2px);
+        filter: saturate(105%) brightness(60%) blur(2px);
     }
 
 
@@ -264,11 +264,13 @@ onMounted(() => {
         line-height: 160%;
         position: relative;
         display: inline-block;
+        color: #ddd;
         /* font-family: Playpen Sans,  Geneva, Tahoma, sans-serif; */
         /* font-family: Lato, 'Courier New', Courier, monospace; */
         /* display: block; */
         /* display: flex; */
         font-size: 1.35rem;
+        font-weight: 500;
         /* padding-bottom: 2em; */
         margin-top: 7.5vh;
 /*         margin-left: min(12.5vh, 12.5vw);
@@ -306,7 +308,8 @@ onMounted(() => {
     .question-text {
         /* font-size: 3rem; */
         /* color: #ddd; */
-        font-size: 5.8rem;
+        font-size: 7.2rem;
+        letter-spacing: -.25rem;
         text-align: center;
         font-weight: 700;
         color: #0000;
@@ -315,7 +318,7 @@ onMounted(() => {
         transition: all 500ms ease-in-out;
             opacity: 0;
             scale: .85;
-            transform: translateY(2rem);
+            transform: translateY(2rem) skewX(10deg);
     }
 
     .question-box-item:nth-child(2) .question-text {

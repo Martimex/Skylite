@@ -3,6 +3,8 @@ import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 import Navbar from './components/Navbar.vue';
 import Piano from './components/Piano.vue';
+
+import NavBurger from './components/NavBurger.vue';
 import Start from './components/Start.vue';
 import Quote from './components/Quote.vue';
 import Intro from './components/Intro.vue';
@@ -30,14 +32,14 @@ function setComponentToPiano() {
   comp_name.value = 'piano';
 }
 
-/*
-  This function can navigate user back to the very top of Landing Page every page refresh / reload
 
-  window.onbeforeunload = () => {  
+  // This function can navigate user back to the very top of Landing Page every page refresh / reload
+
+/*   window.onbeforeunload = () => {  
     window.scrollTo(0, 0);  
-  }; 
+  };  */
 
-*/
+
 
 </script>
 
@@ -66,9 +68,11 @@ function setComponentToPiano() {
   </main> -->
 
   
-  <Navbar />
+  <!-- <Navbar /> -->
 
   <Piano v-if="comp_name === 'piano'" :age="age" :component="comp_name" @changeComponent="setComponentToStart" />
+
+  <NavBurger />
   <Start v-if="comp_name === 'start'" :msg="'Welcome to the start component'" @changeComponent="setComponentToPiano" />
   <Quote />
   <Intro />

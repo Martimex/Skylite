@@ -45,7 +45,7 @@ onMounted(() => {
                 <font-awesome-icon icon="fa-brands fa-dribbble" class="custom-icon scale-150" />
             </span>
             <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-rev" class="custom-icon scale-150" />
+                <font-awesome-icon icon="fa-brands fa-quora" class="custom-icon scale-150" />
             </span>
             <span class="rd-box flex items-center justify-center">
                 <font-awesome-icon icon="fa-brands fa-jira" class="custom-icon scale-150" />
@@ -81,16 +81,16 @@ onMounted(() => {
                 <font-awesome-icon icon="fa-brands fa-sketch" class="custom-icon scale-150" />
             </span>
             <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-joomla" class="custom-icon scale-150" />
+                <font-awesome-icon icon="fa-brands fa-airbnb" class="custom-icon scale-150" />
             </span>
             <span class="rd-box flex items-center justify-center">
                 <font-awesome-icon icon="fa-brands fa-redhat" class="custom-icon scale-150" />
             </span>
             <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-xing" class="custom-icon scale-150" />
+                <font-awesome-icon icon="fa-brands fa-bandcamp" class="custom-icon scale-150" />
             </span>
             <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-slack" class="custom-icon scale-150" />
+                <font-awesome-icon icon="fa-brands fa-twitch" class="custom-icon scale-150" />
             </span>
             <span class="rd-box flex items-center justify-center">
                 <font-awesome-icon icon="fa-brands fa-telegram" class="custom-icon scale-150" />
@@ -329,11 +329,67 @@ onMounted(() => {
     }
 
     .custom-icon {
-        font-size: 4rem;
-        color: lightskyblue;
+        font-size: 5rem;
+        color: #223;
        /*  color: #111; */
+        transition: all 500ms ease-in-out;
+            filter: drop-shadow(0rem 0rem .5rem #000);
     }
 
+    .custom-icon:hover {
+        cursor: pointer;
+        color: #aaa;
+        /* filter: drop-shadow(0rem 0rem .5rem #95BF47) saturate(125%); */
+        scale: 1.1;
+    }
+
+    .fa-shopify:hover {
+        filter: drop-shadow(0rem 0rem .5rem #64943E) saturate(125%);
+    }
+
+    .fa-algolia:hover {
+        filter: drop-shadow(0rem 0rem .5rem #5468FF) saturate(125%);
+    }
+
+    .fa-dribbble:hover {
+        filter: drop-shadow(0rem 0rem .5rem #ea4c89) saturate(125%);
+    }
+
+    .fa-quora:hover {
+        filter: drop-shadow(0rem 0rem .5rem #B92b27) saturate(125%);
+    }
+
+    .fa-jira:hover {
+        filter: drop-shadow(0rem 0rem .5rem #0052CC) saturate(125%);
+    }
+
+    .fa-speaker-deck:hover {
+        filter: drop-shadow(0rem 0rem .5rem #008080) saturate(125%);
+    }
+
+    .fa-sketch:hover {
+        filter: drop-shadow(0rem 0rem .5rem #daa520) saturate(125%);
+    }
+
+    .fa-airbnb:hover {
+        filter: drop-shadow(0rem 0rem .5rem #FF5A5F) saturate(125%);
+    }
+
+    .fa-redhat:hover {
+        filter: drop-shadow(0rem 0rem .5rem #CC0000) saturate(125%);
+    }
+
+    .fa-bandcamp:hover {
+        filter: drop-shadow(0rem 0rem .5rem #629aa9) saturate(125%);
+    }
+
+    .fa-twitch:hover {
+        filter: drop-shadow(0rem 0rem .5rem #b9a3e3) saturate(125%);
+    }
+
+    .fa-telegram:hover {
+        filter: drop-shadow(0rem 0rem .5rem #229ED9) saturate(125%);
+    }
 
     /* OLD */
 

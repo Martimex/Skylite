@@ -7,15 +7,36 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => entry.target.classList.toggle(`show`, entry.isIntersecting));
 }, {threshold: .7});
 
+gsap.registerPlugin(ScrollTrigger);
+
 onMounted(() => {
     const quote_layout = document.querySelector(`.quote-layout`);
     quote_layout && observer.observe(quote_layout);
+
+/*     gsap.from(`.nav-burger`, {
+        scrollTrigger: {
+            trigger: `.quote-layout`,
+            start: '0% 10%',
+            end: '80% 20%',
+            scrub: .25,
+        },
+        opacity: 0,
+    }) */
 })
+
+function sayHi() {
+    console.log('LOL');
+}
 
 </script>
 
 <template>
     <div class="quote-layout">
+<!-- 
+        <div class="nav-burger" @click="sayHi">
+            <font-awesome-icon icon="fa-solid fa-bars" class="burger-icon" />
+        </div> -->
+
         <div class="quote-box-svg">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg5" width="288" height="204" version="1.1" viewBox="0 0 76.2 53.975">
                 <defs id="defs5"><path id="rect406" d="M-.7632.3816h288.1128v203.3962H-.7632z"/>
@@ -51,7 +72,7 @@ onMounted(() => {
         </div>
         <div class="quote-box-text">
             <p class="qbt-paragraph paragraph-1"> IS THE LIMIT </p>
-            <p class="qbt-paragraph paragraph-2"> BUT NOT FOR US </p>
+            <p class="qbt-paragraph paragraph-2"> IT'S TRUE FOR US </p>
         </div>
 
     </div>
@@ -60,6 +81,7 @@ onMounted(() => {
 <style scoped>
 
     .quote-layout {
+        position: relative;
         min-height: 100vh;
         background-color: #000000;
 /*         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23999999' fill-opacity='0.18'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -68,6 +90,23 @@ onMounted(() => {
         grid-template-columns: 1fr;
         grid-template-rows: 50% 50%;
         /* justify-content: center; */
+    }
+
+    .nav-burger {
+        position: fixed;
+        top: 0;
+        margin: 1rem;
+        padding: 1.5rem;
+        border-radius: 50%;
+        /* background: #2220; */
+        backdrop-filter: blur(4px);
+        z-index: 1;
+    }
+
+    .burger-icon {
+        font-size: 2.5rem;
+        color: #bbb;
+        filter: invert(100%);
     }
 
     .quote-box-svg {
@@ -144,7 +183,7 @@ onMounted(() => {
     }
 
     .quote-layout #text404 {
-        transition: all 2000ms 200ms ease-in;
+        transition: all 1500ms /* 200ms */ ease-in;
             stroke-dasharray: 0,121;
     }
 

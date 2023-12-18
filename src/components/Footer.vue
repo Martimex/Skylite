@@ -23,8 +23,8 @@ onMounted(() => {
         
         <div class="footer-content">
             <div class="footer-section section-about">
-                <span class="about-text section-title"> 
-                    Sky is the limit, but not for us! We help you find the customers, so that they can reach you. Our mission is to provide marketing support for all
+                <span class="about-text section-title leading-relaxed"> 
+                    Sky is the limit, it's true for us! We help you find the customers, so that they can reach you. Our mission is to provide marketing support for all
                     the clients, regardless of their brand or profession. 
                 </span>
                 <div class="resources-box">
@@ -103,7 +103,18 @@ onMounted(() => {
 <style scoped>
 
     .section-title {
-        font-family: Audiowide, 'Courier New', Courier, monospace;
+        /* font-family: Audiowide, 'Courier New', Courier, monospace; */
+        font-weight: 600;
+    }
+
+    .section-name {
+        font-size: 3rem;
+        /* margin-bottom: .5em; */
+        color: #222;
+        text-shadow: .1rem .1rem .5rem #222;
+        letter-spacing: -.1rem;
+        -webkit-text-stroke: .05rem cyan;
+	    /* text-stroke: .075rem cyan; */
     }
 
     .footer {
@@ -189,7 +200,10 @@ onMounted(() => {
     }
 
     .paragraph-main {
+        font-size: 3.3rem;
         filter: drop-shadow(0 0 .75em #222);
+        text-transform: capitalize;
+        letter-spacing: .25rem;
     }
 
     .footer-section {
@@ -223,16 +237,6 @@ onMounted(() => {
         /* border: .2rem solid blue; */
     }
 
-    .section-name {
-        font-size: 3rem;
-        /* margin-bottom: .5em; */
-        color: #222;
-        text-shadow: .1rem .1rem .5rem #222;
-        letter-spacing: -.1rem;
-        -webkit-text-stroke: .05rem cyan;
-	    /* text-stroke: .075rem cyan; */
-    }
-
     .about-text {
         font-size: 1.1rem;
         line-height: 150%;
@@ -248,6 +252,7 @@ onMounted(() => {
     }
 
     .resource {
+        position: relative;
         font-size: 1rem;
         padding: .5em;
         /* background: #111; */
@@ -257,15 +262,53 @@ onMounted(() => {
         border-radius: 9999px;
         border-top-left-radius: 5%;
         border-bottom-left-radius: 5%;
-        transition: all 600ms ease-in;
+        
+        transition: all 400ms ease-in;
+    }
+
+    .resource::before, .resource::after {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        border-radius: 9999px;
+        border-top-left-radius: 5%;
+        border-bottom-left-radius: 5%;
+    }
+
+    .resource::before {
+        border: .2rem groove #222;
+        border-left-width: .4rem;
+
+        transition: all 400ms ease-out;
+            width: 0%;
+    }
+
+    .resource:hover:before {
+        width: 100%;
+    }
+
+    .resource::after {
+        background: #222;
+        width: 100%;
+
+        transition: all 400ms ease-out 200ms;
+            opacity: 0;
+    }
+
+    .resource:hover:after {
+        opacity: 1;
+        
     }
 
     .resource:hover {
         cursor: pointer;
-        background: #222;
+        /* background: #222; */
         color: #ddd;
-        border-color: #222;
-        padding: .75em;
+        /* border-color: #222; */
+        /* padding: .75em; */
     }
 
     .resource-text {
@@ -296,7 +339,7 @@ onMounted(() => {
     }
 
     .custom-icon:hover {
-        filter: contrast(100%) drop-shadow(0 0 .6rem #444);
+        filter: contrast(100%) drop-shadow(0 0 .8rem #333);
         scale: 1.15;
     }
 
@@ -329,13 +372,36 @@ onMounted(() => {
 /*         border: 0em solid #222d;
         border-radius: 25%; */
         transition:  all 350ms ease-in-out;
-        /* border: .1rem solid green; */
+            opacity: .75;
+    }
+
+    .link-text::after {
+        content: '';
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+        width: 0%;
+        padding: .1rem;
+        background: #222;
+
+
+        transition: all 400ms linear;
+            opacity: 0;
     }
 
     .link-text:hover {
         /* border-bottom-width: .2em; */
-        transform: translateY(-10%);
-        color: hsl(180, 80%, 50%);
+        /* transform: translateY(-10%); */
+        /* color: hsl(180, 80%, 80%); */
+        /* font-weight: 700; */
+        opacity: 1;
+        color: #000;
+    }
+
+    .link-text:hover:after {
+        opacity: 1;
+        width: 100%;
+        /* transform: scaleX(50); */
     }
 
 /*     .link-text::after {
@@ -353,6 +419,7 @@ onMounted(() => {
         margin-top: .5em;
         letter-spacing: .1rem;
         line-height: 2;
+        margin-left: 1rem;
     }
 
     .contact-entry {
@@ -365,7 +432,7 @@ onMounted(() => {
         font-style: italic;
         font-size: 1.2rem;
         /* padding-block: .25em; */
-        margin-left: 1em;
+        margin-left: 1rem;
     }
 
     .copyright-note {

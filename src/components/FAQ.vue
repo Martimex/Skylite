@@ -189,6 +189,10 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         margin-bottom: .5em;
     }
 
+    .p-answer:hover {
+        cursor: pointer;
+    }
+
     .faq-item.active .faq-answer {
         /* Once .active is applied, the answer shows up */
         max-height: 16rem;

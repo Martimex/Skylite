@@ -13,7 +13,7 @@
     <li class="weird-box p-1 rounded-2xl"> <!--rounded-s-full-->
         <div class="weird-contentbox bg-gradient-to-r shadow-inner p-3" >
             <figure class="flex flex-col-reverse gap-6 p-6">
-                <blockquote class="font-medium text-base leading-normal"> {{ data[no].comment }} </blockquote>
+                <blockquote class="font-medium text-base leading-relaxed"> {{ data[no].comment }} </blockquote>
                 <figcaption class="flex">
                     <img loading="lazy" class="img-shadow w-16 h-16 rounded-2xl shadow-black" :src="getIMGPath(data[no].img_src.toString())" />
                     <div class="grid grid-cols-1 grid-rows-2 content-center w-full ml-4">

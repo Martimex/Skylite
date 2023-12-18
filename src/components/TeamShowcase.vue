@@ -284,6 +284,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     }
 
     .emp-photo {
+        /* display: none; */
         font-size: 1rem;
         width: 100%;
         /* height: clamp(10rem, 100%, 30rem); */
@@ -328,15 +329,58 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     }
 
     .emp-button {
+        position: relative;
         font-size: 1.1rem;
         font-weight: 600;
         margin-top: 2em;
-        padding: .75em 1em .75em .75em;
+        padding: .75em 1em;
         border-radius: 5% 9999px 9999px 5%;
         display: inline-block;
         max-width: max-content;
         color: #222;
         border: .15em solid #111;
+    }
+
+    .emp-button::before, .emp-button::after {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        border-radius: 9999px;
+        border-top-left-radius: 5%;
+        border-bottom-left-radius: 5%;
+    }
+
+    .emp-button::before {
+        border: .2rem groove #222;
+        border-left-width: .4rem;
+
+        transition: all 400ms ease-out;
+            width: 0%;
+    }
+
+    .emp-button:hover:before {
+        width: 100%;
+    }
+
+    .emp-button::after {
+        background: #222;
+        width: 100%;
+
+        transition: all 400ms ease-out 200ms;
+            opacity: 0;
+    }
+
+    .emp-button:hover:after {
+        opacity: 1;
+        
+    }
+
+    .emp-button:hover {
+        cursor: pointer;
+        color: #ddd;
     }
     
 
