@@ -57,7 +57,7 @@
                     trigger: review,
                     start: '-50% 0%',
                     end: '50% 0%',
-                    scrub: true /* 1 */,
+                    scrub: /* true */ 1,
                     /* markers: true, */
                 },
                 x: '-15vw',

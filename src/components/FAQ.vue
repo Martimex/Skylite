@@ -44,16 +44,14 @@ import ScrollTrigger from 'gsap/src/ScrollTrigger';
 
             <div class="faq-item" @click="toggleAnswer">
                 <div class="faq-question hover:cursor-pointer">
-                    <p class="p-question"> What is Javascript? </p>
+                    <p class="p-question"> How can I book a meeting? </p>
                     <font-awesome-icon icon="fa-solid fa-angle-down" class="custom-icon" />
                 </div>
                 <div class="faq-answer">
-                    <p class="p-answer">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in arcu eget purus varius rutrum a vitae mauris. Morbi augue neque, 
-                        pretium sed finibus in, accumsan eget eros. Integer lacinia tempus sollicitudin. In sit amet mi mollis, bibendum felis at, ullamcorper
-                        libero. Donec malesuada tempor ex at tempor. Sed posuere, turpis ac luctus pharetra, lorem lorem ultrices orci, non pharetra quam metus 
-                        dignissim eros. Donec sed sapien vulputate, molestie nibh at, viverra odio. Sed malesuada, urna eu pulvinar ultricies, tortor quam facilisis 
-                        mauris, sed tincidunt turpis ipsum eget magna.
+                    <p class="p-answer leading-relaxed">
+                        To book a free-of-charge, entry meeting with one of our employees, please check out the **(link)** form. There you can pick any date that might
+                        be suitable for You. Usually our meetings are hosted online, however You still can request the meeting in our office based in Glasgow, UK.
+                        Feel free to book our office appointment either online or by calling us. 
                     </p>
                 </div>
             </div>
@@ -61,13 +59,14 @@ import ScrollTrigger from 'gsap/src/ScrollTrigger';
             
             <div class="faq-item" @click="toggleAnswer">
                 <div class="faq-question hover:cursor-pointer">
-                    <p class="p-question"> How to write a good CSS? </p>
+                    <p class="p-question"> What is the pricing for your services? </p>
                     <font-awesome-icon icon="fa-solid fa-angle-down" class="custom-icon" />
                 </div>
                 <div class="faq-answer">
-                    <p class="p-answer">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in arcu eget purus varius rutrum a vitae mauris. Morbi augue neque, 
-                        pretium sed finibus in, accumsan eget eros. Integer lacinia tempus sollicitudin.
+                    <p class="p-answer leading-relaxed">
+                        The final price is not completely based on the service type You want to choose. Since every client have individual goals to accomplish, our 
+                        pricing policy goes hand-in-hand with those specific needs to fit our Customers budget well. We highly advise You to phone us in order to get 
+                        an estimated quote in just a single call.
                     </p>
                 </div>
             </div>
@@ -75,14 +74,27 @@ import ScrollTrigger from 'gsap/src/ScrollTrigger';
             
             <div class="faq-item" @click="toggleAnswer">
                 <div class="faq-question hover:cursor-pointer">
-                    <p class="p-question"> Why HTML is so easy to learn? </p>
+                    <p class="p-question"> Do you offer some discounts? </p>
                     <font-awesome-icon icon="fa-solid fa-angle-down" class="custom-icon" />
                 </div>
                 <div class="faq-answer">
-                    <p class="p-answer">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in arcu eget purus varius rutrum a vitae mauris. Morbi augue neque, 
-                        pretium sed finibus in, accumsan eget eros. Integer lacinia tempus sollicitudin. In sit amet mi mollis, bibendum felis at, ullamcorper
-                        libero. Donec malesuada tempor ex at tempor.
+                    <p class="p-answer leading-relaxed">
+                        Absolutely! Our regular customers can expect several discounts yearly, ranging from 5% up to 10%. Also, by becoming our Collaborator, some
+                        higher discounts can be applied for all the services Skylite offers - with no yearly limit specified. If you want to enjoy those and more 
+                        benefits, refer this **(link)** to apply for a Collaborator status.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item" @click="toggleAnswer">
+                <div class="faq-question hover:cursor-pointer">
+                    <p class="p-question"> Are you open on weekends? </p>
+                    <font-awesome-icon icon="fa-solid fa-angle-down" class="custom-icon" />
+                </div>
+                <div class="faq-answer">
+                    <p class="p-answer leading-relaxed">
+                        Our office is open only on weekdays, from 8:00 AM until 6:00 PM. However, You can still reach us every Saturday by calling us or writing an
+                        e-mail. Please note that on that days we are available till 4:00 PM, and we do not work on Sundays. 
                     </p>
                 </div>
             </div>

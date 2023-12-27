@@ -267,8 +267,9 @@ onMounted(() => {
                     <p class="offer-heading minimal-weight"> Sell more products online </p>
                     <div class="offer-details">
                         <span class="offer-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
-                            turpis, id aliquam tellus malesuada sed. Aliquam in porttitor nisi. Nullam eu magna nunc. Phasellus rutrum mauris nec auctor egestas. Nulla mattis
+                            Do you struggle with promoting or selling your goods or services? If so, we will provide You a comprehensive guidelines on how to increase
+                            the sale rate of your products. Furthermore, our advertising experts will help You to preapre the right advertising strategy to target the
+                            desired audience, that will also fit your needs and budget.    
                         </span>
                         <div class="buttons-box">
                             <div class="offer-button button-get"> Get offer </div>
@@ -289,10 +290,9 @@ onMounted(() => {
                     <p class="offer-heading minimal-weight"> Reach the top of search results </p>
                     <div class="offer-details">
                         <span class="offer-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
-                            turpis, id aliquam tellus malesuada sed. Aliquam in porttitor nisi. Nullam eu magna nunc. Phasellus rutrum mauris nec auctor egestas. Nulla mattis
-                            libero nec ex ullamcorper porttitor. Aenean rhoncus tortor id neque placerat accumsan. Phasellus dui augue, iaculis vitae ornare at, malesuada a
-                            diam.
+                            Nowadays, to get the deserved attention, a SEO friendly website is a must. Our team of experienced web developers would analyze the contents
+                            of your site, and enhance it according to the best SEO practices, not only to achieve much better search results, but also to increase its
+                            performance and overall user experience. 
                         </span>
                         <div class="buttons-box">
                             <div class="offer-button button-get"> Get offer </div>
@@ -312,9 +312,9 @@ onMounted(() => {
                     <p class="offer-heading minimal-weight"> Establish a well-known brand </p>
                     <div class="offer-details">
                         <span class="offer-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
-                            turpis, id aliquam tellus malesuada sed. Aliquam in porttitor nisi. Nullam eu magna nunc. Phasellus rutrum mauris nec auctor egestas. Nulla mattis
-                            libero nec ex ullamcorper porttitor. Aenean rhoncus tortor id neque
+                            Despite your company size and current recognition, a fresh and well-defined branding is what your company stand out beyond the competition. 
+                            Skylite's PR specialists not only may assist you with rebranding process, but also can provide you an in-depth business plan on how to
+                            properly build the right communication within your brand. 
                         </span>
                         <div class="buttons-box">
                             <div class="offer-button button-get"> Get offer </div>
@@ -334,9 +334,9 @@ onMounted(() => {
                     <p class="offer-heading minimal-weight"> Make things happen </p>
                     <div class="offer-details">
                         <span class="offer-description">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
-                            turpis, id aliquam tellus malesuada. oin vitae maximus erat, rutrum rutrum massa. Nulla facilisi. Proin rhoncus facilisis
-                            turpis, id aliquam tellus malesuada
+                            What can increase your firm popularity better than a memorable event? We can help you organise and coordinate the happening to make you
+                            reach the desired results and to increase your popularity on the market. Our team will make sure that the event will grant notability for
+                            your company and bring more captivated customers.
                         </span>
                         <div class="buttons-box">
                             <div class="offer-button button-get"> Get offer </div>
@@ -361,7 +361,7 @@ onMounted(() => {
             </div>
             <div class="bubble"></div>
             <p class="emp-introduction"> 
-                We are not just a regular PR company. We primarily perceive ourselves as a team of professionals willing to bring help to the others 
+                We are not a regular PR company. We are a team of professionals willing to support other companies
             </p>
         </div>
 

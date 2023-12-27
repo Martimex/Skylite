@@ -99,32 +99,29 @@ onMounted(() => {
             <div class="collab-benefits-box">
                 <div class="collab-benefit">
                     <div class="benefit-frame">
-                        <font-awesome-icon icon="check" class="benefit-icon" />
+                        <font-awesome-icon icon="tag" class="benefit-icon" />
                     </div>
                     <span class="benefit-text"> 
-                        Our model and service-oriented software approach not only results in significant savings in typical implementation costs, but also in
-                        infrastructure and operating costs. This is due to our flexible and high-performance ability infrastructure and operating costs. This is
-                        due to our flexible and high-performance ability
+                        Our Collaborators can take advantage of some significant discounts on our products and services. The contract is tailored to their
+                        individual needs, so they can get the best deal out of it.
                     </span>
                 </div>
                 <div class="collab-benefit">
                     <div class="benefit-frame">
-                        <font-awesome-icon icon="phone" class="benefit-icon" />
+                        <font-awesome-icon icon="hashtag" class="benefit-icon" />
                     </div>
                     <span class="benefit-text"> 
-                        Our model and service-oriented software approach not only results in significant savings in typical implementation costs, but also in
-                        infrastructure and operating costs. This is due to our flexible and high-performance ability infrastructure and operating costs. This is
-                        due to our flexible and high-performance ability
+                        We help promoting our Collaborators across the social media platforms and on various meetings we organize. As a result, they rise in popularity
+                        even faster and are able to achieve huge customer base in shorter amount of time.
                     </span>
                 </div>
                 <div class="collab-benefit">
                     <div class="benefit-frame">
-                        <font-awesome-icon icon="magnifying-glass" class="benefit-icon" />
+                        <font-awesome-icon icon="hand-holding-dollar" class="benefit-icon" />
                     </div>
                     <span class="benefit-text"> 
-                        Our model and service-oriented software approach not only results in significant savings in typical implementation costs, but also in
-                        infrastructure and operating costs. This is due to our flexible and high-performance ability infrastructure and operating costs. This is
-                        due to our flexible and high-performance ability
+                        The Collaborators can cooperate with us to a larger extent, by taking part in some exclusive Skylite's hosted events. The revenue of the end work will be
+                        fairly distributed between both us and them.
                     </span>
                 </div>
             </div>
@@ -146,40 +143,35 @@ onMounted(() => {
             <p class="collab-title"> How it works </p>
             <div class="collab-slider">
                 <div class="collab-slide">
-                    <font-awesome-icon icon="phone" class="slide-icon" />
-                    <p class="slide-title"> Send a request </p>
+                    <font-awesome-icon icon="envelope" class="slide-icon" />
+                    <p class="slide-title"> 1. Send a request </p>
                     <span class="slide-text">
-                        Our model and service-oriented software approach not only results in significant savings in typical implementation costs, but also in
-                        infrastructure and operating costs. This is due to our flexible and high-performance ability to execute digital models during operation 
-                        – whether in the cloud, on edge, or in hybrid operation. Our approach also offers a high degree of adaptability, enabling the use of hardware
-                        as necessary. 
+                        To become our Collaborator, first off we need to know something more about you. Please make use of the form in the "Contact" tab and answer all 
+                        the initial questions. Also do not forget to leave your contact details at the end of the form.
                     </span>
                 </div>
                 <div class="collab-slide">
-                    <font-awesome-icon icon="phone" class="slide-icon" />
-                    <p class="slide-title"> Video call meeting </p>
+                    <font-awesome-icon icon="video" class="slide-icon" />
+                    <p class="slide-title"> 2. Video call meeting </p>
                     <span class="slide-text">
-                        Our model-driven technique significantly reduces implementation and change costs. In addition, it enables the capture of all process 
-                        information, which reduces process, maintenance, and product quality costs, such as Overall Equipment Effectiveness (OEE), while enabling 
-                        process control with fewer operational specialists. 
+                        Next up, you will be invited to a video call with one of our employees, who will present you some details and conditions to become our Collaborator.
+                        We can further negotiate all aspects of the agreement to fit your needs.
                     </span>
                 </div>
                 <div class="collab-slide">
-                    <font-awesome-icon icon="phone" class="slide-icon" />
-                    <p class="slide-title"> Wait for response </p>
+                    <font-awesome-icon icon="hourglass-end" class="slide-icon" />
+                    <p class="slide-title"> 3. Wait for response </p>
                     <span class="slide-text">
-                        The time-consuming and complex work on site becomes less significant as employees from planning and operations, even those without any IT/OT
-                        knowledge, can now define, test, and finally implement changes at the process control and plant levels. The tasks that previously required only 
-                        IT specialists can now be complemented by a broader group of users, thus mitigating the shortage of IT-skilled employees. 
+                        In case You accepted our cooperation offer, it is time for us to confirm your credibility. At this point all you need to do is to wait patiently
+                        for us to respond back to you. Disregard of the final decision, we will contact You within 5 business days since the video call meeting.
                     </span>
                 </div>
                 <div class="collab-slide">
                     <font-awesome-icon icon="file-contract" class="slide-icon" />
-                    <p class="slide-title"> Sign the contract </p>
+                    <p class="slide-title"> 4. Sign the contract </p>
                     <span class="slide-text">
-                        Make your value creation process agile and resilient to changes with our model-driven approach. Quickly realize changes without time-consuming 
-                        implementations. Variations in the process flow or the control logic can be implemented and validated remotely, whether by humans or AI. Changes 
-                        at the model level can be released for use on site, transferred and executed directly. 
+                        After a successful verification, you are welcomed to sign an agreement with us. You will receive the document by e-mail. Upon signing our
+                        agreement, You officially become our Collaborator. Congratulations!
                     </span>
                 </div>
 <!--                 <div class="collab-slide">
@@ -193,7 +185,7 @@ onMounted(() => {
 
                 <!-- Last one is actually a CTA button -->
                 <div class="collab-slide slide-action">
-                    <font-awesome-icon icon="phone" class="slide-icon" />
+                    <font-awesome-icon icon="user-plus" class="slide-icon" />
                     <p class="slide-title"> Join the list now </p>
                     <span class="slide-text">
                         Click on the button below to send a request for collaboration. Don't miss the opportunity to join the list today and become our business partner.
@@ -413,8 +405,8 @@ onMounted(() => {
     }
 
     .slide-text {
-        font-size: 1.05rem;
-        line-height: 1.5;
+        font-size: 1.1rem;
+        line-height: 1.65;
     }
 
     /* NEW STYLES */
@@ -447,31 +439,43 @@ onMounted(() => {
         left: 0;
         height: 100vh;
         width: 100%;
-        display: flex;
+/*         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-around; */
+        display: grid;
+        grid-template-columns: 33% 34% 33%;
+        grid-template-rows: auto;
+        place-items: center;
     }
 
     .collab-benefit {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto;
+        grid-template-rows: 50% 50%;
         row-gap: 2.5rem;
+        min-height: 100vh;
+/*         display: flex;
+        flex-flow: column;
+        align-items: flex-end;
+        justify-content: center;
+        row-gap: 2.5rem; */
     }
 
     .benefit-frame {
         display: inline-block;
         font-size: 1rem;
+        height: fit-content;
+        align-self: flex-end;
         border: .8em double #222;
         box-shadow: 0 0 .6em .12em #111, inset 0 0 1.25em .12em #333;
         border-radius: 50%;
-        padding: 3em;
+        padding: 4em;
         margin-inline: auto;
         backdrop-filter: blur(1px);
     }
 
     .benefit-icon {
-        font-size: 4rem;
+        font-size: 5rem;
         color: #333;
         filter: drop-shadow(0 0 .5rem #ddd);
         

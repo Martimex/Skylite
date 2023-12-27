@@ -68,8 +68,8 @@ onMounted(() => {
                 </div>
                 <div class="emp-segment">
                     <span class="emp-desc">
-                        Sarah takes care of the aesthetic side of things, from tiny details to huge ideas. He works closely with our partners to direct & produce work
-                        you can shout about. 
+                        Sarah is our SEO team leader and the web expert. She will take care of your website to make it a better place for your customers. Her aim is
+                        to apply the best techinques to make your site visible on the web and loved by all visitors. 
                     </span>
                     <div class="emp-button">
                         Book a meeting
@@ -91,12 +91,12 @@ onMounted(() => {
             <div class="emp-info">
                 <div class="emp-segment">
                     <p class="emp-credentials"> Jack Sohn </p>
-                    <p class="emp-role"> Copywriter </p>
+                    <p class="emp-role"> Developer </p>
                 </div>
                 <div class="emp-segment">
                     <span class="emp-desc">
-                        Jack takes care of the aesthetic side of things, from tiny details to huge ideas. He works closely with our partners to direct & produce work
-                        you can shout about.
+                        Jack is a passionate web developer with many years of professional experience. He is capable of creating stunning websites with a matter of
+                        some good ideas and a dose of inspiration.
                     </span>
                     <div class="emp-button">
                         Book a meeting
@@ -117,12 +117,12 @@ onMounted(() => {
             <div class="emp-info">
                 <div class="emp-segment">
                     <p class="emp-credentials"> Natalie Groth </p>
-                    <p class="emp-role"> Web developer </p>
+                    <p class="emp-role"> Copywriter </p>
                 </div>
                 <div class="emp-segment">
                     <span class="emp-desc">
-                        Natalie takes care of the aesthetic side of things, from tiny details to huge ideas. He works closely with our partners to direct & produce work
-                        you can shout about. 
+                        Natalie has worked with the top marketing companies around the world, and did master the art of copywriting. She is able to effortlessly produce
+                        a powerful message that evokes a lot of positive emotions for customers.
                     </span>
                     <div class="emp-button">
                         Book a meeting
@@ -148,8 +148,8 @@ onMounted(() => {
                 </div>
                 <div class="emp-segment">
                     <span class="emp-desc">
-                        Julia takes care of the aesthetic side of things, from tiny details to huge ideas. He works closely with our partners to direct & produce work
-                        you can shout about.
+                        Julia knows exactly how to turn a usual product into an exceptional masterpiece. Her vast knowledge in the field and aesthetic sense turn
+                        any commercial item into an enjoyable experience.
                     </span>
                     <div class="emp-button">
                         Book a meeting
