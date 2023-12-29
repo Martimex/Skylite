@@ -36,10 +36,18 @@ function openNav() {
         <Transition name="expand">
             <div class="nav-detailed" :class="{ active: isBurgerOpened}" v-if="isBurgerOpened"> 
                 <ul class="nav-menu">
-                    <li class="menu-item"> Our story </li>
-                    <li class="menu-item"> Team </li>
-                    <li class="menu-item"> Offer </li>
-                    <li class="menu-item"> Contact </li>
+                    <div class="menu-layer">
+                        <li class="menu-item"> Our story </li>
+                    </div>
+                    <div class="menu-layer"> 
+                        <li class="menu-item"> Team </li>
+                    </div>
+                    <div class="menu-layer"> 
+                        <li class="menu-item"> Offer </li>
+                    </div>
+                    <div class="menu-layer"> 
+                        <li class="menu-item"> Contact </li>
+                    </div>
                 </ul>
             </div>
         </Transition>
@@ -85,14 +93,82 @@ function openNav() {
         justify-content: space-evenly;
         flex-flow: column;
         height: 100vh;
-        padding-block: 10vh;
+        padding-block: 7.5vh;
         width: 100%;
     }
 
+    .menu-layer {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        /* background: #ddd; */
+    }
+
+    .menu-layer::before {
+        content: '';
+        z-index: 0;
+        top: 0;
+        left: 0;
+        position: absolute;
+        display: block;
+        height: 100%;
+        background: #111;
+
+        transition: 700ms all ease-in-out;
+            width: 0%;
+            opacity: .9;
+    }
+
     .menu-item {
+        z-index: 1;
+        position: relative;
+        display: inline-block;
         font-size: 4rem;
         color: #111;
         font-weight: 600;
+
+        transition: all 700ms linear;
+            opacity: .75;
+    }
+
+    .menu-item::after {
+        content: '';
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+        width: 0%;
+        padding: .1rem;
+        background: #111;
+
+
+        transition: all 700ms linear;
+            opacity: 0;
+    }
+
+    .menu-item:hover  {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .menu-layer:hover {
+        cursor: pointer;
+    }
+
+    .menu-layer:hover .menu-item   {
+        filter: invert(100%);
+    }
+
+    .menu-layer:hover .menu-item::after {
+        opacity: 1;
+        width: 100%;
+    }
+
+    .menu-layer:hover:before {
+        width: 100%;
+        opacity: 1;
     }
 
 /*     .nav-detailed.active {
@@ -118,6 +194,10 @@ function openNav() {
         font-size: 2.5rem;
         color: #bbb;
         filter: invert(100%);
+    }
+
+    .burger-icon:hover {
+        cursor: pointer;
     }
 
     .no-click {

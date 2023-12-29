@@ -258,8 +258,8 @@ onMounted(() => {
 
     .bg-layer {
         min-height: 100vh;
-        background-color: #eeeeee;
-        background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23111111' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+/*         background-color: #eeeeee;
+        background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23111111' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
         position: relative;
     }
 
@@ -301,7 +301,7 @@ onMounted(() => {
     .slide-1 {
         top: 0;
         left: 0;
-        background-image: linear-gradient(45deg, #000, #111, #112);
+        background-image: linear-gradient(0deg, #000, #111, #111 50%, #111, #000);
         transform: rotate(-2.5deg);
         box-shadow:  0 .3em .5em 0 #000c,  0  .6em .5em #0005, 0 .75em  .4em #0003;
         border-bottom: .1em solid #222;
@@ -321,7 +321,7 @@ onMounted(() => {
     .slide-3 {
         bottom: 0;
         left: 0;
-        background-image: linear-gradient(135deg, #112, #111, #000);
+        background-image: linear-gradient(0deg, #000, #111, #111 50%, #111, #000);
         transform: rotate(2.5deg);
         box-shadow:  0 -.3em .5em 0 #000c,  0  -.6em .5em #0005, 0 -.75em  .4em #0003;
         border-top: .1em solid #222;
@@ -330,10 +330,10 @@ onMounted(() => {
 
     .custom-icon {
         font-size: 5rem;
-        color: #223;
+        color: #ddd;
        /*  color: #111; */
         transition: all 500ms ease-in-out;
-            filter: drop-shadow(0rem 0rem .5rem #000);
+            filter: drop-shadow(0rem 0rem .22rem #aaa);
     }
 
     .custom-icon:hover {
@@ -344,51 +344,51 @@ onMounted(() => {
     }
 
     .fa-shopify:hover {
-        filter: drop-shadow(0rem 0rem .5rem #64943E) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #64943E) brightness(110%) saturate(125%);
     }
 
     .fa-algolia:hover {
-        filter: drop-shadow(0rem 0rem .5rem #5468FF) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #5468FF) brightness(110%) saturate(125%);
     }
 
     .fa-dribbble:hover {
-        filter: drop-shadow(0rem 0rem .5rem #ea4c89) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #ea4c89) brightness(110%) saturate(125%);
     }
 
     .fa-quora:hover {
-        filter: drop-shadow(0rem 0rem .5rem #B92b27) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #B92b27) brightness(110%) saturate(125%);
     }
 
     .fa-jira:hover {
-        filter: drop-shadow(0rem 0rem .5rem #0052CC) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #0052CC) brightness(110%) saturate(125%);
     }
 
     .fa-speaker-deck:hover {
-        filter: drop-shadow(0rem 0rem .5rem #008080) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #008080) brightness(110%) saturate(125%);
     }
 
     .fa-sketch:hover {
-        filter: drop-shadow(0rem 0rem .5rem #daa520) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #daa520) brightness(110%) saturate(125%);
     }
 
     .fa-airbnb:hover {
-        filter: drop-shadow(0rem 0rem .5rem #FF5A5F) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #FF5A5F) brightness(110%) saturate(125%);
     }
 
     .fa-redhat:hover {
-        filter: drop-shadow(0rem 0rem .5rem #CC0000) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #CC0000) brightness(110%) saturate(125%);
     }
 
     .fa-bandcamp:hover {
-        filter: drop-shadow(0rem 0rem .5rem #629aa9) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #629aa9) brightness(110%) saturate(125%);
     }
 
     .fa-twitch:hover {
-        filter: drop-shadow(0rem 0rem .5rem #b9a3e3) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #b9a3e3) brightness(110%) saturate(125%);
     }
 
     .fa-telegram:hover {
-        filter: drop-shadow(0rem 0rem .5rem #229ED9) saturate(125%);
+        filter: drop-shadow(0rem 0rem .33rem #229ED9) brightness(110%) saturate(125%);
     }
 
     /* OLD */

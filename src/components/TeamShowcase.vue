@@ -51,113 +51,115 @@ onMounted(() => {
     </div> -->
     
     <div class="emp-main">
+        <div class="emp-top-wrapper component-layout-light-1"></div>
 
-        <!-- EMP #1 -->
-        <div class="emp-bio" data-no="1">
-            <div class="emp-visual">
-                <div class="photo-wrapper">
-                    <div class="photo-box">
-                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/sarah.jpg" />
+        <div class="emp-bios">
+            <!-- EMP #1 -->
+            <div class="emp-bio" data-no="1">
+                <div class="emp-visual">
+                    <div class="photo-wrapper">
+                        <div class="photo-box">
+                            <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/sarah.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="emp-info">
+                    <div class="emp-segment">
+                        <p class="emp-credentials"> Sarah Coehlo </p>
+                        <p class="emp-role"> SEO specialist </p>
+                    </div>
+                    <div class="emp-segment">
+                        <span class="emp-desc">
+                            Sarah is our SEO team leader and the web expert. She will take care of your website to make it a better place for your customers. Her aim is
+                            to apply the best techinques to make your site visible on the web and loved by all visitors. 
+                        </span>
+                        <div class="emp-button">
+                            Book a meeting
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="emp-info">
-                <div class="emp-segment">
-                    <p class="emp-credentials"> Sarah Coehlo </p>
-                    <p class="emp-role"> SEO specialist </p>
+
+
+            <!-- EMP #2 -->
+            <div class="emp-bio" data-no="2">
+                <div class="emp-visual">
+                    <div class="photo-wrapper">
+                        <div class="photo-box">
+                            <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/jack.jpg" />
+                        </div>
+                    </div>
                 </div>
-                <div class="emp-segment">
-                    <span class="emp-desc">
-                        Sarah is our SEO team leader and the web expert. She will take care of your website to make it a better place for your customers. Her aim is
-                        to apply the best techinques to make your site visible on the web and loved by all visitors. 
-                    </span>
-                    <div class="emp-button">
-                        Book a meeting
+                <div class="emp-info">
+                    <div class="emp-segment">
+                        <p class="emp-credentials"> Jack Sohn </p>
+                        <p class="emp-role"> Developer </p>
+                    </div>
+                    <div class="emp-segment">
+                        <span class="emp-desc">
+                            Jack is a passionate web developer with many years of professional experience. He is capable of creating stunning websites with a matter of
+                            some good ideas and a dose of inspiration.
+                        </span>
+                        <div class="emp-button">
+                            Book a meeting
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EMP #3 -->
+            <div class="emp-bio" data-no="3">
+                <div class="emp-visual">
+                    <div class="photo-wrapper">
+                        <div class="photo-box">
+                            <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/natalie.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="emp-info">
+                    <div class="emp-segment">
+                        <p class="emp-credentials"> Natalie Groth </p>
+                        <p class="emp-role"> Copywriter </p>
+                    </div>
+                    <div class="emp-segment">
+                        <span class="emp-desc">
+                            Natalie has worked with the top marketing companies around the world, and did master the art of copywriting. She is able to effortlessly produce
+                            a powerful message that evokes a lot of positive emotions for customers.
+                        </span>
+                        <div class="emp-button">
+                            Book a meeting
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- EMP #4 -->
+            <div class="emp-bio" data-no="4">
+                <div class="emp-visual">
+                    <div class="photo-wrapper">
+                        <div class="photo-box">
+                            <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/julia.jpg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="emp-info">
+                    <div class="emp-segment">
+                        <p class="emp-credentials"> Julia Reese </p>
+                        <p class="emp-role"> UX designer </p>
+                    </div>
+                    <div class="emp-segment">
+                        <span class="emp-desc">
+                            Julia knows exactly how to turn a usual product into an exceptional masterpiece. Her vast knowledge in the field and aesthetic sense turn
+                            any commercial item into an enjoyable experience.
+                        </span>
+                        <div class="emp-button">
+                            Book a meeting
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <!-- EMP #2 -->
-        <div class="emp-bio" data-no="2">
-            <div class="emp-visual">
-                <div class="photo-wrapper">
-                    <div class="photo-box">
-                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/jack.jpg" />
-                    </div>
-                </div>
-            </div>
-            <div class="emp-info">
-                <div class="emp-segment">
-                    <p class="emp-credentials"> Jack Sohn </p>
-                    <p class="emp-role"> Developer </p>
-                </div>
-                <div class="emp-segment">
-                    <span class="emp-desc">
-                        Jack is a passionate web developer with many years of professional experience. He is capable of creating stunning websites with a matter of
-                        some good ideas and a dose of inspiration.
-                    </span>
-                    <div class="emp-button">
-                        Book a meeting
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- EMP #3 -->
-        <div class="emp-bio" data-no="3">
-            <div class="emp-visual">
-                <div class="photo-wrapper">
-                    <div class="photo-box">
-                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/natalie.jpg" />
-                    </div>
-                </div>
-            </div>
-            <div class="emp-info">
-                <div class="emp-segment">
-                    <p class="emp-credentials"> Natalie Groth </p>
-                    <p class="emp-role"> Copywriter </p>
-                </div>
-                <div class="emp-segment">
-                    <span class="emp-desc">
-                        Natalie has worked with the top marketing companies around the world, and did master the art of copywriting. She is able to effortlessly produce
-                        a powerful message that evokes a lot of positive emotions for customers.
-                    </span>
-                    <div class="emp-button">
-                        Book a meeting
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- EMP #4 -->
-        <div class="emp-bio" data-no="4">
-            <div class="emp-visual">
-                <div class="photo-wrapper">
-                    <div class="photo-box">
-                        <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/julia.jpg" />
-                    </div>
-                </div>
-            </div>
-            <div class="emp-info">
-                <div class="emp-segment">
-                    <p class="emp-credentials"> Julia Reese </p>
-                    <p class="emp-role"> UX designer </p>
-                </div>
-                <div class="emp-segment">
-                    <span class="emp-desc">
-                        Julia knows exactly how to turn a usual product into an exceptional masterpiece. Her vast knowledge in the field and aesthetic sense turn
-                        any commercial item into an enjoyable experience.
-                    </span>
-                    <div class="emp-button">
-                        Book a meeting
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
 </template>
@@ -166,60 +168,30 @@ onMounted(() => {
 
     /* CURRENT version */
 
-    .bubble-section {
-        min-height: 100vh;
-        background-color: #000000;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23999999' fill-opacity='0.18'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-inline: 10%;
-        overflow: hidden;
-    }
-
-    .bubble {
-        font-size: 1rem;
-        position: absolute;
-        top: -5%;
-        left: -5%;
-        height: 110%;
-        width: 110%;
-        background: #eee;
-        border-radius: 5%;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23222222' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-        overflow: hidden;
-        /* Will be animated back to 1 */
-        scale: 0;
-    }
-
-    .emp-introduction {
-        font-size: 4rem;
-        font-weight: 700;
-        /* font-family: Playpen Sans,  Geneva, Tahoma, sans-serif; */
-        color: #000;
-        text-align: center;
-        position: relative;
-        line-height: 1.1;
-        text-transform: uppercase;
-        -webkit-text-stroke: .12rem #000;
-        color: #0000;
-        overflow: hidden;
-    }
-
     .emp-main {
-        background: #eee;
-        max-width: 100rem;
         margin: 0 auto;
         padding: 5vh 12vw;  /* WHEN USING MEDIA QUERIES, LOWER THE 12vw padding to some lower values */
-        background-color: #eeeeee;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23222222' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
         box-shadow: 0 .25rem .5rem .3rem #eee;
-        transform: translateZ(1px); /* It partially solves a (pinning?) problem, where a gray thick line appears between bubble and TeamShowcase main section - thanks to this declaration, the line becomes white  */
+        transform: translateZ(-1px); /* It partially solves a (pinning?) problem, where a gray thick line appears between bubble and TeamShowcase main section - thanks to this declaration, the line becomes white  */
+        /* border-top: 10px solid white; */
+    }
+
+    .emp-top-wrapper {
+        /* This element solves visual issues caused by GSAP pinning */
+        position: absolute;
+        top: -1rem;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+/*         background-color: #eeeeee;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23222222' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); */
+    }
+
+    .emp-bios {
+        max-width: 100rem;
     }
 
     .emp-bio {
-        display: flex;
         display: grid;
         grid-template-columns: 50% 50%;
         grid-template-rows: 1fr;

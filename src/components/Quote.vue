@@ -4,7 +4,12 @@ import ScrollTrigger from 'gsap/src/ScrollTrigger';
 import { onMounted } from 'vue';
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => entry.target.classList.toggle(`show`, entry.isIntersecting));
+    entries.forEach((entry) => {
+        if(entry.intersectionRatio > 0) {
+            entry.target.classList.add(`show`);
+            observer.unobserve(entry.target);
+        }
+    })   
 }, {threshold: .7});
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,10 +28,6 @@ onMounted(() => {
         opacity: 0,
     }) */
 })
-
-function sayHi() {
-    console.log('LOL');
-}
 
 </script>
 
@@ -83,13 +84,15 @@ function sayHi() {
     .quote-layout {
         position: relative;
         min-height: 100vh;
-        background-color: #000000;
+        /* background-color: #0000; */
 /*         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23999999' fill-opacity='0.18'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
  */        color: #ddd;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 50% 50%;
         /* justify-content: center; */
+/*         background-color: #000;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23eeeeee' fill-opacity='.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); */
     }
 
     .nav-burger {

@@ -130,8 +130,8 @@ onMounted(() => {
         /* background-color: #000000;
         background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23eeeeee' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
          */
-        background-color: #000000;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23999999' fill-opacity='0.18'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+/*         background-color: #000000;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23999999' fill-opacity='0.18'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); */
         padding-block: 25vh;
         min-height: 100vh;
     }
@@ -159,7 +159,7 @@ onMounted(() => {
     .news-box {
         min-height: 100vh;
         padding-block: 5%;
-        background: linear-gradient(#222, #111);
+        background: linear-gradient(#111, #000);
         display: grid;
         grid-template-columns: 60% 40%;
         grid-template-rows: 1fr;
@@ -184,7 +184,7 @@ onMounted(() => {
 
 
     .news-visual {
-        border-right: .25rem solid #222;
+        border-right: .25rem solid #111;
         padding-inline: 12.5%;
     }
 
@@ -228,7 +228,7 @@ onMounted(() => {
         font-weight: 600;
         /* letter-spacing: .2rem; */
         color: #ddd;
-        text-shadow: 0 0 .5rem #aaa;
+        text-shadow: 0 0 .5rem #bbb;
         display: flex;
         align-items: center;
     }
@@ -247,9 +247,9 @@ onMounted(() => {
         border-radius: 9999px;
         /* margin: 0 5%; */
         padding: 1.25em;
-        box-shadow: inset 0em 0em .2em .3em #333, 0 0 .3em .5em #222;
-        background: #444;
-        color: #ccc;
+        box-shadow: inset 0em 0em .2em .3em #222, 0 0 .3em .5em #111;
+        background: #333;
+        /* color: #ccc; */
         /* text-shadow: .2em .2em .1em #222; */
         min-width: 60%;
     }
@@ -274,11 +274,11 @@ onMounted(() => {
         letter-spacing: .1rem;
         border-radius: 5%;
         box-sizing: border-box;
-        box-shadow: inset .1em .1em .2em .3em #333, 0 0 .3em .5em #222;
+        box-shadow: inset .1em .1em .2em .3em #222, 0 0 .3em .5em #111;
         /* text-shadow: .2em .2em .1em #222; */
 
         transition: all 500ms ease-in-out;
-            background: #444;
+            background: #333;
             color: #ccc9;
     }
 

@@ -107,7 +107,7 @@ defineProps<{
 
             <div class="contact-box">
                 <div> 
-                    <p class="link-text"> Contact -> </p>
+                    <p class="link-text"> Contact >> </p>
                 </div>
             </div>
         </div>
@@ -202,26 +202,76 @@ body {
 }
 
 .link-text {
+    position: relative;
+    display: inline-block;
     font-size: 1.25rem;
     letter-spacing: .1rem;
     font-weight: 600;
-    /* font-family: 'Audiowide', sans-serif; */
+    color: #eee;
     border-bottom: .1em solid transparent;
     border-bottom-width: 0;
+    opacity: 0.85;
 }
 
 .link-text::after {
     content: '';
-    display: block;
-    position: relative;
-    width: 100%;
-    height: .5rem;
-    color: blue;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 0%;
+    padding: .1rem;
+    background: #ddd;
+
+
+    transition: all 400ms linear;
+        opacity: 0;
 }
 
 .link-text:hover {
-
+    opacity: 1;
+    cursor: pointer;
 }
+
+.link-text:hover:after {
+    opacity: 1;
+    width: 100%;
+}
+
+
+
+/* .link-text {
+        position: relative;
+        display: inline-block;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-block: .75em;
+        transition:  all 350ms ease-in-out;
+            opacity: .75;
+    } */
+
+/*     .link-text::after {
+        content: '';
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+        width: 0%;
+        padding: .1rem;
+        background: #222;
+
+
+        transition: all 400ms linear;
+            opacity: 0;
+    } */
+
+/*     .link-text:hover {
+        opacity: 1;
+        color: #000;
+    } */
+
+/*     .link-text:hover:after {
+        opacity: 1;
+        width: 100%;
+    } */
 
 
 /* Landing page initial section */
