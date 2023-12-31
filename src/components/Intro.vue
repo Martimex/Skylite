@@ -13,7 +13,12 @@ const observer2 = new IntersectionObserver((entries) => {
     entries.forEach(entry => entry.target.classList.toggle("show", entry.isIntersecting));
 }, {threshold: 0.67})
 
+const observer3 = new IntersectionObserver((entries) => {
+    entries.forEach(entry => entry.target.classList.toggle("show", entry.isIntersecting));
+}, {threshold: 0.1})
+
 onMounted(() => {
+
     const targets = document.querySelectorAll('.grid-container');
     targets && targets.forEach(target => observer.observe(target));
 
@@ -23,7 +28,6 @@ onMounted(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     const photos = document.querySelectorAll('.photo-content');
-    console.log(photos.length);
 
     photos && photos.forEach((el, i) => {
         if(i < photos.length - 1) {
@@ -31,6 +35,8 @@ onMounted(() => {
                 trigger: el,
                 start: "bottom bottom",
                 pin: true,
+                pinType: "fixed",
+                /* anticipatePin: (i === photos.length - 2)? 0 : 1, */
                 scrub: 1,
                 pinSpacing: false,
             })
@@ -38,6 +44,15 @@ onMounted(() => {
 
         
     })
+
+/*     ScrollTrigger.create({
+        trigger: `.photo-content-last`,
+        start: "bottom bottom",
+        pin: true,
+        pinType: "transform",
+        scrub: 1,
+        pinSpacing: false,
+    }) */
 
     gsap.from(`.question-box`, {
         scrollTrigger: {
@@ -94,7 +109,7 @@ onMounted(() => {
             <!-- 1 -->
             <div class="photo-content">
                 <div class="grid-container  text-white grid-cols-2 grid-rows-1 justify-items-center gap-x-6" data-grid-order="normal" data-no="1">
-                    <div class="grid-img items-center justify-center bg-cover bg-center rounded-xl shadow-md shadow-slate-100"></div>
+                    <div class="grid-img items-center justify-center bg-cover bg-center shadow-md shadow-slate-100"></div>
                     <div class="grid-content">
                         <p class="heading-name text-blue-400 font-bold text-5xl tracking-wide"> Who we are </p>
                         <span class="grid-text items-center justify-center text-large leading-loose">
@@ -108,7 +123,7 @@ onMounted(() => {
             <!-- 2 -->
             <div class="photo-content">
                 <div class="grid-container  text-white grid-cols-2 grid-rows-1 justify-items-center gap-x-6" data-grid-order="reverse" data-no="2">
-                    <div class="grid-img items-center justify-center bg-cover bg-center rounded-xl shadow-md shadow-slate-100"></div>
+                    <div class="grid-img items-center justify-center bg-cover bg-center shadow-md shadow-slate-100"></div>
                     <div class="grid-content">
                         <p class="heading-name text-blue-400 font-bold text-5xl tracking-wide"> What do we do </p>
                         <span class="grid-text items-center justify-center text-large leading-loose">
@@ -122,7 +137,7 @@ onMounted(() => {
             <!-- 3 -->
             <div class="photo-content">
                 <div class="grid-container  text-white grid-cols-2 grid-rows-1 justify-items-center gap-x-6" data-grid-order="normal" data-no="3">
-                    <div class="grid-img items-center justify-center bg-cover bg-center rounded-xl shadow-md shadow-slate-100"></div>
+                    <div class="grid-img items-center justify-center bg-cover bg-center shadow-md shadow-slate-100"></div>
                     <div class="grid-content">
                         <p class="heading-name text-blue-400 font-bold text-5xl tracking-wide"> Why us </p>
                         <span class="grid-text items-center justify-center text-large leading-loose">
@@ -144,7 +159,6 @@ onMounted(() => {
                     </div>
                 </div>
             </div>
-            
 
             <!-- IN ORDER FOR TAILWIND TO WORK, DON'T FORGET TO RECOMPILE IT WITH THIS COMMAND: npm run tailwind-custom-start -->
             <!-- tailwind-custom-start  is the semi-created alias for:  npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch  (which will work fine aswell)-->
@@ -154,16 +168,12 @@ onMounted(() => {
 
 <style scoped>
 
-    .show {
-        opacity: 1 !important;
-    }
-
-    .show .heading-name {
+    .grid-container.show .heading-name {
         transform: translateY(0vh);
         opacity: 1 !important;
     }
 
-    .show .grid-text {
+    .grid-container.show .grid-text {
         transform: translateX(0vw);
         opacity: 1 !important;
     }
@@ -188,6 +198,10 @@ onMounted(() => {
         font-family: Audiowide, 'Courier New', Courier, monospace;
     }
 
+    .photo-content {
+        /* will-change: transform; */
+    }
+
     .grid-container {
         position: relative;
         /* top:0; */
@@ -196,7 +210,7 @@ onMounted(() => {
         height: 100vh;
         box-sizing: border-box;
         padding: 15vh 5vw 15vh 10vw;
-        box-shadow: 0 0 1.2rem .4rem #333;
+        box-shadow: 0 0 2rem .2rem #111;
         /* margin-block: 20vh; */
         transition: all 400ms ease-in-out;
             /* opacity: .5;  *//* ANIMATED BACK TO 1 WITH AN INTERSECTION OBSERVER FEATURE */
@@ -291,9 +305,9 @@ onMounted(() => {
         grid-template-columns: 1fr;
         grid-template-rows: 50% 50%;
         width: 100%;
-        height: 100vh;
+        height: 120vh; /* Adding extra 20vh helps dealing with GSAP pinning flicker issue when scrolling fast - do not modify this to 100vh, or else the glitch will reappear */
         padding-inline: 10vw;
-        box-shadow: 0 0 1.2rem .4rem #333;
+        box-shadow: 0 0 2rem .2rem #111;
         
 /*         background-color: #eeeeee;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23000000' fill-opacity='0.9' %3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E"); */

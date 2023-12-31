@@ -32,6 +32,9 @@ function setComponentToPiano() {
   comp_name.value = 'piano';
 }
 
+const redirectPrompt = (dest_name: string) => {
+  alert(`Normally You would be redirected to the ${dest_name}, but since it is a landing page project, no redirect is triggered.`);
+}
 
   // This function can navigate user back to the very top of Landing Page every page refresh / reload
 
@@ -72,33 +75,33 @@ function setComponentToPiano() {
 
   <Piano v-if="comp_name === 'piano'" :age="age" :component="comp_name" @changeComponent="setComponentToStart" />
 
-  <NavBurger />
+  <NavBurger @redirect-message="(msg: string) => redirectPrompt(msg)" />
 
-  <Start v-if="comp_name === 'start'" :msg="'Welcome to the start component'" @changeComponent="setComponentToPiano" />
+  <Start v-if="comp_name === 'start'" :msg="'Welcome to the start component'" @redirect-message="(msg: string) => redirectPrompt(msg)"  @changeComponent="setComponentToPiano" />
 
   <div class="component-layout-dark">
     <Quote />
     <Intro />
-    <OfferShowcase />
+    <OfferShowcase @redirect-message="(msg: string) => redirectPrompt(msg)" />
   </div>
 
   <div class="component-layout-light-1">
-    <TeamShowcase />
+    <TeamShowcase @redirect-message="(msg: string) => redirectPrompt(msg)" />
   </div>
   
   <div class="component-layout-light-2">
     <Reviews />
-    <Stats />
-    <Companies />
+    <Stats  @redirect-message="(msg: string) => redirectPrompt(msg)" />
+    <Companies @redirect-message="(msg: string) => redirectPrompt(msg)" />
   </div>
 
   <div class="component-layout-dark">
-    <Newsletter />
+    <Newsletter @redirect-message="(msg: string) => redirectPrompt(msg)" />
     <FAQ />
     <ContactShowcase />
   </div>
 
-  <Footer />
+  <Footer @redirect-message="(msg: string) => redirectPrompt(msg)" />
   
   <!-- <component :is="routedComponent"></component> -->
   <!-- <RouterView />  --><!--   standard routing (SSR) -->
@@ -113,6 +116,16 @@ function setComponentToPiano() {
     width: 100% !important;
     margin: 0 auto !important;
     padding:  0 !important;
+  }
+
+  .no-targetable {
+    pointer-events: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
   }
 
   .component-layout-dark {

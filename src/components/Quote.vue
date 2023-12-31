@@ -65,7 +65,7 @@ onMounted(() => {
                 <g id="layer1">
                     <g id="g8427" stroke="url(#linearGradient8431)" style="mix-blend-mode:normal" transform="translate(8.4414 -5.8482)"> <!--stroke-dasharray="[0-131],121" -->
                         <text xml:space="preserve" id="text404" fill="#000" fill-opacity="0" fill-rule="evenodd" stroke="#fff" stroke-dasharray="0,121" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="1" stroke-width=".5039" font-family="Rockwell Nova" font-size="32" opacity=".75" style="-inkscape-font-specification:&quot;Rockwell Nova, Normal&quot;;text-align:center;white-space:pre;shape-inside:url(#rect406)" transform="matrix(.7876 0 0 .7876 -83.6008 18.5186)">
-                            <tspan id="tspan355" x="111.4642" y="28.0893">SKY</tspan>
+                            <tspan id="tspan355" class="no-targetable" x="111.4642" y="28.0893">SKY</tspan>
                         </text>
                     </g>
                 </g>        

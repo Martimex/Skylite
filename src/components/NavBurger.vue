@@ -6,6 +6,8 @@ import { ref } from 'vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const emit = defineEmits(['redirectMessage']);
+
 const isBurgerOpened = ref(false);
 
 onMounted(() => {
@@ -36,18 +38,18 @@ function openNav() {
         <Transition name="expand">
             <div class="nav-detailed" :class="{ active: isBurgerOpened}" v-if="isBurgerOpened"> 
                 <ul class="nav-menu">
-                    <div class="menu-layer">
+                    <a class="menu-layer" href="./story" @click.prevent="emit('redirectMessage', '/story')">
                         <li class="menu-item"> Our story </li>
-                    </div>
-                    <div class="menu-layer"> 
+                    </a>
+                    <a class="menu-layer" href="./team" @click.prevent="emit('redirectMessage', '/team')"> 
                         <li class="menu-item"> Team </li>
-                    </div>
-                    <div class="menu-layer"> 
+                    </a>
+                    <a class="menu-layer" href="./offer" @click.prevent="emit('redirectMessage', '/offer')"> 
                         <li class="menu-item"> Offer </li>
-                    </div>
-                    <div class="menu-layer"> 
+                    </a>
+                    <a class="menu-layer" href="./contact" @click.prevent="emit('redirectMessage', '/contact')"> 
                         <li class="menu-item"> Contact </li>
-                    </div>
+                    </a>
                 </ul>
             </div>
         </Transition>

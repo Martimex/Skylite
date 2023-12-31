@@ -4,14 +4,11 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 import { onMounted } from 'vue';
 
-const options = {
-    rootMargin: '0px',
-    threshold: 0.5,
-}
+const emit = defineEmits(['redirectMessage']);
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => entry.target.classList.toggle("show", entry.isIntersecting));
-}, options);
+}, {threshold: .5});
 
 const observer2 = new IntersectionObserver((entries) => {
     entries.forEach((entry) => entry.target.classList.toggle("show", entry.isIntersecting));
@@ -233,7 +230,9 @@ onMounted(() => {
     const main = gsap.timeline();
     main
         .to(`.bubble-section .outro`, {scale: 0.75, opacity: 0/* , duration: 3 */})
-        .to(`.bubble-section .bubble`, {scale: 1, opacity: 1/* , duration: 3 */}/* , "<50%" */)
+        .to(`.bubble-section .outro-button`, {pointerEvents: 'none'}, '<60%')
+        .to(`.bubble-section .bubble`, {scale: 1, opacity: 1/* , duration: 3 */}, "<40%")
+        
         
 
     ScrollTrigger.create({
@@ -242,7 +241,7 @@ onMounted(() => {
         endTrigger: '.bubble-section',
         start: 'center center',
         end: "+=2250",
-        scrub: .7,
+        scrub: .75,
         pin: true,
         /* anticipatePin: 1, */
     });
@@ -272,8 +271,8 @@ onMounted(() => {
                             desired audience, that will also fit your needs and budget.    
                         </span>
                         <div class="buttons-box">
-                            <div class="offer-button button-get"> Get offer </div>
-                            <div class="offer-button button-learn"> Learn more </div>
+                            <a class="offer-button button-get" href="/" @click.prevent="emit('redirectMessage', 'offer form')"> Get offer </a>
+                            <a class="offer-button button-learn" href="./offer" @click.prevent="emit('redirectMessage', '/offer')"> Learn more  </a>
                         </div>
                     </div>
 
@@ -295,8 +294,8 @@ onMounted(() => {
                             performance and overall user experience. 
                         </span>
                         <div class="buttons-box">
-                            <div class="offer-button button-get"> Get offer </div>
-                            <div class="offer-button button-learn"> Learn more </div>
+                            <a class="offer-button button-get" href="/" @click.prevent="emit('redirectMessage', 'offer form')"> Get offer </a>
+                            <a class="offer-button button-learn" href="./offer" @click.prevent="emit('redirectMessage', '/offer')"> Learn more  </a>
                         </div>
                     </div>
                 </div>
@@ -317,8 +316,8 @@ onMounted(() => {
                             properly build the right communication within your brand. 
                         </span>
                         <div class="buttons-box">
-                            <div class="offer-button button-get"> Get offer </div>
-                            <div class="offer-button button-learn"> Learn more </div>
+                            <a class="offer-button button-get" href="/" @click.prevent="emit('redirectMessage', 'offer form')"> Get offer </a>
+                            <a class="offer-button button-learn" href="./offer" @click.prevent="emit('redirectMessage', '/offer')"> Learn more  </a>
                         </div>
                     </div>
                 </div>
@@ -339,8 +338,8 @@ onMounted(() => {
                             your company and bring more captivated customers.
                         </span>
                         <div class="buttons-box">
-                            <div class="offer-button button-get"> Get offer </div>
-                            <div class="offer-button button-learn"> Learn more </div>
+                            <a class="offer-button button-get" href="/" @click.prevent="emit('redirectMessage', 'offer form')"> Get offer </a>
+                            <a class="offer-button button-learn" href="./offer" @click.prevent="emit('redirectMessage', '/offer')"> Learn more  </a>
                         </div>
                     </div>
                 </div>
@@ -357,10 +356,10 @@ onMounted(() => {
         <div class="bubble-section component-layout-dark">
             <div class="outro">
                 <p class="outro-heading"> AND MANY MORE </p>
-                <div class="outro-button"> See full offer </div>
+                <a class="outro-button" href="./offer" @click.prevent="emit('redirectMessage', '/offer')" > See full offer </a>
             </div>
             <div class="bubble component-layout-light-1"></div>
-            <p class="emp-introduction"> 
+            <p class="emp-introduction no-targetable"> 
                 We are not a regular PR company. We are a team of professionals willing to support other companies
             </p>
         </div>

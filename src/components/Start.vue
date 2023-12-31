@@ -5,6 +5,8 @@ import { onMounted } from 'vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const emit = defineEmits(['redirectMessage']);
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => entry.target.classList.add(`show`));
 }, {threshold: .9});
@@ -94,20 +96,20 @@ defineProps<{
         <!-- 1 -->
         <div class="nav-box--logo">
             <div>
-                <p class="link-text"> Logo </p>
+                <a href="/"> <p class="link-text"> Logo </p> </a> 
             </div>
         </div>
         <!-- 2 -->
         <div class="nav-box--links">
-            <ul class="hyperlink-box --flex-content-between">
-                <li class="link-text"> Our story </li>
-                <li class="link-text"> Team </li>
-                <li class="link-text"> Offer </li>
+            <ul class="hyperlink-box">
+                <a href="./story" @click.prevent="emit('redirectMessage', '/story')"> <li class="link-text"> Our story </li> </a>
+                <a href="./team" @click.prevent="emit('redirectMessage', '/team')"> <li class="link-text"> Team </li> </a>
+                <a href="./offer" @click.prevent="emit('redirectMessage', '/offer')"> <li class="link-text"> Offer </li> </a>
             </ul>
 
             <div class="contact-box">
                 <div> 
-                    <p class="link-text"> Contact >> </p>
+                    <a href="./contact" @click.prevent="emit('redirectMessage', '/contact')"> <p class="link-text"> Contact >> </p> </a> 
                 </div>
             </div>
         </div>
@@ -120,16 +122,16 @@ defineProps<{
         <div class="main-layout --flex-container --no-overflow-x">
             <div class="gridbox-side gs-1"></div>
             <div class="gridbox-content">
-                <p class="gridbox-letter"> S </p>
-                <p class="gridbox-letter"> K </p>
-                <p class="gridbox-letter"> Y </p>
-                <p class="gridbox-letter"> L </p>
-                <p class="gridbox-letter"> I </p>
-                <p class="gridbox-letter"> T </p>
-                <p class="gridbox-letter"> E </p>
+                <p class="gridbox-letter no-targetable"> S </p>
+                <p class="gridbox-letter no-targetable"> K </p>
+                <p class="gridbox-letter no-targetable"> Y </p>
+                <p class="gridbox-letter no-targetable"> L </p>
+                <p class="gridbox-letter no-targetable"> I </p>
+                <p class="gridbox-letter no-targetable"> T </p>
+                <p class="gridbox-letter no-targetable"> E </p>
             </div>
             <div class="gridbox-side gs-2"></div>
-            <p class="bottom-text"> Designed by MTX</p>
+            <a href="https://github.com/Martimex" target="_blank"> <p class="bottom-text"> Designed by MTX</p> </a>
         </div>
     </main>
 </template>

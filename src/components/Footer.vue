@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 
+const emit = defineEmits(['redirectMessage']);
+
 const observer = new IntersectionObserver((entries => {
     entries.forEach((entry) => entry.target.classList.toggle('show', entry.isIntersecting))
 }), {threshold: 0.6});
@@ -29,7 +31,7 @@ onMounted(() => {
                 </span>
                 <div class="resources-box">
                     <div class="resource">
-                        <span class="resource-text"> Check our Terms </span>
+                        <a class="resource-text" href="./terms" @click.prevent="emit(`redirectMessage`, 'Terms and Conditions page')" > Check our Terms </a>
                     </div>
                 </div>
             </div>
@@ -37,16 +39,16 @@ onMounted(() => {
             <div class="footer-section section-socials">
                 <p class="section-name section-title"> Follow us </p>
                 <div class="socials-box">
-                    <a class="social-link" href="#"> 
+                    <a class="social-link" href="/" @click.prevent="emit(`redirectMessage`, `Skylite's Facebook account page`)" > 
                         <font-awesome-icon icon="fa-brands fa-facebook" class="custom-icon icon-facebook" />
                     </a>
-                    <a class="social-link" href="#"> 
+                    <a class="social-link" href="/" @click.prevent="emit(`redirectMessage`, `Skylite's Twitter account page`)" > 
                         <font-awesome-icon icon="fa-brands fa-twitter" class="custom-icon icon-twitter" />
                     </a>
-                    <a class="social-link" href="#"> 
+                    <a class="social-link" href="/" @click.prevent="emit(`redirectMessage`, `Skylite's YouTube channel page`)" > 
                         <font-awesome-icon icon="fa-brands fa-youtube" class="custom-icon icon-youtube" />
                     </a>
-                    <a class="social-link" href="#"> 
+                    <a class="social-link" href="/" @click.prevent="emit(`redirectMessage`, `Skylite's LinkedIn account page`)" > 
                         <font-awesome-icon icon="fa-brands fa-linkedin" class="custom-icon icon-linkedin" />
                     </a>
                 </div>
@@ -57,22 +59,22 @@ onMounted(() => {
 
                 <ul class="links-list">
                     <li class="link-item">
-                        <a href="#">
+                        <a href="./story" @click.prevent="emit(`redirectMessage`, '/story')" >
                             <span class="link-text"> Our story </span>
                         </a>
                     </li>
                     <li class="link-item">
-                        <a href="#">
+                        <a href="./team" @click.prevent="emit(`redirectMessage`, '/team')" >
                             <span class="link-text"> Skylite team </span>
                         </a>
                     </li>
                     <li class="link-item">
-                        <a href="#">
+                        <a href="./offer" @click.prevent="emit(`redirectMessage`, '/offer')" >
                             <span class="link-text"> Company offer </span>
                         </a>
                     </li>
                     <li class="link-item">
-                        <a href="#">
+                        <a href="./contact" @click.prevent="emit(`redirectMessage`, '/contact')" >
                             <span class="link-text"> Contact page </span>
                         </a>
                     </li>
@@ -96,7 +98,7 @@ onMounted(() => {
             </div>
 
         </div>
-        <p class="section-title copyright-note"> &copy; 2023 Skylite Agency (project ownership: MTX) </p>
+        <p class="section-title copyright-note no-targetable"> &copy; 2023 Skylite Agency (project ownership: MTX) </p>
     </div>
 </template>
 

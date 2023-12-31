@@ -3,6 +3,8 @@ import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 
+const emit = defineEmits(['redirectMessage']);
+
 gsap.registerPlugin(ScrollTrigger);
 
 const observer = new IntersectionObserver((entries) => {
@@ -83,9 +85,9 @@ onMounted(() => {
             <div class="news-content">
                 <p class="content-title justify-center"> Sign up </p>
                 <div class="content-signup">
-                    <input aria-required="true" type="text" autocomplete="off"  required aria-invalid="false" aria-placeholder="First name" placeholder="Name..." class="form-box valid" />
+                    <input aria-required="true" type="text" autocomplete="off"  required aria-invalid="false" aria-placeholder="First name" placeholder="Name..." class="form-box" />
                     <input aria-required="true" type="text" autocomplete="off"  required aria-invalid="false" aria-placeholder="Last name"  placeholder="E-mail..." class="form-box" />
-                    <div class="content-cta"> SUBSCRIBE </div>
+                    <button type="submit" class="content-cta" @click="emit('redirectMessage', 'newsletter signup confirmation page')"> SUBSCRIBE </button>
                 </div>
             </div>
         </div>
@@ -252,6 +254,7 @@ onMounted(() => {
         /* color: #ccc; */
         /* text-shadow: .2em .2em .1em #222; */
         min-width: 60%;
+        color: #ddd;
     }
 
     .valid1 {

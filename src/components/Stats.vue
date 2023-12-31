@@ -3,23 +3,17 @@ import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 
+const emit = defineEmits(['redirectMessage']);
+
 gsap.registerPlugin(ScrollTrigger);
-
-const options = {
-    threshold: .8,
-}
-
-const options2 = {
-    threshold: .75,
-}
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => entry.target.classList.toggle('show', entry.isIntersecting));
-}, options)
+}, {threshold: .8})
 
 const observer2 = new IntersectionObserver((elements) => {
     elements.forEach(el => el.target.classList.toggle('show', el.isIntersecting))
-}, options2)
+}, {threshold: .75})
 
 onMounted(() => {
     // const slider = document.querySelector(`.collab-slider`);
@@ -46,6 +40,7 @@ onMounted(() => {
             .to(`.collab-desc-3`, {opacity: 0})
             .to(`.collab-image`, {scale: 4}, "<")
             .to(`.collab-image`, {opacity: 0})
+            .from(`.collab-benefit`, {opacity: .5, filter: 'blur(1.5px)'}, "<50%")
 
 
     ScrollTrigger.create({
@@ -126,15 +121,15 @@ onMounted(() => {
                 </div>
             </div>
             <div class="collab-image"></div>
-            <div class="collab-content">
+            <div class="collab-content no-targetable">
                 <!-- <span class="collab-desc">
                     We are open for long-time coopearation with companies just like yours !
                     Team up with the most influencial PR brand and let's grow together.
                     Join our collaboration list now and reap the benefits of joining our big family.
                 </span> -->
-                <span class="collab-desc collab-desc-1"> We are open for long-time cooperation with companies just like yours!</span>
-                <span class="collab-desc collab-desc-2"> Team up with the most influencial PR brand and let's grow together.</span>
-                <span class="collab-desc collab-desc-3"> Join our collaboration list now and reap the benefits of joining our family.</span>
+                <span class="collab-desc collab-desc-1 no-targetable"> We are open for long-time cooperation with companies just like yours!</span>
+                <span class="collab-desc collab-desc-2 no-targetable"> Team up with the most influencial PR brand and let's grow together.</span>
+                <span class="collab-desc collab-desc-3 no-targetable"> Join our collaboration list now and reap the benefits of joining our family.</span>
 
             </div>
         </div>
@@ -191,7 +186,7 @@ onMounted(() => {
                         Click on the button below to send a request for collaboration. Don't miss the opportunity to join the list today and become our business partner.
                     </span>
                     <div class="container-action">
-                        <div class="btn-action"> Join now </div>
+                        <a class="btn-action" href="/" @click.prevent="emit('redirectMessage', 'collaboration request form')"> Join now </a>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,8 @@ import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 
+const emit = defineEmits(['redirectMessage']);
+
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
@@ -35,25 +37,37 @@ onMounted(() => {
             <div class="transition-layer"></div>
 
             <div class="slide slide-1 flex justify-evenly items-center">  
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-shopify" class="custom-icon scale-150" />
-            </span>
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-algolia" class="custom-icon scale-150" />
-            </span>
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-dribbble" class="custom-icon scale-150" />
-            </span>
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-quora" class="custom-icon scale-150" />
-            </span>
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-jira" class="custom-icon scale-150" />
-            </span>
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-speaker-deck" class="custom-icon scale-150" />
-            </span>
-        </div>
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-shopify" class="custom-icon scale-150" />
+                    </a>
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-algolia" class="custom-icon scale-150" />
+                    </a>
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-dribbble" class="custom-icon scale-150" />
+                    </a>
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-quora" class="custom-icon scale-150" />
+                    </a>
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-jira" class="custom-icon scale-150" />
+                    </a>
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-speaker-deck" class="custom-icon scale-150" />
+                    </a>
+                </span>
+            </div>
 
 <!--         <div class="slide slide-2">
             <span class="rd-box flex items-center justify-center">
@@ -76,26 +90,38 @@ onMounted(() => {
             </span>
         </div> -->
 
-        <div class="slide slide-3 flex justify-evenly items-center">
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-sketch" class="custom-icon scale-150" />
-            </span>
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-airbnb" class="custom-icon scale-150" />
-            </span>
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-redhat" class="custom-icon scale-150" />
-            </span>
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-bandcamp" class="custom-icon scale-150" />
-            </span>
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-twitch" class="custom-icon scale-150" />
-            </span>
-            <span class="rd-box flex items-center justify-center">
-                <font-awesome-icon icon="fa-brands fa-telegram" class="custom-icon scale-150" />
-            </span>
-        </div>
+            <div class="slide slide-3 flex justify-evenly items-center">
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-sketch" class="custom-icon scale-150" />
+                    </a>
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-airbnb" class="custom-icon scale-150" />
+                    </a>
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-redhat" class="custom-icon scale-150" />
+                    </a>
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-bandcamp" class="custom-icon scale-150" />
+                    </a>
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-twitch" class="custom-icon scale-150" />
+                    </a>
+                </span>
+                <span class="rd-box flex items-center justify-center">
+                    <a href="/" target="_blank" @click.prevent="emit('redirectMessage', 'our collaborator official website')">
+                        <font-awesome-icon icon="fa-brands fa-telegram" class="custom-icon scale-150" />
+                    </a>
+                </span>
+            </div>
         </div>
 
         
@@ -333,7 +359,7 @@ onMounted(() => {
         color: #ddd;
        /*  color: #111; */
         transition: all 500ms ease-in-out;
-            filter: drop-shadow(0rem 0rem .22rem #aaa);
+            filter: drop-shadow(0rem 0rem .175rem #aaa);
     }
 
     .custom-icon:hover {
