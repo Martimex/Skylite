@@ -459,4 +459,26 @@ onMounted(() => {
     }
 
 
+    @media screen and (orientation: landscape) and (max-width: 1024px) {
+        
+        .about-text {
+            font-weight: 400;
+        }
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 800px) {
+        
+        .section-name {
+            white-space: nowrap;
+            font-size: 2.75rem;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+    }
+
+
 </style>

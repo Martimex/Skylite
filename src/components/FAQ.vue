@@ -18,7 +18,7 @@ import ScrollTrigger from 'gsap/src/ScrollTrigger';
                 faqObserver.unobserve(entry.target);
             }
         })
-    }, {threshold: .9});
+    }, {threshold: .7});
 
     onMounted(() => {
         
@@ -119,11 +119,11 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     }
 
     .faq-heading {
-        padding-bottom: 7.5vh;
+        padding-bottom: 5vh;
         font-size: 5.2rem;
         font-weight: 700;
         text-align: center;
-        margin-bottom: .5em;
+        margin-bottom: .75em;
         color: #0000;
         -webkit-text-stroke: .075rem #ddd;
 
@@ -198,7 +198,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
     .p-answer {
         font-size: 1.15rem;
-        margin-bottom: .5em;
+        margin-bottom: .75em;
     }
 
     .p-answer:hover {
@@ -216,6 +216,24 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
     .custom-icon {
         transition: transform 500ms ease-in;
+    }
+
+
+    @media screen and (orientation: landscape) and (max-width: 1024px) {
+
+        .faq-heading{
+            padding-bottom: 0;
+        }
+
+        .p-answer {
+            font-size: 1.2rem;
+            margin-bottom: .75em;
+        }
+
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 800px) {
+        /* Nothing to change here */
     }
 
 </style>

@@ -107,15 +107,15 @@ onMounted(() => {
                     </div>
                     <span class="benefit-text"> 
                         We help promoting our Collaborators across the social media platforms and on various meetings we organize. As a result, they rise in popularity
-                        even faster and are able to achieve huge customer base in shorter amount of time.
+                        even faster and are able to achieve huge customer base in short amount of time.
                     </span>
                 </div>
                 <div class="collab-benefit">
                     <div class="benefit-frame">
-                        <font-awesome-icon icon="hand-holding-dollar" class="benefit-icon" />
+                        <font-awesome-icon icon="calendar-check" class="benefit-icon" />
                     </div>
                     <span class="benefit-text"> 
-                        The Collaborators can cooperate with us to a larger extent, by taking part in some exclusive Skylite's hosted events. The revenue of the end work will be
+                        The Collaborators can cooperate with us to larger extent, by taking part in some exclusive Skylite's hosted events. The revenue of the end work will be
                         fairly distributed between both us and them.
                     </span>
                 </div>
@@ -253,10 +253,12 @@ onMounted(() => {
     .collab-presentation {
         min-height: 100vh;
         /* background: pink; */
-        padding-block: 7.5vh;
+        margin-top: 12.5vh;
+        padding-block: 5vh 7.5vh;
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 20% max(80%, 1fr);
+        grid-template-rows: 20% 1fr;
+        /* grid-template-rows: 1fr auto; */
     }
 
     .collab-title {
@@ -283,7 +285,7 @@ onMounted(() => {
         background: #ddd;
         background: linear-gradient(135deg, hsl(167, 70%, 90%), hsl(211, 70%, 90%));
         width: min(600px, 30vw);
-        min-height: 100%;
+        min-height: 70vh;
         padding: 2rem 2.5rem;
         margin-inline: 1rem;
         border-radius: 2.5%;
@@ -400,7 +402,7 @@ onMounted(() => {
     }
 
     .slide-text {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
         line-height: 1.65;
     }
 
@@ -441,6 +443,8 @@ onMounted(() => {
         grid-template-columns: 33% 34% 33%;
         grid-template-rows: auto;
         place-items: center;
+        place-content: center;
+        column-gap: 2rem;
     }
 
     .collab-benefit {
@@ -481,6 +485,7 @@ onMounted(() => {
         display: block;
         margin-inline: 1.5em;
         text-align: center;
+        font-weight: 500;
     }
 
     .collab-image {
@@ -554,6 +559,7 @@ onMounted(() => {
         text-transform: uppercase;
         -webkit-text-stroke: .12rem #111;
         color: #ddd;
+        white-space: nowrap;
         transition: all 800ms ease-in-out;
             opacity: 0;
             letter-spacing: -2.5rem; /* we can animate this with transition */
@@ -685,5 +691,71 @@ onMounted(() => {
         border-bottom-right-radius: 9999px;
         background: linear-gradient(0deg, #1118, #0000 99%);
     }
+
+    @media screen and (orientation: landscape) and (max-width: 1024px) {
+
+        .collab-presentation {
+            margin-top:  20vh;
+            grid-template-rows: 20% 1fr;
+        }
+
+        .collab-slide {
+            width: max(325px, 30vw);
+            min-height: 75vh;
+        }
+
+        .slide-text {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .collab-benefits-box {
+            grid-template-rows: 33% 34% 33%;
+            grid-template-columns: 1fr;
+        }
+
+        .collab-benefit {
+            display: flex;
+            align-items: center;
+            flex-flow: row;
+            min-height: unset;
+            row-gap: 0;
+            max-width: 650px;
+        }
+
+        .benefit-frame {
+            align-self: unset;
+            padding: 2.1em;
+            border-radius: 5%;
+            margin-right: 2.5rem;
+        }
+
+        .benefit-icon {
+            font-size: 4rem;
+        }
+
+        .benefit-text {
+            text-align: left;
+            margin-inline: 0;
+            font-size: 1.25rem;
+        }
+
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 800px) {
+
+        .collab-desc {
+            font-size: 3.3rem;
+        }
+
+        .collab-slide {
+            width: max(375px, 30vw);
+        }
+
+        .btn-action {
+            margin-top: 1rem;
+        }
+    }
+
 
 </style>

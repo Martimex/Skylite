@@ -494,4 +494,12 @@ body {
         text-align: left;
     } 
 } */
+
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+
+    .nav-box--links {
+        width: 100%;
+    }
+}
+
 </style>

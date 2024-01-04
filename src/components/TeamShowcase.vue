@@ -67,8 +67,8 @@ onMounted(() => {
                     </div>
                     <div class="emp-segment">
                         <span class="emp-desc">
-                            Sarah is our SEO team leader and the web expert. She will take care of your website to make it a better place for your customers. Her aim is
-                            to apply the best techinques to make your site visible on the web and loved by all visitors. 
+                            Sarah is our SEO team leader and web expert. She will care of your website to make it a better place for customers. Her aim is
+                            to apply the best methods to make your site visible on the web and loved by all visitors. 
                         </span>
                         <a class="emp-button" href="./team" @click.prevent="emit('redirectMessage', '/team')" > Book a meeting </a>
                     </div>
@@ -111,12 +111,12 @@ onMounted(() => {
                 </div>
                 <div class="emp-info">
                     <div class="emp-segment">
-                        <p class="emp-credentials"> Natalie Groth </p>
+                        <p class="emp-credentials"> Anna Smith </p>
                         <p class="emp-role"> Copywriter </p>
                     </div>
                     <div class="emp-segment">
                         <span class="emp-desc">
-                            Natalie has worked with the top marketing companies around the world, and did master the art of copywriting. She is able to effortlessly produce
+                            Anna has mastered the art of copywriting with the top marketing companies she worked with. She is able to quickly design
                             a powerful message that evokes a lot of positive emotions for customers.
                         </span>
                         <a class="emp-button" href="./team" @click.prevent="emit('redirectMessage', '/team')" > Book a meeting </a>
@@ -342,6 +342,39 @@ onMounted(() => {
     .emp-button:hover {
         cursor: pointer;
         color: #ddd;
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 1024px) {
+
+        .emp-main {
+            padding-inline: 8vw;
+        }
+
+        .emp-bio {
+            padding-block: 5vh;
+        }
+
+        .emp-info {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+            row-gap: 2rem;
+        }
+
+        .emp-segment {
+            height: unset;
+            align-self: last baseline;
+        }
+
+        
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 800px) {
+
+        .emp-main {
+            padding-inline: 6.5vw;
+        }
     }
     
 

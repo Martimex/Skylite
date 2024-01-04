@@ -360,7 +360,7 @@ onMounted(() => {
             </div>
             <div class="bubble component-layout-light-1"></div>
             <p class="emp-introduction no-targetable"> 
-                We are not a regular PR company. We are a team of professionals willing to support other companies
+                We are not a regular PR company. We are a team of experts willing to support other companies
             </p>
         </div>
 
@@ -388,15 +388,19 @@ onMounted(() => {
     .offer-item {
         --green: hsl(102, 80%, 68%);
         --green-heading: hsl(102, 50%, 48%);
+        --green-desc: #bbb;
         --green-lite: hsla(102, 100%, 68%, .5);
         --yellow: hsl(33, 80%, 68%);
         --yellow-heading: hsl(33, 50%, 48%);
+        --yellow-desc: #bbb;
         --yellow-lite: hsla(33, 100%, 68%, .5);
         --blue: hsl(177, 80%, 68%);
         --blue-heading: hsl(177, 50%, 48%);
+        --blue-desc: #bbb;
         --blue-lite: hsla(177, 100%, 68%, .5);
         --red: hsl(3, 80%, 68%);
         --red-heading: hsl(3, 50%, 48%);
+        --red-desc: #bbb;
         --red-lite: hsla(3, 100%, 68%, .5);
 
         font-size: 1rem;
@@ -532,7 +536,7 @@ onMounted(() => {
         /* text-align: center; */
         display: inline-block;
         line-height: 1.5;
-        color: #ccc;
+        color: #bbb;
         margin-block: 7.5vh;
         /* margin-inline: 5%; */ /* ONLY FOR HUGE SCREENS */
 
@@ -756,6 +760,10 @@ onMounted(() => {
         color: var(--green-heading)
     }
 
+    .offer-item[data-no="1"] .offer-description {
+        color: var(--green-desc);
+    }
+
     .offer-item[data-no="1"] .offer-icon {
         color: var(--green);
     }
@@ -794,6 +802,11 @@ onMounted(() => {
         color: var(--yellow-heading) 
     }
 
+    .offer-item[data-no="2"] .offer-description {
+        color: var(--yellow-desc);
+    }
+
+
     .offer-item[data-no="2"] .offer-icon {
         color: var(--yellow);
     }
@@ -830,6 +843,10 @@ onMounted(() => {
     .offer-item[data-no="3"] .offer-heading {
         -webkit-text-stroke: .05rem var(--blue-heading);
         color: var(--blue-heading);
+    }
+
+    .offer-item[data-no="3"] .offer-description {
+        color: var(--blue-desc);
     }
 
     .offer-item[data-no="3"] .offer-icon {
@@ -870,6 +887,10 @@ onMounted(() => {
         color: var(--red-heading);
     }
 
+    .offer-item[data-no="4"] .offer-description {
+        color: var(--red-desc);
+    }
+
     .offer-item[data-no="4"] .offer-icon {
         color: var(--red);
     }
@@ -886,6 +907,51 @@ onMounted(() => {
 
     .section-title {
         font-family: Audiowide, 'Courier New', Courier, monospace;
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 1024px) {
+
+        .offer-all {
+            margin-inline: 5vw;
+        }
+
+        .offer-content {
+            padding-block: 7.5%;
+            margin-top: 10vh;
+            min-height: unset;
+            display: flex;
+            flex-flow: column;
+        }
+
+        .offer-heading {
+            display: inline-block;
+            width: 100%;
+            text-align: left;
+        }
+
+        .offer-description {
+            margin-block: 10vh;
+            line-height: 170%;
+            font-weight: 450 !important;
+        }
+
+        .outro-button {
+            padding: 1em 3em;
+        }
+    
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 800px) {
+
+        /* This is a helper query for smaller mobiles screens (it applies alongside with above media query for max-width: 1024px ) */
+
+        .offer-content, .offer-item:nth-child(2n) .offer-content {
+            margin-inline: 0;
+        }
+
+        .offer-dash {
+            visibility: hidden;
+        } 
     }
 
 </style>

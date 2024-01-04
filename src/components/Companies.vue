@@ -472,8 +472,20 @@ onMounted(() => {
         border-radius: 10%; 
     }
 
-    /* .custom-icon[icon="fa-brands fa-quora"] {
-        color: greenyellow;
-    } */
+
+
+    @media screen and (orientation: landscape) and (max-width: 1024px) {
+
+        .custom-icon {
+            font-size: 4.75rem;
+        }
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 800px) {
+        
+        .custom-icon {
+            font-size: 4.2rem;
+        }
+    }
 
 </style>

@@ -53,7 +53,7 @@ function openNav() {
                 </ul>
             </div>
         </Transition>
-        <font-awesome-icon icon="fa-solid fa-bars" class="burger-icon" @click="openNav" />
+        <font-awesome-icon icon="fa-solid fa-bars" :class="{ active: isBurgerOpened }" class="burger-icon" @click="openNav" />
     </div>
 
 </template>
@@ -196,6 +196,11 @@ function openNav() {
         font-size: 2.5rem;
         color: #bbb;
         filter: invert(100%);
+        transition: 450ms all ease-in-out;
+    }
+
+    .burger-icon.active {
+        transform: rotate(90deg);
     }
 
     .burger-icon:hover {

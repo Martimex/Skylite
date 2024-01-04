@@ -111,6 +111,12 @@ const redirectPrompt = (dest_name: string) => {
 
   /* Do not use style scoped here, since this is the only place for us to put some global styles & utility classes */
 
+  @media screen and (orientation: landscape) and (max-width: 1024px) {
+    html {
+      font-size: 11px;
+    }
+  }
+
   #app, body {
     overflow-x: hidden !important;
     width: 100% !important;

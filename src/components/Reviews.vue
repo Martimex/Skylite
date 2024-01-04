@@ -28,8 +28,7 @@
                 trigger: `.heading-wall`,
                 start: '-50% 50%',
                 end: '25% 25%',
-                scrub: true,
-                /* markers: true, */
+                scrub: .8,
                 toggleActions: 'play reverse restart pause',
             },
             y: '100%',
@@ -256,6 +255,12 @@
         grid-template-rows: auto; */
         /* row-gap: 1rem; */
         max-width: 650px;
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 1024px) {
+        .reviews-block {
+            max-width: min(520px, 66vw);
+        }
     }
 
 </style>

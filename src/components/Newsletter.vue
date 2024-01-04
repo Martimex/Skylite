@@ -166,6 +166,7 @@ onMounted(() => {
         grid-template-columns: 60% 40%;
         grid-template-rows: 1fr;
         box-shadow: 0 0 1rem .25rem #000, inset 0 0 1rem .25rem #000;
+        border: .1rem double #aaa;
     
         transition: all 500ms ease-in-out;
             /* scale: .5;  SCALE EFFECT MAY CAUSE BUGS, AVOID USING IT WITH INTERSECTION OBSERVERS */
@@ -200,7 +201,7 @@ onMounted(() => {
         line-height: 150%;
         font-weight: 500;
         display: inline-block;
-        margin-block: .75em 1.5em;
+        margin-block: 1.5em 2em;
     }
 
     .qualities-item {
@@ -350,6 +351,44 @@ onMounted(() => {
         box-shadow: inset 0em 0em .4em .6em #333, 0 0 .5em .45em #222, 0 0 .6em 1em #111;
         /* color: #ade; */
         border-radius: 1rem;
+    }
+
+
+    @media screen and (orientation: landscape) and (max-width: 1024px) {
+
+        .news-box {
+            padding-block: 2.5%;
+        }
+
+        .news-visual {
+            padding-inline: 7.5%;
+        }
+
+        .textbox-desc {
+            font-size: 1.15rem;
+            line-height: 170%;
+            margin-block: 1.25em 2em;
+        }
+
+        .form-box {
+            font-size: 1.05rem;
+            padding: 1.25em;
+            min-width: 66%;
+        }
+
+        .content-cta {
+            min-width: 60%;
+        }
+    }
+
+    @media screen and (orientation: landscape) and (max-width: 800px) {
+
+        .textbox-desc {
+            font-size: 1.15rem;
+            line-height: 160%;
+            margin-block: .75em 2em;
+        }
+
     }
 
 </style>

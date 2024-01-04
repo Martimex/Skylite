@@ -274,7 +274,7 @@ onMounted(() => {
 
     .grid-text {
         z-index: 1;
-        line-height: 160%;
+        line-height: 170%;
         position: relative;
         display: inline-block;
         color: #ddd;
@@ -399,5 +399,12 @@ onMounted(() => {
 /*     [data-grid-order="reverse"] .grid-text {
         order: 1;
     } */
+
+    @media screen and (orientation: landscape) and (max-width: 1024px) {
+
+        .grid-text {
+            max-width: 90%;
+        }
+    }
 
 </style>

@@ -81,6 +81,11 @@ onMounted(() => {
 
 <style scoped>
 
+    .qbt-paragraph__md {
+        color: red !important;
+        font-size: .1rem;
+    }
+
     .quote-layout {
         position: relative;
         min-height: 100vh;
@@ -192,6 +197,25 @@ onMounted(() => {
 
     .quote-layout.show #text404 {
         stroke-dasharray: 131,121;
+    }
+
+
+    
+    /* Lanscape mobiles */
+
+    @media screen and (orientation: landscape) and (max-width: 1024px) {
+        
+        #svg5 {
+            max-height: 33vh;
+        }
+
+        .quote-box-svg {
+            margin-bottom: 0rem;
+        }
+
+        .quote-box-text {
+            margin-top: 0rem;
+        }
     }
 
 </style>
