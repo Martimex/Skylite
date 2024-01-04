@@ -18,15 +18,15 @@ onMounted(() => {
     const quote_layout = document.querySelector(`.quote-layout`);
     quote_layout && observer.observe(quote_layout);
 
-/*     gsap.from(`.nav-burger`, {
+    gsap.to(`#main-start`, {
         scrollTrigger: {
-            trigger: `.quote-layout`,
-            start: '0% 10%',
-            end: '80% 20%',
-            scrub: .25,
+            trigger: `#main-start`,
+            start: '0% 0%',
+            end: '100% 0%',
+            scrub: 1,
         },
-        opacity: 0,
-    }) */
+        y: '20vh',
+    })
 })
 
 </script>

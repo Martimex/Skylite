@@ -116,10 +116,10 @@ defineProps<{
     </header>
 
     <!-- THIS SECTION IS BELOW THE 'WELCOME' MESSAGE AND SLOWLY APPEARS RIGHT UNDER THE FADING TEXT & BG WHILE SCROLLING -->
-    <main class="--no-overflow-x">
+    <main id="main-start" class="overflow-x-hidden">  <!-- #main-start is for  animating in Quote component, so do not remove the ID -->
         <div class="animation-block--initial _animation-block_1 --absolute"></div>
         <div class="animation-block--initial _animation-block_2 --absolute"></div>
-        <div class="main-layout --flex-container --no-overflow-x">
+        <div class="main-layout --flex-container overflow-x-hidden">
             <div class="gridbox-side gs-1"></div>
             <div class="gridbox-content">
                 <p class="gridbox-letter no-targetable"> S </p>
@@ -277,6 +277,11 @@ body {
 
 
 /* Landing page initial section */
+
+#main-start {
+    position: relative;
+    z-index: -1;
+}
 
 .main-layout {
     min-height: 100vh;

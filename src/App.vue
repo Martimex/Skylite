@@ -19,6 +19,21 @@ import ContactShowcase from './components/ContactShowcase.vue';
 import Footer from './components/Footer.vue';
 import { ref } from 'vue';
 
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/src/ScrollTrigger';
+
+import Lenis from '@studio-freight/lenis';
+
+const lenis = new Lenis()
+
+lenis.on('scroll', ScrollTrigger.update)
+
+gsap.ticker.add((time)=>{
+  lenis.raf(time * 1000)
+})
+
+gsap.ticker.lagSmoothing(0)
+
 const age: number = 12;
 const comp_name = ref('start');
 
@@ -79,7 +94,7 @@ const redirectPrompt = (dest_name: string) => {
 
   <Start v-if="comp_name === 'start'" :msg="'Welcome to the start component'" @redirect-message="(msg: string) => redirectPrompt(msg)"  @changeComponent="setComponentToPiano" />
 
-  <div class="component-layout-dark">
+  <div id="layout-wrapper" class="component-layout-dark">
     <Quote />
     <Intro />
     <OfferShowcase @redirect-message="(msg: string) => redirectPrompt(msg)" />
@@ -110,6 +125,34 @@ const redirectPrompt = (dest_name: string) => {
 <style>
 
   /* Do not use style scoped here, since this is the only place for us to put some global styles & utility classes */
+
+  .md-5 {
+    z-index: 12;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html.lenis {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
 
   @media screen and (orientation: landscape) and (max-width: 1024px) {
     html {
