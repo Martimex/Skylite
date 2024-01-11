@@ -57,7 +57,7 @@ onMounted(() => {
         scrollTrigger: {
             trigger: `.collab-presentation`,
             start: `0% 0%`,
-            end: `+=3200`,
+            end: `+=3200`, /* Modifying this value might need some collab-presentation items width size fixes, especially for media queries ! */
             /* markers: true, */
             scrub: 1,
             pin: true,
@@ -559,16 +559,15 @@ onMounted(() => {
         text-transform: uppercase;
         -webkit-text-stroke: .12rem #111;
         color: #ddd;
-        white-space: nowrap;
         transition: all 800ms ease-in-out;
             opacity: 0;
-            letter-spacing: -2.5rem; /* we can animate this with transition */
+            transform: translateX(-3rem);
 
     }
 
     .heading-title.show {
         opacity: 1;
-        letter-spacing: 0rem;
+        transform: translateX(0rem);
     }
 
 
@@ -690,6 +689,116 @@ onMounted(() => {
         border-top-right-radius: 9999px;
         border-bottom-right-radius: 9999px;
         background: linear-gradient(0deg, #1118, #0000 99%);
+    }
+
+    @media screen and (orientation: portrait) and (max-height: 1024px) {
+
+        .bg-layer {
+            padding-block: 5vh 7.5vh;
+        }
+
+        .heading-title {
+            margin-bottom: 6.5vh;
+            line-height: 125%;
+        }
+
+        .collab-desc {
+            font-size: 4.25rem;
+        }
+
+        .collab-content {
+            padding: 0;
+        }
+
+        .collab-image {
+
+        }
+
+        .collab-benefits-box {
+            display: flex;
+            flex-flow: column;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .collab-benefit {
+            display: flex;
+            align-items: center;
+            flex-flow: column;
+            min-height: unset;
+            row-gap: 2rem;
+            /* margin-block: 20vh; */
+        }
+
+        .benefit-frame {
+            padding: 2.5em;
+            border-radius: 5%;
+        }
+
+        .benefit-icon {
+            font-size: 4rem;
+        }
+
+        .benefit-text {
+            margin-inline: 0;
+            font-size: 1.25rem;
+        }
+
+        .collab-title {
+            align-self: center;
+        }
+
+        .collab-presentation {
+            margin-top:  15vh;
+            grid-template-rows: 20% 1fr;
+            padding-block: 12.5vh;
+        }
+
+        .collab-slide {
+            width: max(275px, 60vw);
+            min-height: 45vh;
+            margin-inline: .75rem;
+        }
+
+        .slide-title {
+            margin-bottom: 1.5em;
+        }
+
+        .slide-text {
+            font-size: 1.25rem;
+            line-height: 1.3;
+        }
+
+        .btn-action {
+            font-size: 1.4rem;
+            margin-top: 1.5em;
+        }
+
+    }
+
+    @media screen and (orientation: portrait) and (max-height: 800px) {
+        .benefit-icon {
+            font-size: 3rem;
+        }
+
+        .benefit-text {
+            font-size: 1.2rem;
+            line-height: 135%;
+        }
+
+        .slide-title {
+            font-size: 1.75rem;
+        }
+
+        .collab-slide {
+            width: max(260px, 50vw);
+            min-height: 60vh;
+            margin-inline: .75rem;
+        }
+
+        .btn-action {
+            margin-top: 2em;
+        }
     }
 
     @media screen and (orientation: landscape) and (max-width: 1024px) {

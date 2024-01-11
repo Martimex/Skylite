@@ -344,6 +344,55 @@ onMounted(() => {
         color: #ddd;
     }
 
+    @media screen and (orientation: portrait) and (max-height: 1024px) {
+
+        .emp-main {
+            padding-inline: 5vw;
+        }
+
+        .emp-bio {
+            grid-template-columns: 1fr;
+            transform: translateX(0rem);
+            padding-block: 5vh 10vh;
+        }
+        .emp-bio:nth-child(even) .emp-info {
+            order: 0;
+            margin-left: 2rem !important;
+            /* margin-right: 0rem !important; */
+        }
+
+        .emp-info {
+            height: auto;
+            margin-inline: 2rem;
+        }
+
+        .emp-segment {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-block: 1rem 2.5rem;
+        }
+
+        .photo-wrapper, .emp-bio:nth-child(even) .photo-wrapper {
+            justify-content: center;
+        }
+
+        .emp-credentials {
+            font-size: 4rem;
+        }
+
+        .emp-desc {
+            font-size: 1.2rem;
+        }
+
+        .emp-button {
+            font-size: 1.3rem;
+        }
+    }
+
+
     @media screen and (orientation: landscape) and (max-width: 1024px) {
 
         .emp-main {

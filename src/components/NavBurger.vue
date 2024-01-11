@@ -11,14 +11,14 @@ const emit = defineEmits(['redirectMessage']);
 const isBurgerOpened = ref(false);
 
 onMounted(() => {
-    gsap.from(`.burger-icon`, {
+    gsap.to(`.burger-icon`, {
         scrollTrigger: {
             trigger: `.quote-layout`,
             start: '0% 10%',
             end: '80% 20%',
             scrub: .25,
         },
-        color: '#bbb0',
+        color: '#bbb',
     })
 })
 
@@ -194,7 +194,7 @@ function openNav() {
 
     .burger-icon {
         font-size: 2.5rem;
-        color: #bbb;
+        color: #bbb0; /* Will be animated back to #bbb */
         filter: invert(100%);
         transition: 450ms all ease-in-out;
     }
@@ -210,6 +210,20 @@ function openNav() {
     .no-click {
         /* Do not remove this class, since it's used within Start component */
         pointer-events: none;
+    }
+
+
+    @media screen and (orientation: portrait) and (max-height: 1024px) {
+
+        .burger-icon {
+            font-size: 4rem;
+            color: #bbb !important;
+            pointer-events: auto !important;
+        }
+
+        .nav-menu {
+            padding-block: 25%;
+        }
     }
 
 </style>

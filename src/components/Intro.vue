@@ -10,7 +10,12 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold: 0.5});
 
 const observer2 = new IntersectionObserver((entries) => {
-    entries.forEach(entry => entry.target.classList.toggle("show", entry.isIntersecting));
+    entries.forEach((entry) => {
+        if(entry.intersectionRatio > 0) {
+            entry.target.classList.add(`show`);
+            observer2.unobserve(entry.target);
+        }
+    })
 }, {threshold: 0.67})
 
 const observer3 = new IntersectionObserver((entries) => {
@@ -139,7 +144,7 @@ onMounted(() => {
                 <div class="grid-container  text-white grid-cols-2 grid-rows-1 justify-items-center gap-x-6" data-grid-order="normal" data-no="3">
                     <div class="grid-img items-center justify-center bg-cover bg-center shadow-md shadow-slate-100"></div>
                     <div class="grid-content">
-                        <p class="heading-name text-blue-400 font-bold text-5xl tracking-wide"> Why us </p>
+                        <p class="heading-name text-blue-400 font-bold text-5xl tracking-wide"> Why to hire us </p>
                         <span class="grid-text items-center justify-center text-large leading-loose">
                             No matter how good you are at what you do - if noone knows about you, that means no clients, no sold products or services, no outcomes.
                             Therefore, we strongly believe that nowadays the presence means success. Since many people are unsure where to start - we are here to assist them. 
@@ -155,7 +160,7 @@ onMounted(() => {
                         <p class="question-text"> HOW CAN WE </p>
                     </div>
                     <div class="question-box-item">
-                        <p class="question-text"> HELP YOU ? </p>
+                        <p class="question-text"> HELP YOU  </p>
                     </div>
                 </div>
             </div>
@@ -236,6 +241,7 @@ onMounted(() => {
         position: absolute;
         inset: 0 auto auto 0;
         background-size: cover;
+        margin-top: -.2rem; /* Solves a weird pinning issue, where the very slight part a top screen was visible beneath the image despite being pinned to the top of screen */
         /* filter: invert(100%); */
         filter: saturate(105%) brightness(60%) blur(2px);
     }
@@ -399,6 +405,53 @@ onMounted(() => {
 /*     [data-grid-order="reverse"] .grid-text {
         order: 1;
     } */
+
+
+
+    /* Portrait mobiles */
+
+    @media screen and (orientation: portrait) and (max-width: 1024px) {
+
+        .grid-container {
+            padding: 12.5vh 7.5vw 12.5vh 7.5vw;
+        }
+
+        .heading-name {
+            line-height: 105%;
+            font-size: 7rem;
+        }
+
+        .grid-text {
+            max-width: 100%;
+            margin-top: 8.5vh;
+            font-size: 1.55rem;
+        }
+
+        .question-box {
+            padding-inline: 2.5vw;
+        }
+
+        .question-text {
+            font-size: 9rem;
+            line-height: 120%;
+            margin-block: .05em;
+            letter-spacing: -.4rem; 
+        }
+
+        .question-box-item:nth-child(2n) .question-text {
+            letter-spacing: .2rem;
+        }
+
+    }
+
+    @media screen and (orientation: portrait) and (max-height: 800px) {
+
+        .question-text {
+            font-size: 8rem;
+        }
+    } 
+
+    /* Landscape mobiles */
 
     @media screen and (orientation: landscape) and (max-width: 1024px) {
 

@@ -81,11 +81,6 @@ onMounted(() => {
 
 <style scoped>
 
-    .qbt-paragraph__md {
-        color: red !important;
-        font-size: .1rem;
-    }
-
     .quote-layout {
         position: relative;
         min-height: 100vh;
@@ -98,23 +93,6 @@ onMounted(() => {
         /* justify-content: center; */
 /*         background-color: #000;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23eeeeee' fill-opacity='.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); */
-    }
-
-    .nav-burger {
-        position: fixed;
-        top: 0;
-        margin: 1rem;
-        padding: 1.5rem;
-        border-radius: 50%;
-        /* background: #2220; */
-        backdrop-filter: blur(4px);
-        z-index: 1;
-    }
-
-    .burger-icon {
-        font-size: 2.5rem;
-        color: #bbb;
-        filter: invert(100%);
     }
 
     .quote-box-svg {
@@ -199,6 +177,38 @@ onMounted(() => {
         stroke-dasharray: 131,121;
     }
 
+
+    /* Portrait mobiles */
+
+    @media screen and (orientation: portrait) and (max-height: 1024px) {
+        .quote-layout {
+            min-height: fit-content;
+            padding-block: 12.5vh;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #svg5 {
+            scale: 1.6;
+        }
+
+        .quote-box-text {
+            margin-bottom: 3rem;
+        }
+
+        .qbt-paragraph {
+            font-size: 3.6rem;
+            white-space: nowrap;
+        }
+    }
+
+    @media screen and (orientation: portrait) and (max-height: 800px) {
+        .quote-layout {
+            padding-block: 12.5vh;
+        }
+    }
 
     
     /* Lanscape mobiles */

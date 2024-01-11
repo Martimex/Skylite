@@ -62,7 +62,7 @@ onMounted(() => {
 
     <div class="contact-showcase-layer h-screen">
         <div class="contact-showcase-box h-screen">
-            <p class="contact-showcase-text cs-question"> Got some questions ? </p>
+            <p class="contact-showcase-text cs-question"> Got more questions ? </p>
             <p class="contact-showcase-text cs-number"> (+1) 123 456 789 </p>
         </div>
     </div>
@@ -137,6 +137,21 @@ onMounted(() => {
         -webkit-text-stroke: .075rem #ddd;
         color: #0000;
         background: #000;
+    }
+
+    @media screen and (orientation: portrait) and (max-height: 1024px) {
+
+        .contact-showcase-layer {
+            height: calc(100vh - 0rem);
+        }
+        
+        .cs-question {
+            font-size: 5.75rem;
+        }
+
+        .cs-number {
+            font-size: 4rem;
+        }
     }
 
 

@@ -32,7 +32,7 @@ onMounted(() => {
 
     <div class="bg-layer">
         <div class="main-box h-full flex justify-center items-center">
-            <p class="companies-introduction"> Meet our collaborators </p>
+            <p class="companies-introduction"> Meet our <br/> Collab Allies </p>
 
             <div class="transition-layer"></div>
 
@@ -472,7 +472,37 @@ onMounted(() => {
         border-radius: 10%; 
     }
 
+    @media screen and (orientation: portrait) and (max-height: 1024px) {
 
+        .companies-introduction {
+            overflow-wrap: break-word;
+            font-size: 8rem;
+        }
+
+        .custom-icon {
+            font-size: 4.25rem;
+        }
+
+        .slide {
+            padding-block: 1rem;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: auto;
+            place-items: center;
+        }
+
+    }
+
+    @media screen and (orientation: portrait) and (max-height: 800px) {
+
+        .companies-introduction {
+            font-size: 7.2rem;
+        }
+
+        .custom-icon {
+            font-size: 3.75rem;
+        }
+    }
 
     @media screen and (orientation: landscape) and (max-width: 1024px) {
 

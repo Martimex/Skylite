@@ -5,7 +5,7 @@ const emit = defineEmits(['redirectMessage']);
 
 const observer = new IntersectionObserver((entries => {
     entries.forEach((entry) => entry.target.classList.toggle('show', entry.isIntersecting))
-}), {threshold: 0.6});
+}), {threshold: 0.45});
 
 onMounted(() => {
     const footer = document.querySelector(`.footer`);
@@ -30,6 +30,7 @@ onMounted(() => {
                     the clients, regardless of their brand or profession. 
                 </span>
                 <div class="resources-box">
+                    <div class="line-alt__mobile"></div>
                     <div class="resource">
                         <a class="resource-text" href="./terms" @click.prevent="emit(`redirectMessage`, 'Terms and Conditions page')" > Check our Terms </a>
                     </div>
@@ -84,17 +85,24 @@ onMounted(() => {
             <div class="footer-section section-contact">
                 <p class="section-name section-title"> Contact </p>
 
-                <p class="contact-name section-title"> Call us </p>
-                <div class="contact-entry"> 
-                    <!-- <svg> </svg> -->
-                    <span class="contact-text"> (+1) 123 456 789 </span>
-                </div>
+                <div class="contact-record-box__mobile">
+                    <div class="contact-record____mobile">
+                        <p class="contact-name section-title"> Call us </p>
+                        <div class="contact-entry"> 
+                            <!-- <svg> </svg> -->
+                            <span class="contact-text"> (+1) 123 456 789 </span>
+                        </div>
+                    </div>
 
-                <p class="contact-name section-title"> E-mail </p>
-                <div class="contact-entry"> 
-                    <!-- <svg> </svg> -->
-                    <span class="contact-text"> hello@skylite.com </span>
+                    <div class="contact-record____mobile">
+                        <p class="contact-name section-title"> E-mail </p>
+                        <div class="contact-entry"> 
+                            <!-- <svg> </svg> -->
+                            <span class="contact-text"> hello@skylite.com </span>
+                        </div>
+                    </div>
                 </div>
+                
             </div>
 
         </div>
@@ -125,7 +133,7 @@ onMounted(() => {
         position: relative;
         /* background: linear-gradient(45deg, #fdc830, #f37335); */
         padding: 10em 5vw;
-        background-image: linear-gradient(180deg,  #fff, #bbb, #888, #444);
+        background-image: linear-gradient(180deg,  #fff, #bbb, #888, #666);
 
        /*  box-shadow: inset 0rem 0rem 1.4rem 11.2rem pink; */
         /* Creates wave effect */
@@ -203,7 +211,7 @@ onMounted(() => {
 
     .paragraph-main {
         font-size: 3.3rem;
-        filter: drop-shadow(0 0 .75em #222);
+        filter: drop-shadow(0 0 .75em #fff);
         text-transform: capitalize;
         letter-spacing: .25rem;
     }
@@ -458,6 +466,86 @@ onMounted(() => {
         transform: translateY(0rem);
     }
 
+    @media screen and (orientation: portrait) and (max-height: 1024px) {
+        
+        .footer {
+            padding-top: 12.5em;
+        }
+
+        .footer-content {
+            display: block;
+        }
+
+        .section-about, .section-socials, .section-links, .section-contact {
+            width: 100%;
+            text-align: center;
+            padding-block: 1rem;
+        }
+
+        .section-socials, .section-links, .section-contact {
+            padding-block: 2rem;
+        }
+
+        .socials-box {
+            margin-inline: 10%;
+        }
+
+        .custom-icon {
+            font-size: 3.5rem;
+        }
+
+        .links-list {
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        .link-text {
+            font-size: 1.6rem;
+            margin-block: 1em;
+        }
+
+        .section-name:not(.paragraph-main) {
+            font-size: 3.5rem;
+            margin-bottom: .5em;
+        }
+
+        .contact-record-box__mobile {
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+            grid-template-rows: auto;
+        }
+
+        .contact-record____mobile {
+            display: flex;
+            flex-flow: column;
+        }
+
+        .resources-box {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: 1fr;
+        }
+
+        .line-alt__mobile {
+            font-size: 1rem;
+            width: calc(100% - 5vw);
+            padding-block: .075em;
+            background: #222;
+            border-radius: 9999px;
+        }
+
+        .contact-name {
+            font-size: 1.65rem;
+            margin-left: 0;
+        }
+
+        .contact-text {
+            font-size: 1.5rem;
+            margin-left: 0;
+        }
+
+    }
 
     @media screen and (orientation: landscape) and (max-width: 1024px) {
         

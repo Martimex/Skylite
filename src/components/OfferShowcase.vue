@@ -909,6 +909,154 @@ onMounted(() => {
         font-family: Audiowide, 'Courier New', Courier, monospace;
     }
 
+    @media screen and (orientation: portrait) and (max-height: 1024px) {
+
+        .offer-all {
+            margin-inline: 5vw;
+        }
+
+        .offer-all:nth-child(1) {
+            padding-top: 0vh;
+        }
+
+        .offer-item:not(:first-child) {
+            margin-top: 8vh;
+        }
+
+        .offer-content, .offer-item:nth-child(2n) .offer-content {
+            margin-inline: 0;
+            min-height: unset;
+            padding-inline: 5%;
+            padding-block: 7.5vh 6vh;
+            display: block;
+        }
+
+        .offer-dash {
+            display: none;
+        }
+
+/*         .offer-item:nth-child(2n) .offer-semititle {
+            text-align: left;
+        } */
+
+        .offer-circle {
+            position: relative;
+            width: fit-content;
+            margin: 0 auto 3rem;
+        }
+
+        .offer-circle::before, .offer-circle::after {
+            --elem-height-half: .125rem;
+            --elem-width-half: 11vw;
+
+            content: '';
+            position: absolute;
+            top: calc(50% - var(--elem-height-half));
+            padding-inline: var(--elem-width-half);
+            padding-block: var(--elem-height-half);
+
+        }
+
+        .offer-item[data-no="1"] .offer-circle::before,  .offer-item[data-no="1"] .offer-circle::after {
+            background: var(--green-lite);
+        }
+
+        .offer-item[data-no="2"] .offer-circle::before,  .offer-item[data-no="2"] .offer-circle::after {
+            background: var(--yellow-lite);
+        }
+
+        .offer-item[data-no="3"] .offer-circle::before,  .offer-item[data-no="3"] .offer-circle::after {
+            background: var(--blue-lite);
+        }
+
+        .offer-item[data-no="4"] .offer-circle::before,  .offer-item[data-no="4"] .offer-circle::after {
+            background: var(--red-lite);
+        }
+
+        .offer-circle::before {
+            left: 160%;
+        }
+
+        .offer-circle::after {
+            right: 160%;
+        }
+
+            
+        .offer-semititle, .offer-item:nth-child(2n) .offer-semititle {
+            text-align: center;
+            margin-inline: 0;
+            margin-inline: 10%;
+        }
+
+        .offer-heading, .offer-description, .buttons-box {
+            margin-inline: 5%;
+        }
+
+        .offer-heading {
+            font-size: 3rem;
+            line-height: 130%;
+        }
+
+        .offer-description {
+            font-size: 1.2rem;
+            margin-block: 10% 17.5%;
+            line-height: 170%;
+        }
+
+        .offer-button {
+            min-width: max(9rem, 40%);
+        }
+
+        .offer-item[data-no="1"] .offer-button {
+            border-color: var(--green-lite);
+        }
+
+        .offer-item[data-no="2"] .offer-button {
+            border-color: var(--yellow-lite);
+        }
+
+        .offer-item[data-no="3"] .offer-button {
+            border-color: var(--blue-lite);
+        }
+
+        .offer-item[data-no="4"] .offer-button {
+            border-color: var(--red-lite);
+        }
+
+
+        .outro-heading {
+            font-size: 8.2rem;
+            line-height: 110%;
+            margin-inline: 5%;
+        }
+
+        .outro-button {
+            font-size: 2.2rem;
+            margin-inline: auto;
+            padding: 1em 2em;
+            min-width: 66vw;
+        }
+
+        .emp-introduction {
+            font-size: 4rem;
+            line-height: 140%;
+            overflow: hidden;
+        }
+
+    }
+
+    @media screen and (orientation: portrait) and (max-height: 800px) {
+
+        .outro-heading {
+            font-size: 7.2rem;
+        }
+
+        .emp-introduction {
+            font-size: 3.6rem;
+        }
+
+    }
+
     @media screen and (orientation: landscape) and (max-width: 1024px) {
 
         .offer-all {
@@ -950,7 +1098,7 @@ onMounted(() => {
         }
 
         .offer-dash {
-            visibility: hidden;
+            display: none;
         } 
     }
 

@@ -160,6 +160,12 @@ const redirectPrompt = (dest_name: string) => {
     }
   }
 
+  @media screen and (orientation: portrait) and (max-height: 1024px) {
+    html {
+      font-size: 10.5px;
+    }
+  }
+
   #app, body {
     overflow-x: hidden !important;
     width: 100% !important;

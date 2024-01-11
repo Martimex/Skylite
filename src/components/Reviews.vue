@@ -109,7 +109,7 @@
         <div class="heading-wall component-layout-light-1"></div>
         <div class="heading-content"> 
             <span class="heading-text text-center"> A few words </span>
-            <div class="flex">
+            <div class="second-line-box">
                 <span class="heading-text text-center"> from our </span>
                 <div class="relative color-container">
                     <span class="heading-text heading-color text-center"> customers </span>
@@ -209,6 +209,10 @@
         opacity: 1;
     }
 
+    .second-line-box {
+        display: flex;
+    }
+
     .color-container {
         z-index: 0;
     }
@@ -255,6 +259,28 @@
         grid-template-rows: auto; */
         /* row-gap: 1rem; */
         max-width: 650px;
+    }
+
+    @media screen and (orientation: portrait) and (max-height: 1024px) {
+
+        .second-line-box {
+            flex-flow: column;
+        }
+
+        .heading-color, .color-box {
+            margin-left: 0;
+            transform: translateY(1.25rem);
+        }
+
+        .heading-content.show .color-box {
+            width: 100%;
+            opacity: 1;
+        }
+
+        .bg-layer {
+            padding-block: 15vh 20vh;
+            padding-inline: 5vw;
+        }
     }
 
     @media screen and (orientation: landscape) and (max-width: 1024px) {

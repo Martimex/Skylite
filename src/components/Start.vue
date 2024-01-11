@@ -122,13 +122,17 @@ defineProps<{
         <div class="main-layout --flex-container overflow-x-hidden">
             <div class="gridbox-side gs-1"></div>
             <div class="gridbox-content">
-                <p class="gridbox-letter no-targetable"> S </p>
-                <p class="gridbox-letter no-targetable"> K </p>
-                <p class="gridbox-letter no-targetable"> Y </p>
-                <p class="gridbox-letter no-targetable"> L </p>
-                <p class="gridbox-letter no-targetable"> I </p>
-                <p class="gridbox-letter no-targetable"> T </p>
-                <p class="gridbox-letter no-targetable"> E </p>
+                <div class="gridbox-row__mobile">
+                    <p class="gridbox-letter no-targetable" data-r="1"> S </p>
+                    <p class="gridbox-letter no-targetable" data-r="1"> K </p>
+                    <p class="gridbox-letter no-targetable" data-r="1"> Y </p>
+                </div>
+                <div class="gridbox-row__mobile">
+                    <p class="gridbox-letter no-targetable" data-r="2"> L </p>
+                    <p class="gridbox-letter no-targetable" data-r="2"> I </p>
+                    <p class="gridbox-letter no-targetable" data-r="2"> T </p>
+                    <p class="gridbox-letter no-targetable" data-r="2"> E </p>
+                </div>
             </div>
             <div class="gridbox-side gs-2"></div>
             <a href="https://github.com/Martimex" target="_blank"> <p class="bottom-text"> Designed by MTX</p> </a>
@@ -297,8 +301,8 @@ body {
     overflow: hidden;
     /* Dynamic, animated value here ! */
     /* formula is: (oldVal - oldMin) * newRange / oldRange  + newMin */
-    translate: 0 calc(-1% * (max(var(--scroll), 25) - 25) * 100 / (75 + 0));
-    --background-opacity: calc(100%  - 1% * min(var(--scroll), 30) * 100 / (30 + 0));
+ /*    translate: 0 calc(-1% * (max(var(--scroll), 25) - 25) * 100 / (75 + 0));
+    --background-opacity: calc(100%  - 1% * min(var(--scroll), 30) * 100 / (30 + 0)); */
 
     box-shadow: inset 0 0 1rem .125rem #222;
 
@@ -500,10 +504,66 @@ body {
     } 
 } */
 
+@media screen and (orientation: portrait) and (max-height: 1024px) {
+
+    #navbar-top {
+        display: none;
+    }
+
+    .gridbox-content {
+        flex-flow: column;
+    }
+
+    .gridbox-row__mobile {
+        display: flex;
+        transform: translateY(-17.5%);
+    }
+
+    .gridbox-content .gridbox-row__mobile:nth-last-of-type(2n) {
+        transform: translateY(17.5%);
+    }
+
+    .gridbox-letter {
+        font-size: 16rem;
+    }
+    
+
+    .bottom-text {
+        font-size: 2rem;
+        text-align: center;
+        width: 100%;
+        margin-inline: 0;
+    }
+
+    .gs-1 {
+        top: -35%;
+    }
+
+    .gs-2 {
+        top: 35%;
+    }
+
+}
+
+@media screen and (orientation: portrait) and (max-height: 800px) {
+    
+    .gridbox-letter {
+        font-size: 13rem;
+    }
+}
+
+
 @media screen and (orientation: landscape) and (max-width: 1024px) {
 
     .nav-box--links {
         width: 100%;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-width: 800px) {
+
+    .gridbox-letter {
+        font-size: 10rem;
     }
 }
 

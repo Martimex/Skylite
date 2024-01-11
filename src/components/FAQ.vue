@@ -94,7 +94,7 @@ import ScrollTrigger from 'gsap/src/ScrollTrigger';
                 <div class="faq-answer">
                     <p class="p-answer leading-relaxed">
                         Our office is open only on weekdays, from 8:00 AM until 6:00 PM. However, You can still reach us every Saturday by calling us or writing an
-                        e-mail. Please note that on that days we work remotely till 4:00 PM, and we are not available on Sundays. 
+                        e-mail. Please note that these days we work remotely till 4:00 PM, and we are not available on Sundays. 
                     </p>
                 </div>
             </div>
@@ -207,7 +207,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
     .faq-item.active .faq-answer {
         /* Once .active is applied, the answer shows up */
-        max-height: 16rem;
+        max-height: 18rem;
     }
 
     .faq-item.active .custom-icon {
@@ -218,6 +218,38 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         transition: transform 500ms ease-in;
     }
 
+    @media screen and (orientation: portrait) and (max-height: 1024px) {
+        .faq-heading {
+            font-size: 6rem;
+            padding-bottom: 0;
+        }
+
+        .faq-box {
+            width: 85%;
+            padding-bottom: 5vh;
+        }
+
+        .custom-icon {
+            margin-left: 2.5rem;
+        }
+
+        .p-question {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: .05em;
+            margin-left: .5rem;
+        }
+
+        .p-answer {
+            font-size: 1.3rem;
+            margin-block: .5em;
+            line-height: 160%;
+            margin-left: 1rem;
+        }
+
+    }
+
+
 
     @media screen and (orientation: landscape) and (max-width: 1024px) {
 
@@ -226,8 +258,8 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         }
 
         .p-answer {
-            font-size: 1.2rem;
-            margin-bottom: .75em;
+            font-size: 1.25rem;
+            margin-block: 1em;
         }
 
     }
