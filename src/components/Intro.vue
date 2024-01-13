@@ -410,7 +410,7 @@ onMounted(() => {
 
     /* Portrait mobiles */
 
-    @media screen and (orientation: portrait) and (max-width: 1024px) {
+    @media screen and (orientation: portrait) and (max-width: 986px) {
 
         .grid-container {
             padding: 12.5vh 7.5vw 12.5vh 7.5vw;
@@ -453,7 +453,7 @@ onMounted(() => {
 
     /* Landscape mobiles */
 
-    @media screen and (orientation: landscape) and (max-width: 1024px) {
+    @media screen and (orientation: landscape) and (max-width: 986px) {
 
         .grid-text {
             max-width: 90%;

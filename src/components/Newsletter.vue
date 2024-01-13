@@ -159,8 +159,8 @@ onMounted(() => {
     }
 
     .news-box {
-        min-height: 100vh;
-        padding-block: 5%;
+        /* min-height: 100vh; */
+        padding-block: 7.5%;
         background: linear-gradient(#111, #000);
         display: grid;
         grid-template-columns: 60% 40%;
@@ -237,10 +237,12 @@ onMounted(() => {
     }
 
     .content-signup {
+        font-size: 1.5rem;
         display: flex;
         flex-flow: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: flex-start;
+        margin-block: 1.5em 25%;
     }
 
     .form-box {
@@ -256,6 +258,7 @@ onMounted(() => {
         /* text-shadow: .2em .2em .1em #222; */
         min-width: 60%;
         color: #ddd;
+        margin-bottom: 2.5rem;
     }
 
     .valid1 {
@@ -353,7 +356,7 @@ onMounted(() => {
         border-radius: 1rem;
     }
 
-    @media screen and (orientation: portrait) and (max-height: 1024px) {
+    @media screen and (orientation: portrait) and (max-height: 986px) {
         .news-heading {
             font-size: 6rem;
             padding-inline: 5%;
@@ -436,9 +439,10 @@ onMounted(() => {
     }
 
 
-    @media screen and (orientation: landscape) and (max-width: 1024px) {
+    @media screen and (orientation: landscape) and (max-width: 986px) {
 
         .news-box {
+            min-height: 100vh;
             padding-block: 2.5%;
         }
 
@@ -452,10 +456,17 @@ onMounted(() => {
             margin-block: 1.25em 2em;
         }
 
+        .content-signup {
+            align-items: center;
+            justify-content: space-evenly;
+            margin-block: 0;
+        }
+
         .form-box {
             font-size: 1.05rem;
             padding: 1.25em;
             min-width: 66%;
+            margin-bottom: 0;
         }
 
         .content-cta {

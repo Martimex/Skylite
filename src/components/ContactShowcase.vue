@@ -139,7 +139,7 @@ onMounted(() => {
         background: #000;
     }
 
-    @media screen and (orientation: portrait) and (max-height: 1024px) {
+    @media screen and (orientation: portrait) and (max-height: 986px) {
 
         .contact-showcase-layer {
             height: calc(100vh - 0rem);
@@ -155,7 +155,7 @@ onMounted(() => {
     }
 
 
-    @media screen and (orientation: landscape) and (max-width: 1024px) {
+    @media screen and (orientation: landscape) and (max-width: 986px) {
         .contact-showcase-layer {
             height: calc(100vh - 0rem);
         }

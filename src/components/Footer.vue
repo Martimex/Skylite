@@ -466,7 +466,7 @@ onMounted(() => {
         transform: translateY(0rem);
     }
 
-    @media screen and (orientation: portrait) and (max-height: 1024px) {
+    @media screen and (orientation: portrait) and (max-height: 986px) {
         
         .footer {
             padding-top: 12.5em;
@@ -547,7 +547,7 @@ onMounted(() => {
 
     }
 
-    @media screen and (orientation: landscape) and (max-width: 1024px) {
+    @media screen and (orientation: landscape) and (max-width: 986px) {
         
         .about-text {
             font-weight: 400;

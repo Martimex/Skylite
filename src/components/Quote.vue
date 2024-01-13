@@ -180,7 +180,7 @@ onMounted(() => {
 
     /* Portrait mobiles */
 
-    @media screen and (orientation: portrait) and (max-height: 1024px) {
+    @media screen and (orientation: portrait) and (max-height: 986px) {
         .quote-layout {
             min-height: fit-content;
             padding-block: 12.5vh;
@@ -213,7 +213,7 @@ onMounted(() => {
     
     /* Lanscape mobiles */
 
-    @media screen and (orientation: landscape) and (max-width: 1024px) {
+    @media screen and (orientation: landscape) and (max-width: 986px) {
         
         #svg5 {
             max-height: 33vh;

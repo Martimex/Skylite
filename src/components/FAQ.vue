@@ -218,7 +218,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         transition: transform 500ms ease-in;
     }
 
-    @media screen and (orientation: portrait) and (max-height: 1024px) {
+    @media screen and (orientation: portrait) and (max-height: 986px) {
         .faq-heading {
             font-size: 6rem;
             padding-bottom: 0;
@@ -251,7 +251,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 
 
 
-    @media screen and (orientation: landscape) and (max-width: 1024px) {
+    @media screen and (orientation: landscape) and (max-width: 986px) {
 
         .faq-heading{
             padding-bottom: 0;

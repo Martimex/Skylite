@@ -344,7 +344,7 @@ onMounted(() => {
         color: #ddd;
     }
 
-    @media screen and (orientation: portrait) and (max-height: 1024px) {
+    @media screen and (orientation: portrait) and (max-height: 986px) {
 
         .emp-main {
             padding-inline: 5vw;
@@ -393,7 +393,7 @@ onMounted(() => {
     }
 
 
-    @media screen and (orientation: landscape) and (max-width: 1024px) {
+    @media screen and (orientation: landscape) and (max-width: 986px) {
 
         .emp-main {
             padding-inline: 8vw;

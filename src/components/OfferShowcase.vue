@@ -404,7 +404,7 @@ onMounted(() => {
         --red-lite: hsla(3, 100%, 68%, .5);
 
         font-size: 1rem;
-        padding-bottom: 15vh;
+        padding-bottom: 25vh;
         z-index: 0;
         /* border-bottom: 2.5em solid pink; */
         position: relative;
@@ -460,7 +460,7 @@ onMounted(() => {
         font-size: 1rem;
         margin-top: 5vh;
         margin-inline: 6em 0;
-        min-height: 75vh;
+        /* min-height: 75vh; */
         /* background: #2220; */
         background-image: linear-gradient(45deg, #2221, #1111);
         border-radius: 1em;
@@ -527,7 +527,7 @@ onMounted(() => {
     }
 
     .offer-details {
-
+        padding-bottom: 10vh;
     }
 
     .offer-description {
@@ -909,7 +909,7 @@ onMounted(() => {
         font-family: Audiowide, 'Courier New', Courier, monospace;
     }
 
-    @media screen and (orientation: portrait) and (max-height: 1024px) {
+    @media screen and (orientation: portrait) and (max-height: 986px) {
 
         .offer-all {
             margin-inline: 5vw;
@@ -917,6 +917,10 @@ onMounted(() => {
 
         .offer-all:nth-child(1) {
             padding-top: 0vh;
+        }
+
+        .offer-item {
+            padding-bottom: 15vh;
         }
 
         .offer-item:not(:first-child) {
@@ -933,6 +937,10 @@ onMounted(() => {
 
         .offer-dash {
             display: none;
+        }
+
+        .offer-details {
+            padding-bottom: 0;
         }
 
 /*         .offer-item:nth-child(2n) .offer-semititle {
@@ -1057,7 +1065,7 @@ onMounted(() => {
 
     }
 
-    @media screen and (orientation: landscape) and (max-width: 1024px) {
+    @media screen and (orientation: landscape) and (max-width: 986px) {
 
         .offer-all {
             margin-inline: 5vw;
@@ -1083,6 +1091,10 @@ onMounted(() => {
             font-weight: 450 !important;
         }
 
+        .offer-details {
+            padding-bottom: 0;
+        }
+
         .outro-button {
             padding: 1em 3em;
         }
@@ -1091,7 +1103,7 @@ onMounted(() => {
 
     @media screen and (orientation: landscape) and (max-width: 800px) {
 
-        /* This is a helper query for smaller mobiles screens (it applies alongside with above media query for max-width: 1024px ) */
+        /* This is a helper query for smaller mobiles screens (it applies alongside with above media query for max-width: 986px ) */
 
         .offer-content, .offer-item:nth-child(2n) .offer-content {
             margin-inline: 0;

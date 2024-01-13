@@ -472,7 +472,7 @@ onMounted(() => {
         border-radius: 10%; 
     }
 
-    @media screen and (orientation: portrait) and (max-height: 1024px) {
+    @media screen and (orientation: portrait) and (max-height: 986px) {
 
         .companies-introduction {
             overflow-wrap: break-word;
@@ -504,7 +504,7 @@ onMounted(() => {
         }
     }
 
-    @media screen and (orientation: landscape) and (max-width: 1024px) {
+    @media screen and (orientation: landscape) and (max-width: 986px) {
 
         .custom-icon {
             font-size: 4.75rem;

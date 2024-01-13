@@ -261,7 +261,7 @@
         max-width: 650px;
     }
 
-    @media screen and (orientation: portrait) and (max-height: 1024px) {
+    @media screen and (orientation: portrait) and (max-height: 986px) {
 
         .second-line-box {
             flex-flow: column;
@@ -283,7 +283,7 @@
         }
     }
 
-    @media screen and (orientation: landscape) and (max-width: 1024px) {
+    @media screen and (orientation: landscape) and (max-width: 986px) {
         .reviews-block {
             max-width: min(520px, 66vw);
         }

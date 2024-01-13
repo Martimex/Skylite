@@ -497,14 +497,14 @@ body {
     text-align: center;
 } */
 
-/* @media (min-width: 1024px) {
+/* @media (min-width: 986px) {
     .greetings h1,
     .greetings h3 {
         text-align: left;
     } 
 } */
 
-@media screen and (orientation: portrait) and (max-height: 1024px) {
+@media screen and (orientation: portrait) and (max-height: 986px) {
 
     #navbar-top {
         display: none;
@@ -553,7 +553,7 @@ body {
 }
 
 
-@media screen and (orientation: landscape) and (max-width: 1024px) {
+@media screen and (orientation: landscape) and (max-width: 986px) {
 
     .nav-box--links {
         width: 100%;

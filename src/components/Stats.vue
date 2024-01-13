@@ -258,6 +258,8 @@ onMounted(() => {
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 20% 1fr;
+        /* place-content: center; */
+        place-items: center;
         /* grid-template-rows: 1fr auto; */
     }
 
@@ -265,16 +267,18 @@ onMounted(() => {
         font-size: 3.5rem;
         text-transform: uppercase;
         font-weight: 650;
+        justify-self: flex-start;
     }
 
     .collab-slider {
         display: flex;
-        align-items: center;
+        /* align-items: center; */
         justify-content: start;
         /* min-height: 50vh; */
         /* background: lightgreen; */
         transform: translateX(25%);  /* ANIMATE: translateX(25%) to translateX(-100%) */
         /* width: fit-content; */
+        height: max-content;
     }
 
     .collab-slide {
@@ -285,8 +289,10 @@ onMounted(() => {
         background: #ddd;
         background: linear-gradient(135deg, hsl(167, 70%, 90%), hsl(211, 70%, 90%));
         width: min(600px, 30vw);
-        min-height: 70vh;
+        /* min-height: 70vh; */
+        /* height: max-content; */
         padding: 2rem 2.5rem;
+        padding-bottom: 15vh;
         margin-inline: 1rem;
         border-radius: 2.5%;
         box-shadow: 0 .2rem .7rem .2rem #333;
@@ -333,6 +339,7 @@ onMounted(() => {
         color: #222;
         border: .1em solid #222;
         box-shadow: 0 0 .125em .125em #222a;
+        white-space: nowrap;
 
         transition: all 400ms ease-in;
     }
@@ -691,7 +698,7 @@ onMounted(() => {
         background: linear-gradient(0deg, #1118, #0000 99%);
     }
 
-    @media screen and (orientation: portrait) and (max-height: 1024px) {
+    @media screen and (orientation: portrait) and (max-height: 986px) {
 
         .bg-layer {
             padding-block: 5vh 7.5vh;
@@ -756,7 +763,8 @@ onMounted(() => {
 
         .collab-slide {
             width: max(275px, 60vw);
-            min-height: 45vh;
+            padding-bottom: 10vh;
+            /* min-height: 45vh; */
             margin-inline: .75rem;
         }
 
@@ -781,6 +789,10 @@ onMounted(() => {
             font-size: 3rem;
         }
 
+        .collab-title {
+            align-self: flex-start;
+        }
+
         .benefit-text {
             font-size: 1.2rem;
             line-height: 135%;
@@ -801,7 +813,7 @@ onMounted(() => {
         }
     }
 
-    @media screen and (orientation: landscape) and (max-width: 1024px) {
+    @media screen and (orientation: landscape) and (max-width: 986px) {
 
         .collab-presentation {
             margin-top:  20vh;
@@ -810,7 +822,8 @@ onMounted(() => {
 
         .collab-slide {
             width: max(325px, 30vw);
-            min-height: 75vh;
+            /* min-height: 75vh; */
+            padding-bottom: 10vh;
         }
 
         .slide-text {
