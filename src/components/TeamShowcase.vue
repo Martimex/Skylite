@@ -344,7 +344,7 @@ onMounted(() => {
         color: #ddd;
     }
 
-    @media screen and (orientation: portrait) and (max-height: 986px) {
+    @media screen and (orientation: portrait)   {
 
         .emp-main {
             padding-inline: 5vw;
@@ -385,6 +385,7 @@ onMounted(() => {
 
         .emp-desc {
             font-size: 1.2rem;
+            max-width: 500px;
         }
 
         .emp-button {

@@ -62,9 +62,9 @@ const redirectPrompt = (dest_name: string) => {
 </script>
 
 <template>
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Audiowide:300,400,600,700,800&amp;lang=en" />
+  <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Audiowide:300,400,600,700,800&amp;lang=en" /> -->
   <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Tenor+Sans:300,400,600,700,800&amp;lang=en" /> -->
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playpen+Sans:300,400,600,700&amp;lang=en" />
+  <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playpen+Sans:300,400,600,700&amp;lang=en" /> -->
   <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,600,700&amp;lang=en" /> -->
   <link href="../dist/output.css" rel="stylesheet" />
 <!--   <header>
@@ -154,15 +154,27 @@ const redirectPrompt = (dest_name: string) => {
     pointer-events: none;
   }
 
-  @media screen and (orientation: landscape) and (max-width: 1024px) {
+  @media screen and (orientation: landscape) and (max-width: 986px) {
     html {
       font-size: 11px;
     }
   }
 
-  @media screen and (orientation: portrait) and (max-height: 1024px) {
+  @media screen and (orientation: portrait) and (max-height: 986px) {
     html {
       font-size: 10.5px;
+    }
+  }
+
+  @media screen and (orientation: portrait) and (min-width: 768px) and (max-width: 986px) {
+    html {
+      font-size: 14.5px;
+    }
+  }
+
+  @media screen and (orientation: landscape) and (min-height: 768px) and (max-height: 986px) {
+    html {
+      font-size: 14.5px;
     }
   }
 

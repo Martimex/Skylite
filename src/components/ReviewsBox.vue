@@ -53,7 +53,7 @@
         /* box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); */
     }
 
-    @media screen and (orientation: portrait) and (max-height: 986px) {
+    @media screen and (orientation: portrait)   {
         blockquote {
             font-size: 1.1rem;
         }

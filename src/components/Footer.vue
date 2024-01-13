@@ -466,7 +466,7 @@ onMounted(() => {
         transform: translateY(0rem);
     }
 
-    @media screen and (orientation: portrait) and (max-height: 986px) {
+    @media screen and (orientation: portrait)   {
         
         .footer {
             padding-top: 12.5em;
@@ -485,6 +485,12 @@ onMounted(() => {
         .section-socials, .section-links, .section-contact {
             padding-block: 2rem;
         }
+
+        .section-socials, .section-links, .section-contact, .about-text {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
 
         .socials-box {
             margin-inline: 10%;

@@ -472,7 +472,7 @@ onMounted(() => {
         border-radius: 10%; 
     }
 
-    @media screen and (orientation: portrait) and (max-height: 986px) {
+    @media screen and (orientation: portrait)   {
 
         .companies-introduction {
             overflow-wrap: break-word;

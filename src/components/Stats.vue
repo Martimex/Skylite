@@ -698,7 +698,7 @@ onMounted(() => {
         background: linear-gradient(0deg, #1118, #0000 99%);
     }
 
-    @media screen and (orientation: portrait) and (max-height: 986px) {
+    @media screen and (orientation: portrait)   {
 
         .bg-layer {
             padding-block: 5vh 7.5vh;
@@ -749,6 +749,7 @@ onMounted(() => {
         .benefit-text {
             margin-inline: 0;
             font-size: 1.25rem;
+            max-width: 500px;
         }
 
         .collab-title {

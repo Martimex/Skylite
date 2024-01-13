@@ -180,7 +180,7 @@ onMounted(() => {
 
     /* Portrait mobiles */
 
-    @media screen and (orientation: portrait) and (max-height: 986px) {
+    @media screen and (orientation: portrait)   {
         .quote-layout {
             min-height: fit-content;
             padding-block: 12.5vh;

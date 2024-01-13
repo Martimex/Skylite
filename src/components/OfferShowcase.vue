@@ -909,7 +909,7 @@ onMounted(() => {
         font-family: Audiowide, 'Courier New', Courier, monospace;
     }
 
-    @media screen and (orientation: portrait) and (max-height: 986px) {
+    @media screen and (orientation: portrait)   {
 
         .offer-all {
             margin-inline: 5vw;

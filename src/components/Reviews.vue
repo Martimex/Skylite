@@ -261,7 +261,7 @@
         max-width: 650px;
     }
 
-    @media screen and (orientation: portrait) and (max-height: 986px) {
+    @media screen and (orientation: portrait)   {
 
         .second-line-box {
             flex-flow: column;

@@ -218,7 +218,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         transition: transform 500ms ease-in;
     }
 
-    @media screen and (orientation: portrait) and (max-height: 986px) {
+    @media screen and (orientation: portrait)   {
         .faq-heading {
             font-size: 6rem;
             padding-bottom: 0;

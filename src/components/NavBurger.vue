@@ -213,7 +213,7 @@ function openNav() {
     }
 
 
-    @media screen and (orientation: portrait) and (max-height: 986px) {
+    @media screen and (orientation: portrait)   {
 
         .burger-icon {
             font-size: 4rem;

@@ -356,7 +356,7 @@ onMounted(() => {
         border-radius: 1rem;
     }
 
-    @media screen and (orientation: portrait) and (max-height: 986px) {
+    @media screen and (orientation: portrait)   {
         .news-heading {
             font-size: 6rem;
             padding-inline: 5%;
@@ -367,7 +367,7 @@ onMounted(() => {
             display: grid;
             grid-template-columns: 100%;
             grid-template-rows: repeat(2, auto);
-            padding-block: 5vh;
+            padding-block: 7.5vh;
             place-content: center;
         }
 
@@ -376,7 +376,7 @@ onMounted(() => {
         }
 
         .news-content:not(.news-visual) {
-            margin-top: 3rem;
+            margin-top: 5rem;
         }
 
         .content-title {
@@ -400,6 +400,7 @@ onMounted(() => {
 
         .content-signup {
             display: block;
+            margin-block: 1.5em 0;
         }
 
         .form-box {
