@@ -14,20 +14,6 @@ onMounted(() => {
 
     gsap.registerPlugin(ScrollTrigger);
 
-/*     const main = gsap.timeline();
-    main.to(`.bubble-section .bubble`, {scale: 1, duration: 3});
-
-    ScrollTrigger.create({
-        animation: main,
-        trigger: '.bubble-section',
-        endTrigger: '.bubble-section',
-        start: 'center center',
-        end: "+=1000",
-        scrub: .7,
-        pin: true,
-        anticipatePin: 1,
-    }); */
-
     // Employees section observers
     const targets = document.querySelectorAll(`.emp-main .emp-bio`);
     targets && targets.forEach(target => observer.observe(target));
@@ -39,13 +25,6 @@ onMounted(() => {
 </script>
 
 <template>
-
-<!--     <div class="bubble-section">
-        <div class="bubble"></div>
-        <p class="emp-introduction"> 
-            We are not just a regular PR company. We primarily perceive ourselves as a team of professionals willing to bring help to the others 
-        </p>
-    </div> -->
     
     <div class="emp-main">
         <div class="emp-top-wrapper component-layout-light-1"></div>
@@ -159,10 +138,9 @@ onMounted(() => {
 
     .emp-main {
         margin: 0 auto;
-        padding: 5vh 12vw;  /* WHEN USING MEDIA QUERIES, LOWER THE 12vw padding to some lower values */
+        padding: 5vh 12vw;
         box-shadow: 0 .25rem .5rem .3rem #eee;
         transform: translateZ(-1px); /* It partially solves a (pinning?) problem, where a gray thick line appears between bubble and TeamShowcase main section - thanks to this declaration, the line becomes white  */
-        /* border-top: 10px solid white; */
     }
 
     .emp-top-wrapper {
@@ -172,8 +150,6 @@ onMounted(() => {
         left: 0;
         width: 100%;
         padding: 1rem;
-/*         background-color: #eeeeee;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23222222' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); */
     }
 
     .emp-bios {
@@ -188,7 +164,6 @@ onMounted(() => {
         color: #111;
         padding-block: 10vh;
         margin-block: 1.5rem;
-        /* min-height: clamp(10rem, 100%, 30rem); */
 
         transition: all 500ms ease-in-out;
             transform: translateX(-2rem);
@@ -214,7 +189,7 @@ onMounted(() => {
     }
 
     .emp-bio:nth-child(even) .photo-wrapper {
-        justify-content: end;
+        justify-content: flex-end;
     }
 
     .emp-visual, .emp-info {
@@ -228,14 +203,11 @@ onMounted(() => {
     }
 
     .photo-wrapper {
-        /* margin: 1.5rem; */
         margin-inline: 1.5rem;
-        /* max-width: 30rem; */
         display: flex;
     }
 
     .photo-box {
-        /* max-width: 50%; */
         font-size: 1rem;
         padding: .25em;
         background: #ddd;
@@ -245,19 +217,14 @@ onMounted(() => {
     }
 
     .emp-photo {
-        /* display: none; */
         font-size: 1rem;
         width: 100%;
-        /* height: clamp(10rem, 100%, 30rem); */
         border-radius: 50%;
-        /* border: .25em solid #222; */
-        /* box-shadow: 0 0 .5em .25em #333; */
         filter: saturate(120%);
     }
 
     .emp-info {
         height: calc(100% - 3rem);
-        /* min-height: clamp(10rem, 100%, 30rem); */
         margin-block: 3rem;
         margin-right: auto;
         margin-left: 2rem;
@@ -358,7 +325,6 @@ onMounted(() => {
         .emp-bio:nth-child(even) .emp-info {
             order: 0;
             margin-left: 2rem !important;
-            /* margin-right: 0rem !important; */
         }
 
         .emp-info {

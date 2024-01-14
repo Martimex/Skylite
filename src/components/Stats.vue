@@ -16,15 +16,11 @@ const observer2 = new IntersectionObserver((elements) => {
 }, {threshold: .75})
 
 onMounted(() => {
-    // const slider = document.querySelector(`.collab-slider`);
 
     const section_text = document.querySelector(`.heading-title`);
     const collab_image = document.querySelector(`.collab-image`);
     section_text && observer.observe(section_text);
     collab_image && observer2.observe(collab_image);
-
-/*     const collab_text = document.querySelector(`.collab-desc`);
-    collab_text && observer.observe(collab_text); */
 
     const t1 = gsap.timeline();
         t1.to(`.collab-desc-1`, {yPercent: 10, opacity: 1, scale: .8})
@@ -50,7 +46,6 @@ onMounted(() => {
         end: '+=3000',
         scrub: true,
         pin: true,
-        /* anticipatePin: 1, */
     })
 
     gsap.to(`.collab-slider`, {
@@ -58,7 +53,6 @@ onMounted(() => {
             trigger: `.collab-presentation`,
             start: `0% 0%`,
             end: `+=3200`, /* Modifying this value might need some collab-presentation items width size fixes, especially for media queries ! */
-            /* markers: true, */
             scrub: 1,
             pin: true,
             toggleActions: 'play pause restart pause',
@@ -66,27 +60,13 @@ onMounted(() => {
         transform: 'translateX(-75%)',
     });
 
-/*     gsap.to(`.spacer-dark`, {
-        scrollTrigger: {
-            trigger: `.spacer-dark`,
-            start: `-50% 60%`,
-            end: `75% 30%`,
-            markers: true,
-            scrub: true,
-            toggleActions: 'play pause restart pause',
-        },
-        height: '0',
-    }) */
 })
 
 </script>
 
 <template>
 
-    <!-- NEW -->
-
     <div class="bg-layer">
-        <div class="spacer-dark"></div>
 
         <p class="heading-title"> Collab with us </p>
 
@@ -122,15 +102,9 @@ onMounted(() => {
             </div>
             <div class="collab-image"></div>
             <div class="collab-content no-targetable">
-                <!-- <span class="collab-desc">
-                    We are open for long-time coopearation with companies just like yours !
-                    Team up with the most influencial PR brand and let's grow together.
-                    Join our collaboration list now and reap the benefits of joining our big family.
-                </span> -->
                 <span class="collab-desc collab-desc-1 no-targetable"> We are open for long-time cooperation with companies just like yours!</span>
                 <span class="collab-desc collab-desc-2 no-targetable"> Team up with the most influencial PR brand and let's grow together.</span>
                 <span class="collab-desc collab-desc-3 no-targetable"> Join our collaboration list now and reap the benefits of joining our family.</span>
-
             </div>
         </div>
 
@@ -169,14 +143,6 @@ onMounted(() => {
                         agreement, You officially become our Collaborator. Congratulations!
                     </span>
                 </div>
-<!--                 <div class="collab-slide">
-                    <font-awesome-icon icon="phone" class="slide-icon" />
-                    <p class="slide-title"> Lower CPX </p>
-                    <span class="slide-text">
-                        Our solution is designed to adapt to the changing needs of your business. Our low code user interface enables planners and operators to optimize
-                        and modify without coding. 
-                    </span>
-                </div> -->
 
                 <!-- Last one is actually a CTA button -->
                 <div class="collab-slide slide-action">
@@ -193,74 +159,18 @@ onMounted(() => {
         </div>
     </div>
 
-
-
-    <!-- OLD -->
-
-<!--     <p class="section-title text-center text-blue-400 font-bold text-5xl tracking-wide my-16"> Not convinced yet? Let the numbers do the job </p>
-
-    <div class="flex justify-center align-middle min-h-screen min-w-full">
-        <ul class="custom-ul bg-blue-500 w-screen grid grid-cols-1 grid-rows-3">
-            <li class="custom-li bg-gradient-to-l from-blue-500 to-cyan-500 relative border-b-8 border-black flex flex-col align-middle justify-center shadow-lg shadow-cyan-500">
-                <div class="deco-div deco-div-1 absolute"></div>
-                <span class="custom-span span-title section-title font-semibold"> 800+ </span>
-                <span class="custom-span section-title "> Companies we worked with so far</span>
-            </li>
-            <li class="custom-li chosen-li bg-gradient-to-l from-blue-500 to-cyan-500 relative border-y-8 border-black flex flex-col align-middle justify-center">
-                <div class="deco-div deco-div-2 absolute"></div>
-                <span class="custom-span span-title section-title font-semibold"> 800+ </span>
-                <span class="custom-span section-title "> Companies we worked with so far</span>
-            </li>
-            <li class="custom-li bg-gradient-to-l from-blue-500 to-cyan-500 relative border-t-8 border-black flex flex-col align-middle justify-center shadow-lg shadow-cyan-500">
-                <div class="deco-div deco-div-3 absolute"></div>
-                <span class="custom-span span-title section-title font-semibold"> 800+ </span>
-                <span class="custom-span section-title "> Companies we worked with so far</span>
-            </li>
-        </ul>
-
-        <div class="section-title custom-div relative grid grid-cols-1 grid-rows content-evenly justify-items-center bg-gradient-to-r from-blue-500 to-cyan-500 w-screen shadow-lg shadow-cyan-500">
-            <div class="flex w-full">
-                <div class="icon-wing iw-left"></div>
-                <div class="flex">
-                        <div class="icon-frame w-fit p-20 rounded-full bg-gradient-to-l from-blue-400 to-cyan-400">
-                            <font-awesome-icon icon="phone" class="custom-icon text-3xl scale-150" />
-                        </div>
-                </div>
-                <div class="icon-wing iw-right"></div>
-            </div>
-
-            <span class="text-center text-xl font-medium leading-relaxed">
-                We have helped more than 800 of companies from all over the world to get recognized. Many of them used our services more than once. 
-            </span>
-        </div>
-    </div> -->
 </template>
 
 <style scoped>
 
-    /* V2 */
-
-/*     .spacer-dark {
-        position: absolute;
-        top: 0%;
-        left: 0;
-        height: 20vh;
-        width: 100%;
-        background: #000;
-        z-index: 1;
-    } */
-
     .collab-presentation {
         min-height: 100vh;
-        /* background: pink; */
         margin-top: 12.5vh;
         padding-block: 5vh 7.5vh;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 20% 1fr;
-        /* place-content: center; */
         place-items: center;
-        /* grid-template-rows: 1fr auto; */
     }
 
     .collab-title {
@@ -272,25 +182,15 @@ onMounted(() => {
 
     .collab-slider {
         display: flex;
-        /* align-items: center; */
-        justify-content: start;
-        /* min-height: 50vh; */
-        /* background: lightgreen; */
+        justify-content: flex-start;
         transform: translateX(25%);  /* ANIMATE: translateX(25%) to translateX(-100%) */
-        /* width: fit-content; */
         height: max-content;
     }
 
     .collab-slide {
-/*         display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        flex-flow: column; */
         background: #ddd;
         background: linear-gradient(135deg, hsl(167, 70%, 90%), hsl(211, 70%, 90%));
         width: min(600px, 30vw);
-        /* min-height: 70vh; */
-        /* height: max-content; */
         padding: 2rem 2.5rem;
         padding-bottom: 15vh;
         margin-inline: 1rem;
@@ -330,7 +230,6 @@ onMounted(() => {
         position: relative;
         z-index: 0;
         display: inline-block;
-        max-width: 40%;
         border-radius: 9999px;
         border-top-left-radius: 5%;
         border-bottom-left-radius: 5%;
@@ -386,21 +285,11 @@ onMounted(() => {
         color: #ddd;
     }
 
-
     .slide-icon {
         font-size: 3rem;
-        /* color: #bbb; */
         color: #444;
         filter: drop-shadow(0 0 .25rem  #777);
     }
-
-/*     .collab-slide:nth-child(2n) .slide-icon {
-        filter: drop-shadow(0 0 .5rem hsl(199, 70%, 70%));
-    }
-
-    .slide-action .slide-icon {
-        filter: drop-shadow(0 0 .5rem hsl(167, 70%, 90%));
-    } */
 
     .slide-title {
         font-size: 1.7rem;
@@ -413,28 +302,15 @@ onMounted(() => {
         line-height: 1.65;
     }
 
-    /* NEW STYLES */
-
     .bg-layer {
-        /* position: relative; */
         padding-block: 5vh 15vh;
         padding-inline: 5vw;
-        /* background: linear-gradient(45deg, #ddd, #eee); */
-        /* gap: 10vh; */
-        /* box-shadow: 0 -.25rem .5rem .3rem #eee; */
-
-/*         background-color: #eeeeee;
-        background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23111111' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
         position: relative;
     }
 
     .collab-box {
         height: 100vh;
         position: relative;
-        /* background-color: black; */
-        /* backdrop-filter: grayscale(100%); */
-/*         padding-block: 20vh;
-        padding-inline: 10vh; */
     }
 
     .collab-benefits-box {
@@ -443,9 +319,6 @@ onMounted(() => {
         left: 0;
         height: 100vh;
         width: 100%;
-/*         display: flex;
-        align-items: center;
-        justify-content: space-around; */
         display: grid;
         grid-template-columns: 33% 34% 33%;
         grid-template-rows: auto;
@@ -460,11 +333,6 @@ onMounted(() => {
         grid-template-rows: 50% 50%;
         row-gap: 2.5rem;
         min-height: 100vh;
-/*         display: flex;
-        flex-flow: column;
-        align-items: flex-end;
-        justify-content: center;
-        row-gap: 2.5rem; */
     }
 
     .benefit-frame {
@@ -484,7 +352,6 @@ onMounted(() => {
         font-size: 5rem;
         color: #333;
         filter: drop-shadow(0 0 .5rem #ddd);
-        
     }
 
     .benefit-text {
@@ -500,7 +367,6 @@ onMounted(() => {
         top: 0;
         left: 0;
         width: 100%;
-        /* transform: scaleX(1); */ /* Will be animated to 1.2 with Intersection observer  */
         height: 100%;
         background-color: #ddd;
         background-image: url(../assets/bg5.png);
@@ -514,7 +380,6 @@ onMounted(() => {
     }
 
     .collab-image.show {
-        /* transform: scaleX(1.2); */
         width: 105vw;
         left: -7.5vw;
     }
@@ -527,10 +392,6 @@ onMounted(() => {
         grid-template-columns: 100%;
         grid-template-rows: 100%;
         place-items: center;
-/*         display: flex;
-        flex-flow: column;
-        align-items: center;
-        justify-content: center; */
         padding: 10%;
     }
 
@@ -542,34 +403,25 @@ onMounted(() => {
         text-align: center;
         grid-column: 1;
         grid-row: 1;
-        /* position: absolute; top: 50%; left: 0%; */
         
         transition: 1200ms all ease-out;
-            /* scale: 1.1; */
             opacity: 0;
             transform: translateY(0rem);
     }
-
-/*     .collab-desc.show {
-        scale: .8;
-        opacity: 1;
-        transform: translateY(5rem);
-    } */
 
     .heading-title {
         font-size: 6rem;
         font-weight: 700;
         text-align: center;
-        /* position: relative; */
         line-height: 1.5;
         margin-bottom: 10vh;
         text-transform: uppercase;
         -webkit-text-stroke: .12rem #111;
         color: #ddd;
+
         transition: all 800ms ease-in-out;
             opacity: 0;
             transform: translateX(-3rem);
-
     }
 
     .heading-title.show {
@@ -577,126 +429,6 @@ onMounted(() => {
         transform: translateX(0rem);
     }
 
-
-    /* OLD STYLES */
-
-    .icon-frame {
-        border: .8em double #222;
-        box-shadow: 0 0 .6em .12em #111, inset 0 0 .225em .12em #333;
-    }
-    .section-title {
-        /* font-family: Audiowide, 'Courier New', Courier, monospace; */
-    }
-
-    .custom-span {
-        /* transform: skewY(-20deg); */
-        font-size: 1.1rem;
-        margin-left: 30%;
-        margin-right: 10%;
-    }
-
-    .span-title {
-        font-size: 2.4rem;
-        padding: .3em 0;
-    }
-
-    .custom-li {
-        /* transform: skewY(20deg); */
-        border-top-right-radius: 2.5%;
-        border-bottom-right-radius: 2.5%;
-    }
-
-    .chosen-li {
-        box-shadow: inset 0 0 .5em .11em white, 0 1rem .75em .22em cyan;
-        border-right: .22em  solid cyan;
-    }
-
-    .chosen-li .custom-span {
-        color: #ddd;
-    }
-
-    .custom-ul {
-       /*  margin-left: 2%; */
-        border-top-right-radius: 2.5%;
-        border-bottom-right-radius: 2.5%;
-        /* padding-right: 1em; */
-    }
-
-    .custom-div {
-        padding: 0 5%;
-        margin-top: 5%;
-        margin-bottom: 5%;
-        margin-left: 2.5%;
-        padding: auto 10%;
-        border-top-left-radius: 2.5%;
-        border-bottom-left-radius: 2.5%;
-    }
-
-    .custom-div, .custom-ul {
-        box-shadow: 0 0 1.3em .32em #3b82f6;
-    }
-
-    .custom-icon {
-        font-size: 5rem;
-        color: #111c;
-    }
-
-    .deco-div {
-        left: 0;
-        width: 20%;
-        height: 100%;
-        background: none;
-    }
-
-    .deco-div-1 {
-        top: 0;
-        border-bottom: 3rem solid #000;
-        border-left: 100%  solid transparent;
-        border-right: 2rem solid transparent;
-    }
-
-    .deco-div-2 {
-        background: #000;
-    }
-
-    .deco-div-3 {
-        bottom: 0;
-        border-top: 3rem solid #000;
-        border-left: 100%  solid transparent;
-        border-right: 2rem solid transparent;
-    }
-
-    .icon-wing {
-/*         position: absolute;
-        top: 60%; */
-        align-self: center;
-        font-size: 1rem;
-        width: 80%;
-        height: 0%;
-        padding: calc(5% / 2) 0;
-        margin: auto;
-        border-radius: 5%;
-        border: .12em double #222;
-        box-shadow: .05em 0 .4em .1em #000;
-        /* padding: 1em; */
-    }
-
-    .iw-left {
-        /* left: 15%; */
-        margin-right: 5%;
-        border-top-left-radius: 9999px;
-        border-bottom-left-radius: 9999px;
-        background: linear-gradient(0deg, #1118, #0000 99%);
-        /* transform: skewX(4deg); */
-    }
-
-    .iw-right {
-        /* left: 65%; */
-        margin-left: 5%;
-        border-top-right-radius: 9999px;
-        border-bottom-right-radius: 9999px;
-        background: linear-gradient(0deg, #1118, #0000 99%);
-    }
 
     @media screen and (orientation: portrait)   {
 
@@ -717,10 +449,6 @@ onMounted(() => {
             padding: 0;
         }
 
-        .collab-image {
-
-        }
-
         .collab-benefits-box {
             display: flex;
             flex-flow: column;
@@ -734,7 +462,6 @@ onMounted(() => {
             flex-flow: column;
             min-height: unset;
             row-gap: 2rem;
-            /* margin-block: 20vh; */
         }
 
         .benefit-frame {
@@ -765,7 +492,6 @@ onMounted(() => {
         .collab-slide {
             width: max(275px, 60vw);
             padding-bottom: 10vh;
-            /* min-height: 45vh; */
             margin-inline: .75rem;
         }
 
@@ -823,7 +549,6 @@ onMounted(() => {
 
         .collab-slide {
             width: max(325px, 30vw);
-            /* min-height: 75vh; */
             padding-bottom: 10vh;
         }
 

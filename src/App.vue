@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-import Navbar from './components/Navbar.vue';
-import Piano from './components/Piano.vue';
-
 import NavBurger from './components/NavBurger.vue';
 import Start from './components/Start.vue';
 import Quote from './components/Quote.vue';
@@ -17,7 +12,6 @@ import Newsletter from './components/Newsletter.vue';
 import FAQ from './components/FAQ.vue';
 import ContactShowcase from './components/ContactShowcase.vue';
 import Footer from './components/Footer.vue';
-import { ref } from 'vue';
 
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
@@ -34,18 +28,6 @@ gsap.ticker.add((time)=>{
 
 gsap.ticker.lagSmoothing(0)
 
-const age: number = 12;
-const comp_name = ref('start');
-
-const comp_name2 = 'piano';
-
-function setComponentToStart() {
-  comp_name.value = 'start';
-}
-
-function setComponentToPiano() {
-  comp_name.value = 'piano';
-}
 
 const redirectPrompt = (dest_name: string) => {
   alert(`Normally You would be redirected to the ${dest_name}, but since it is a landing page project, no redirect is triggered.`);
@@ -57,42 +39,15 @@ const redirectPrompt = (dest_name: string) => {
     window.scrollTo(0, 0);  
   };  */
 
-
-
 </script>
 
 <template>
-  <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Audiowide:300,400,600,700,800&amp;lang=en" /> -->
-  <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Tenor+Sans:300,400,600,700,800&amp;lang=en" /> -->
-  <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Playpen+Sans:300,400,600,700&amp;lang=en" /> -->
-  <!-- <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,400,600,700&amp;lang=en" /> -->
   <link href="../dist/output.css" rel="stylesheet" />
-<!--   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-      <Piano msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header> -->
-
-<!--   <main>
-    HEY !!!
-  </main> -->
-
   
-  <!-- <Navbar /> -->
-
-  <Piano v-if="comp_name === 'piano'" :age="age" :component="comp_name" @changeComponent="setComponentToStart" />
 
   <NavBurger @redirect-message="(msg: string) => redirectPrompt(msg)" />
 
-  <Start v-if="comp_name === 'start'" :msg="'Welcome to the start component'" @redirect-message="(msg: string) => redirectPrompt(msg)"  @changeComponent="setComponentToPiano" />
+  <Start @redirect-message="(msg: string) => redirectPrompt(msg)" />
 
   <div id="layout-wrapper" class="component-layout-dark">
     <Quote />
@@ -118,17 +73,11 @@ const redirectPrompt = (dest_name: string) => {
 
   <Footer @redirect-message="(msg: string) => redirectPrompt(msg)" />
   
-  <!-- <component :is="routedComponent"></component> -->
-  <!-- <RouterView />  --><!--   standard routing (SSR) -->
 </template>
 
 <style>
 
   /* Do not use style scoped here, since this is the only place for us to put some global styles & utility classes */
-
-  .md-5 {
-    z-index: 12;
-  }
 
   html {
     scroll-behavior: smooth;
@@ -206,69 +155,8 @@ const redirectPrompt = (dest_name: string) => {
   }
 
   .component-layout-light-2 {
-      background-color: #eeeeee;
-      background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23111111' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: #eeeeee;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23111111' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
   }
 
-/* header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-} */
 </style>

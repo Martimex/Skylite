@@ -3,13 +3,3 @@
 @tailwind utilities;
 
 /* Any styles inside the file is being recompiled to ./dist/output.css and the changes take effect immediately */
-
-._input-bg-color_ {
-    font-style: normal; 
-}
-
-.weird-class {
-    background: pink;
-    font-size: 2rem;
-    color: green;
-}

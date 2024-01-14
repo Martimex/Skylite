@@ -89,7 +89,6 @@ onMounted(() => {
                     <div class="contact-record____mobile">
                         <p class="contact-name section-title"> Call us </p>
                         <div class="contact-entry"> 
-                            <!-- <svg> </svg> -->
                             <span class="contact-text"> (+1) 123 456 789 </span>
                         </div>
                     </div>
@@ -97,7 +96,6 @@ onMounted(() => {
                     <div class="contact-record____mobile">
                         <p class="contact-name section-title"> E-mail </p>
                         <div class="contact-entry"> 
-                            <!-- <svg> </svg> -->
                             <span class="contact-text"> hello@skylite.com </span>
                         </div>
                     </div>
@@ -113,29 +111,24 @@ onMounted(() => {
 <style scoped>
 
     .section-title {
-        /* font-family: Audiowide, 'Courier New', Courier, monospace; */
         font-weight: 600;
     }
 
     .section-name {
         font-size: 3rem;
-        /* margin-bottom: .5em; */
         color: #222;
         text-shadow: .1rem .1rem .5rem #222;
         letter-spacing: -.1rem;
         -webkit-text-stroke: .05rem cyan;
-	    /* text-stroke: .075rem cyan; */
     }
 
     .footer {
         font-size: 1rem;
         color: #000;
         position: relative;
-        /* background: linear-gradient(45deg, #fdc830, #f37335); */
         padding: 10em 5vw;
         background-image: linear-gradient(180deg,  #fff, #bbb, #888, #666);
 
-       /*  box-shadow: inset 0rem 0rem 1.4rem 11.2rem pink; */
         /* Creates wave effect */
         --mask:
         radial-gradient(8.94rem at 50% 12.00rem,#000 99%,#0000 101%) calc(50% - 8rem) 0/16rem 100%,
@@ -145,32 +138,9 @@ onMounted(() => {
 
     }
 
-/*     .footer::before, .footer::after {
-        --spike-height: .75rem;
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: var(--spike-height);
-        background: #000;
-        -webkit-mask-image: url('../assets/triangle.svg');
-        mask-image: url('../assets/triangle.svg');
-        -webkit-mask-size: 8rem var(--spike-height);
-        mask-size: 10rem var(--spike-height);
-    }
-
-    .footer::before {
-        top: 0;
-    }
-
-    .footer::after {
-        bottom: 0;
-        transform: rotate(180deg);
-    } */
-
     .footer-content {
         font-size: 1rem;
         margin-top: 2em;
-        /* border: .3em solid salmon; */
         display: flex;
         justify-content: space-between;
 
@@ -189,7 +159,7 @@ onMounted(() => {
         margin-bottom: 1.75em;
         display: flex;
         align-items: center;
-        justify-content: start;
+        justify-content: flex-start;
 
         transition: all 600ms ease-in-out;
             opacity: 0;
@@ -220,14 +190,11 @@ onMounted(() => {
         display: flex;
         flex-direction: column;   
         box-sizing: border-box;
-        /* border: .14rem solid red; */
     }
 
     .section-about {
         width: 30vw;
         padding-right: 3vw;
-        /* margin-right: 2.5vw; */
-        /* border: .1rem solid red; */
     }
 
     .section-socials {
@@ -238,13 +205,11 @@ onMounted(() => {
     .section-links {
         width: 20vw;
         padding-inline: 1vw;
-        /* border: .1rem solid gold; */
     }
 
     .section-contact {
         width: 20vw;
         padding-left: 2vw;
-        /* border: .2rem solid blue; */
     }
 
     .about-text {
@@ -258,14 +223,13 @@ onMounted(() => {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        justify-content: start;
+        justify-content: flex-start;
     }
 
     .resource {
         position: relative;
         font-size: 1rem;
         padding: .5em;
-        /* background: #111; */
         color: #222;
         border: .2em solid #333;
         box-shadow: 0 0 .25em .125em #333;
@@ -315,10 +279,7 @@ onMounted(() => {
 
     .resource:hover {
         cursor: pointer;
-        /* background: #222; */
         color: #ddd;
-        /* border-color: #222; */
-        /* padding: .75em; */
     }
 
     .resource-text {
@@ -332,7 +293,6 @@ onMounted(() => {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        /* justify-content: space-around; */
         justify-content: space-between;
     }
 
@@ -379,8 +339,7 @@ onMounted(() => {
         font-size: 1.2rem;
         font-weight: 600;
         margin-block: .75em;
-/*         border: 0em solid #222d;
-        border-radius: 25%; */
+
         transition:  all 350ms ease-in-out;
             opacity: .75;
     }
@@ -394,16 +353,11 @@ onMounted(() => {
         padding: .1rem;
         background: #222;
 
-
         transition: all 400ms linear;
             opacity: 0;
     }
 
     .link-text:hover {
-        /* border-bottom-width: .2em; */
-        /* transform: translateY(-10%); */
-        /* color: hsl(180, 80%, 80%); */
-        /* font-weight: 700; */
         opacity: 1;
         color: #000;
     }
@@ -411,18 +365,7 @@ onMounted(() => {
     .link-text:hover:after {
         opacity: 1;
         width: 100%;
-        /* transform: scaleX(50); */
     }
-
-/*     .link-text::after {
-        content: '';
-        font-size: 1rem;
-        position: absolute;
-        inset: auto auto -10% 0;
-        width: 0px;
-        height: .1em;
-        background: skyblue;
-    } */
 
     .contact-name {
         font-size: 1.5rem;
@@ -441,7 +384,6 @@ onMounted(() => {
         display: inline-block;
         font-style: italic;
         font-size: 1.2rem;
-        /* padding-block: .25em; */
         margin-left: 1rem;
     }
 
@@ -490,7 +432,6 @@ onMounted(() => {
             max-width: 550px;
             margin: 0 auto;
         }
-
 
         .socials-box {
             margin-inline: 10%;
@@ -571,7 +512,6 @@ onMounted(() => {
             font-size: 1.05rem;
             font-weight: 400;
         }
-
     }
 
 

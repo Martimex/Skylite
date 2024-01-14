@@ -15,46 +15,7 @@ onMounted(() => {
 
     const contact_showcase_number = document.querySelector(`.cs-number`);
     contact_showcase_number && observer.observe(contact_showcase_number);
-
-
-/*     gsap.from(`.cs-number`, {
-        scrollTrigger: {
-            trigger: `.contact-showcase-box`,
-            start: '25% 50%',
-            end: '0% 0%',
-            scrub: .5,
-            toggleActions: 'play reverse restart pause',
-        },
-        yPercent: -30,
-        opacity: 0,
-        filter: 'blur(7px)',
-        color: '#000f'
-    }) */
-
-/*     const timeline = gsap.timeline();
-        timeline
-            .from(`.cs-number`, {yPercent: -30, opacity: 0, filter: 'blur(7px)', color: '#000f'}) */
-            /* .to(`.footer`, {y: '-10rem', }) */
-
-/*     ScrollTrigger.create({
-        animation: timeline,
-        trigger: `.contact-showcase-box`,
-        start: '0% 0%',
-        end: "+=1000",
-        scrub: 1,
-        pin: true,
-    }); */
 })
-
-
-/* Final animation idea (with JSAB ScrollTrigger) - might require use pinning first (pinning: true)
-
-    1. First off, the .cs-question and .cs-number have to be initially off-screen -> .cs-question left-side off-screen, while .cs-number right-side off-screen.
-    2. Start: the animation quickly brings back the elements to their original positions with opacity change from 0 to 1 (the .cs-number should finish this 
-        animation just a bit later)
-    3. Meanwhile, when above animation started, the footer should go slowly up, so that when previous animations are about to finish, the footer will
-        slowly appear on the screen from bottom straight to the top
-*/
 
 </script>
 
@@ -66,8 +27,6 @@ onMounted(() => {
             <p class="contact-showcase-text cs-number"> (+1) 123 456 789 </p>
         </div>
     </div>
-
-
 
 </template>
 
@@ -131,13 +90,12 @@ onMounted(() => {
         color: #cccf;
     }
 
-    /*  {yPercent: -30, opacity: 0, filter: 'blur(7px)', color: '#000f'} */
-
     .contact-showcase-box.show  .cs-number {
         -webkit-text-stroke: .075rem #ddd;
         color: #0000;
         background: #000;
     }
+
 
     @media screen and (orientation: portrait)   {
 
@@ -160,10 +118,6 @@ onMounted(() => {
         .contact-showcase-layer {
             height: calc(100vh - 0rem);
         }
-    }
-
-    @media screen and (orientation: landscape) and (max-width: 800px) {
-        /* Nothing to change here */
     }
 
 </style>

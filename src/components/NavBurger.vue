@@ -70,7 +70,6 @@ function openNav() {
         margin-left: var(--ml-distance);
         padding: 1.5rem;
         border-radius: 50%;
-        /* background: #2220; */
         backdrop-filter: blur(4px);
         z-index: 1;
     }
@@ -80,11 +79,6 @@ function openNav() {
         top: calc(-1 * var(--mt-distance));
         left: calc(-1 * var(--ml-distance));
         background: #ddd;
-        
-/*         width: 100vw;
-        height: 100vh; */
-
-        /* transition: 500ms all ease-in-out; */
         width: 100vw;
         height: 100vh;
     }
@@ -106,7 +100,6 @@ function openNav() {
         align-items: center;
         width: 100%;
         height: 100%;
-        /* background: #ddd; */
     }
 
     .menu-layer::before {
@@ -145,7 +138,6 @@ function openNav() {
         padding: .1rem;
         background: #111;
 
-
         transition: all 700ms linear;
             opacity: 0;
     }
@@ -173,22 +165,15 @@ function openNav() {
         opacity: 1;
     }
 
-/*     .nav-detailed.active {
-
-    }
- */
     .expand-enter-active, .expand-leave-active {
         transition: all 500ms ease-in-out;
-        /* pointer-events: none; */
     }
 
     .expand-enter-from, .expand-leave-to {
-        /* opacity: 0; */
         transform: translateX(-100vw);
     }
 
     .expand-enter-from + .burger-icon, .expand-enter-active + .burger-icon, .expand-leave-to + .burger-icon, .expand-leave-active + .burger-icon {
-        /* opacity: 0; */
         pointer-events: none;
     }
 

@@ -24,11 +24,6 @@ const navBurgerObserver = new IntersectionObserver((entries => {
 }), {threshold: 0.001});
 
 onMounted(() => {
-/*     const tl = gsap.timeline();
-    gsap.to("._animation-block_1", {height: '50%', rotate: 45, scale: 1, duration: 1});
-    gsap.to("._animation-block_2", {height: '50%', rotate: 135, duration: 1});
-    gsap.to(".main-layout", {background: "#a0d", duration: 1});
-    gsap.from("._pgraph_1", {opacity: 0, y: -50, duration: 1.5}); */
 
     const targetElems = [...document.querySelectorAll(`.main-layout`), ...document.querySelectorAll(`#navbar-top`)];
     targetElems && targetElems.forEach(el => observer.observe(el));
@@ -55,51 +50,20 @@ onMounted(() => {
         ease: "power2.out",
     })
 
-/*     gsap.from(`.gridbox-side`, {
-        scale: 0,
-        duration: 4,
-        ease: "power4.out",
-    }) */
-
-/*     gsap.from([`.bottom-text`, '#navbar-top'], {
-        opacity: 0,
-        duration: 3,
-        ease: "power4.in",
-    }) */
 });
 
-//window.addEventListener("scroll", setScrollState); // fire a listener for every scroll
-//window.addEventListener("resize", setScrollState); // resize is also essential because it actually can affect scroll values
-
-/* function setScrollState() {
-    const htmlElem = document.documentElement;
-    const percentOfScreenHeightScrolled = htmlElem.scrollTop / htmlElem.clientHeight;
-    htmlElem.style.setProperty("--scroll", `${Math.min(percentOfScreenHeightScrolled * 100, 100)}`);
-} */
-
-//setScrollState(); // Fire this initially - useful in cases where a page is refreshed when the page is being already scrolled
-
-/* const emit = defineEmits(['changeComponent']);
-
-function newComponent() {
-    emit('changeComponent', 'piano');
-}
-
-defineProps<{
-    msg: string
-}>() */
 </script>
 
 <template>
 
     <header id="navbar-top">
-        <!-- 1 -->
+        
         <div class="nav-box--logo">
             <div>
                 <a href="/"> <p class="link-text"> Logo </p> </a> 
             </div>
         </div>
-        <!-- 2 -->
+        
         <div class="nav-box--links">
             <ul class="hyperlink-box">
                 <a href="./story" @click.prevent="emit('redirectMessage', '/story')"> <li class="link-text"> Our story </li> </a>
@@ -115,11 +79,8 @@ defineProps<{
         </div>
     </header>
 
-    <!-- THIS SECTION IS BELOW THE 'WELCOME' MESSAGE AND SLOWLY APPEARS RIGHT UNDER THE FADING TEXT & BG WHILE SCROLLING -->
     <main id="main-start" class="overflow-x-hidden">  <!-- #main-start is for  animating in Quote component, so do not remove the ID -->
-        <div class="animation-block--initial _animation-block_1 --absolute"></div>
-        <div class="animation-block--initial _animation-block_2 --absolute"></div>
-        <div class="main-layout --flex-container overflow-x-hidden">
+        <div class="main-layout overflow-x-hidden">
             <div class="gridbox-side gs-1"></div>
             <div class="gridbox-content">
                 <div class="gridbox-row__mobile">
@@ -142,15 +103,6 @@ defineProps<{
 
 <style scoped>
 
-:root {
-    --scroll: 0;
-    --background-opacity: 1;
-}
-
-body {
-    background: teal;
-}
-
 /* "Header" navbar */
 
 #navbar-top {
@@ -158,19 +110,14 @@ body {
     color: #ddd;
     z-index: 3; /* At least 3, so it will not be covered by any other element */
     padding: 2em 3em;
-    /* width: 100vw; */
     backdrop-filter: blur(2px);
-
     display: flex;
     align-items: center;
-    justify-content: start;
-
+    justify-content: flex-start;
     position: absolute;
     top: 0;
     left: 0;
-    /* display: flex; */
     width: 100%;
-    /* padding: 1em; */
 
     transition: all 2000ms ease-in;
         opacity: 0;
@@ -228,7 +175,6 @@ body {
     padding: .1rem;
     background: #ddd;
 
-
     transition: all 400ms linear;
         opacity: 0;
 }
@@ -243,43 +189,6 @@ body {
     width: 100%;
 }
 
-
-
-/* .link-text {
-        position: relative;
-        display: inline-block;
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-block: .75em;
-        transition:  all 350ms ease-in-out;
-            opacity: .75;
-    } */
-
-/*     .link-text::after {
-        content: '';
-        position: absolute;
-        bottom: 0%;
-        left: 0%;
-        width: 0%;
-        padding: .1rem;
-        background: #222;
-
-
-        transition: all 400ms linear;
-            opacity: 0;
-    } */
-
-/*     .link-text:hover {
-        opacity: 1;
-        color: #000;
-    } */
-
-/*     .link-text:hover:after {
-        opacity: 1;
-        width: 100%;
-    } */
-
-
 /* Landing page initial section */
 
 #main-start {
@@ -290,7 +199,6 @@ body {
 .main-layout {
     min-height: 100vh;
     width: 100%;
-    /* background: hsl(0, 0%, 87%, var(--background-opacity)); */
     color: #333;
     background: #000;
     background-image: url(../assets/sky1_minified.jpg);
@@ -299,26 +207,12 @@ body {
     position: relative;
     top: 0;
     overflow: hidden;
-    /* Dynamic, animated value here ! */
-    /* formula is: (oldVal - oldMin) * newRange / oldRange  + newMin */
- /*    translate: 0 calc(-1% * (max(var(--scroll), 25) - 25) * 100 / (75 + 0));
-    --background-opacity: calc(100%  - 1% * min(var(--scroll), 30) * 100 / (30 + 0)); */
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     box-shadow: inset 0 0 1rem .125rem #222;
-
     z-index: 2;
 }
-
-/* .start-gridbox {
-    display: grid;
-    grid-template-columns: 1fr 50% 1fr;
-    grid-template-rows: 1fr;
-    min-height: 100vh;
-    width: 100%;
-    overflow: hidden;
-    backdrop-filter: saturate(50%);
-    background: #0004;
-} */
 
 .gridbox-side {
     position: absolute;
@@ -326,22 +220,13 @@ body {
     height: 100%;
     backdrop-filter: blur(1px) grayscale(50%);
     box-shadow: 0 0 1rem .2rem #222;
-    /* padding: 10%; */
-
-/*     transition: all 1000ms ease-out;
-        scale: 0.5;  */
 }
-
-/* .main-layout.show .gridbox-side {
-    scale: 1;
-} */
 
 .gs-1 {
     top: -50%;
     left: -35%;
     background: #0003;
     transform: rotate(45deg) scaleY(2);
-    /* border-bottom-right-radius: 50%; */
 }
 
 .gs-2 {
@@ -349,7 +234,6 @@ body {
     left: 85%;
     background: #0002;
     transform: rotate(45deg) scaleY(2);
-    /* border-bottom-left-radius: 50%; */
 }
 
 .gridbox-content {
@@ -358,8 +242,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: #0004; */
-    /* backdrop-filter: blur(9px) hue-rotate(120deg); */
     box-shadow: inset 0 0 44rem 44rem #2220;
     backdrop-filter: saturate(50%);
     background: #0004;
@@ -367,15 +249,12 @@ body {
 }
 
 .gridbox-letter {
-    
     position: relative;
     z-index: 1;
     display: inline-block;
     font-size: 12rem;
-    /* padding: .2rem; */
     font-weight: 800;
     color: #1110;
-    /* background: pink; */
     filter: drop-shadow(0 0 0.75rem cyan);
     text-shadow: 0rem 0rem 1em #000;
     letter-spacing: .25rem;
@@ -391,9 +270,7 @@ body {
     left: 0%;
     padding: 1rem;
     border-radius: 50%;
-    /* background: radial-gradient( hsla(180, 100%, 50%, .5), #1111); */
     color: #111;
-    /* background: pink; */
     filter: drop-shadow(0 0 0.75rem cyan);
     text-shadow: -.2rem -.2rem .25rem red;
     letter-spacing: -.1rem;
@@ -419,90 +296,6 @@ body {
     opacity: 1;
 }
 
-.section-sec {
-    margin-top: /* 30vh */ 0; /* Currently set to 0, so that there is no unnecessary spae between sections transition */
-    background: #333;
-}
-
-.pgraph--3 {
-    font-size: 3.6rem;
-}
-
-.pgraph--4 {
-    font-size: 4.8rem;
-}
-
-.pgraph--5 {
-    font-size: 6.0rem;
-}
-
-.pgraph--6 {
-    font-size: 7.2rem;
-}
-
-.pgraph--7 {
-    font-size: 8.4rem;
-}
-.animation-block--initial {
-    /* background-image: conic-gradient(#2229, #4449, #bbb9,  #2229); */
-    background-image: conic-gradient(#dddd, #cccc, #dddd,#eeee);
-    width: 100%;
-    height: 100%;
-    box-shadow: inset 0 0 .25em .15em #3335, .12em .12em .4em .3em #2225;
-    /* transform: rotate(45deg); */
-    /* border-radius: 50%; */
-}
-
-/* Often used, generic declarations */
-
-.--text-centered {
-    text-align: center;
-    vertical-align: middle;
-}
-
-.--flex-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.--absolute {
-    position: absolute;
-}
-
-.--no-overflow-x {
-    overflow-x: hidden;
-}
-
-._animation-block_1 {
-
-}
-
-._animation-block_2 {
-
-}
-
-/* Cutom styling parts */
-
-._pgraph_1 {
-    font-family: 'Audiowide', sans-serif;
-    letter-spacing: .25em;
-    text-shadow: .05em .05em 8px #2229;
-    text-decoration: double;
-    backdrop-filter: blur(3px);
-}
-
-/* .greetings h1,
-.greetings h3 {
-    text-align: center;
-} */
-
-/* @media (min-width: 986px) {
-    .greetings h1,
-    .greetings h3 {
-        text-align: left;
-    } 
-} */
 
 @media screen and (orientation: portrait)   {
 
