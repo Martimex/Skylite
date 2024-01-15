@@ -104,7 +104,7 @@ onMounted(() => {
             </div>
 
         </div>
-        <p class="section-title copyright-note no-targetable"> &copy; 2024 Skylite Agency (project ownership: MTX) </p>
+        <p class="section-title copyright-note no-targetable"> &copy; 2024 Skylite Agency [ project ownership: MTX ] </p>
     </div>
 </template>
 
