@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import '../../dist/output.css';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 import { onMounted } from 'vue';

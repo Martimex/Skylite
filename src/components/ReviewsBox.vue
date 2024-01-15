@@ -4,7 +4,7 @@ import ReviewsContent from '../assets/reviewsContent';
 defineProps<{data: typeof ReviewsContent; no: number;}>();
 
 function getIMGPath(img_name: string): string {
-    return `../src/assets/reviews-img/${img_name}.jpg`;
+    return `${img_name}.jpg`;
 }
 
 </script>

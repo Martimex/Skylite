@@ -1,5 +1,3 @@
-import './assets/main.css'
-import '../dist/output.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'

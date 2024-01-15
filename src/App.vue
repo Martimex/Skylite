@@ -132,6 +132,11 @@ const redirectPrompt = (dest_name: string) => {
     width: 100% !important;
     margin: 0 auto !important;
     padding:  0 !important;
+
+  }
+
+  body {
+    background: #000 !important;
   }
 
   .no-targetable {
