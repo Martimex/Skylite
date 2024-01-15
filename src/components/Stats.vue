@@ -369,7 +369,7 @@ onMounted(() => {
         width: 100%;
         height: 100%;
         background-color: #ddd;
-        background-image: url(../assets/bg5.png);
+        background-image: url(../assets/collab-img.png);
         background-size: cover;
         border-radius: 2.5%;
         box-shadow: 0 0 .5rem .2rem #222;

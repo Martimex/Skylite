@@ -84,7 +84,7 @@ onMounted(() => {
                 <div class="emp-visual">
                     <div class="photo-wrapper">
                         <div class="photo-box">
-                            <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/natalie.jpg" />
+                            <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/anna.jpg" />
                         </div>
                     </div>
                 </div>
@@ -109,18 +109,18 @@ onMounted(() => {
                 <div class="emp-visual">
                     <div class="photo-wrapper">
                         <div class="photo-box">
-                            <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/julia.jpg" />
+                            <img loading="lazy" class="emp-photo shadow-black" src="../assets/emp-images/kate.jpg" />
                         </div>
                     </div>
                 </div>
                 <div class="emp-info">
                     <div class="emp-segment">
-                        <p class="emp-credentials"> Julia Reese </p>
+                        <p class="emp-credentials"> Kate Reese </p>
                         <p class="emp-role"> UX designer </p>
                     </div>
                     <div class="emp-segment">
                         <span class="emp-desc">
-                            Julia knows exactly how to turn a usual product into an exceptional masterpiece. Her vast knowledge in the field and aesthetic sense turn
+                            Kate knows exactly how to turn a usual product into an exceptional masterpiece. Her vast knowledge in the field and aesthetic sense turn
                             any commercial item into an enjoyable experience.
                         </span>
                         <a class="emp-button" href="./team" @click.prevent="emit('redirectMessage', '/team')" > Book a meeting </a>
