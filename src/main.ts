@@ -21,6 +21,16 @@ library.add(
 
 const app = createApp(App)
 
+const [breakpoint_main, breakpoint_strict] = [800, 986];
+
+app.config.globalProperties.gsapBreakpoints = {
+    isDesktop: `(orientation: landscape) and (min-width: ${breakpoint_strict}px)`,
+    isTablet: `(orientation: portrait) and (min-height: ${breakpoint_strict}px)`, 
+
+    isMobile_Landscape: `(orientation: landscape) and (max-width: ${breakpoint_strict - 1}px)`,  // Strict landscape mobile check
+    isMobile_Portrait: `(orientation: portrait) and (max-height: ${breakpoint_strict - 1}px)`  // Strict portrait mobile check
+}
+
 app.component("font-awesome-icon", FontAwesomeIcon)
 
 app.use(router)

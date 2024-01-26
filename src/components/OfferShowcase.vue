@@ -2,7 +2,7 @@
 
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
-import { onMounted } from 'vue';
+import { onMounted, getCurrentInstance } from 'vue';
 
 const emit = defineEmits(['redirectMessage']);
 
@@ -11,6 +11,9 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold: .5});
 
 onMounted(() => {
+
+    const globalProps = getCurrentInstance()?.appContext.config.globalProperties;
+    let mm = gsap.matchMedia();
 
     const targets = [...document.querySelectorAll('.offer-item'), ...document.querySelectorAll('.bubble-section')];
     targets && targets.forEach(target => observer.observe(target));
@@ -32,18 +35,20 @@ onMounted(() => {
         opacity: 1,
     });
 
-    gsap.to(`.offer-item[data-no="1"] .neon-layer`, {
-        scrollTrigger: {
-            trigger: `.offer-item[data-no="1"] .offer-content`,
-            start: '-20% 0%',
-            end: '100% 0%',
-            scrub: 1,
-            toggleActions: `play pause reverse pause`,
-        },
-        backgroundImage: `
-        radial-gradient(at 72% 83%, hsl(102, 80%, 68%) 0, transparent 59%), 
-        radial-gradient(at 100% 100%, hsla(102, 100%, 68%, .5) 0, transparent 55%)`,
-    });
+    mm.add(`${globalProps?.gsapBreakpoints.isTablet}, ${globalProps?.gsapBreakpoints.isDesktop}`, () => {
+        gsap.to(`.offer-item[data-no="1"] .neon-layer`, {
+            scrollTrigger: {
+                trigger: `.offer-item[data-no="1"] .offer-content`,
+                start: '-20% 0%',
+                end: '100% 0%',
+                scrub: 1,
+                toggleActions: `play pause reverse pause`,
+            },
+            backgroundImage: `
+            radial-gradient(at 72% 83%, hsl(102, 80%, 68%) 0, transparent 59%), 
+            radial-gradient(at 100% 100%, hsla(102, 100%, 68%, .5) 0, transparent 55%)`,
+        });
+    })
 
     gsap.to(`.offer-item[data-no="1"] .offer-dash`, {
         scrollTrigger: {
@@ -72,18 +77,21 @@ onMounted(() => {
         backgroundImage: 'linear-gradient(135deg, #000b, #111b)',
     });
 
-    gsap.to(`.offer-item[data-no="2"] .neon-layer`, {
-        scrollTrigger: {
-            trigger: `.offer-item[data-no="2"] .offer-content`,
-            start: '-20% 0%',
-            end: '100% 0%',
-            scrub: 1,
-            toggleActions: `play pause reverse pause`,
-        },
-        backgroundImage: `
-            radial-gradient(at 28% 83%, hsl(33, 80%, 68%) 0, transparent 59%), 
-            radial-gradient(at 0% 100%, hsla(33, 100%, 68%, .5) 0, transparent 55%)`,
-    });
+    mm.add(`${globalProps?.gsapBreakpoints.isTablet}, ${globalProps?.gsapBreakpoints.isDesktop}`, () => {
+        gsap.to(`.offer-item[data-no="2"] .neon-layer`, {
+            scrollTrigger: {
+                trigger: `.offer-item[data-no="2"] .offer-content`,
+                start: '-20% 0%',
+                end: '100% 0%',
+                scrub: 1,
+                toggleActions: `play pause reverse pause`,
+            },
+            backgroundImage: `
+                radial-gradient(at 28% 83%, hsl(33, 80%, 68%) 0, transparent 59%), 
+                radial-gradient(at 0% 100%, hsla(33, 100%, 68%, .5) 0, transparent 55%)`,
+        });
+    })
+
 
     gsap.to(`.offer-item[data-no="2"] .offer-dash`, {
         scrollTrigger: {
@@ -112,18 +120,20 @@ onMounted(() => {
         backgroundImage: 'linear-gradient(135deg, #111b, #000b)',
     });
 
-    gsap.to(`.offer-item[data-no="3"] .neon-layer`, {
-        scrollTrigger: {
-            trigger: `.offer-item[data-no="3"] .offer-content`,
-            start: '-20% 0%',
-            end: '100% 0%',
-            scrub: 1,
-            toggleActions: `play pause reverse pause`,
-        },
-        backgroundImage: `
-            radial-gradient(at 72% 83%, hsl(177, 80%, 68%) 0, transparent 59%), 
-            radial-gradient(at 100% 100%, hsla(177, 100%, 68%, .5) 0, transparent 55%)`,
-    });
+    mm.add(`${globalProps?.gsapBreakpoints.isTablet}, ${globalProps?.gsapBreakpoints.isDesktop}`, () => { 
+        gsap.to(`.offer-item[data-no="3"] .neon-layer`, {
+            scrollTrigger: {
+                trigger: `.offer-item[data-no="3"] .offer-content`,
+                start: '-20% 0%',
+                end: '100% 0%',
+                scrub: 1,
+                toggleActions: `play pause reverse pause`,
+            },
+            backgroundImage: `
+                radial-gradient(at 72% 83%, hsl(177, 80%, 68%) 0, transparent 59%), 
+                radial-gradient(at 100% 100%, hsla(177, 100%, 68%, .5) 0, transparent 55%)`,
+        });
+    })
 
     gsap.to(`.offer-item[data-no="3"] .offer-dash`, {
         scrollTrigger: {
@@ -152,18 +162,20 @@ onMounted(() => {
         backgroundImage: 'linear-gradient(135deg, #000b, #111b)',
     });
 
-    gsap.to(`.offer-item[data-no="4"] .neon-layer`, {
-        scrollTrigger: {
-            trigger: `.offer-item[data-no="4"] .offer-content`,
-            start: '-20% 0%',
-            end: '100% 0%',
-            scrub: 1,
-            toggleActions: `play pause reverse pause`,
-        },
-        backgroundImage: `
-            radial-gradient(at 28% 83%, hsl(3, 80%, 68%) 0, transparent 59%), 
-            radial-gradient(at 0% 100%, hsla(3, 100%, 68%, .5) 0, transparent 55%)`,
-    });
+    mm.add(`${globalProps?.gsapBreakpoints.isTablet}, ${globalProps?.gsapBreakpoints.isDesktop}`, () => { 
+        gsap.to(`.offer-item[data-no="4"] .neon-layer`, {
+            scrollTrigger: {
+                trigger: `.offer-item[data-no="4"] .offer-content`,
+                start: '-20% 0%',
+                end: '100% 0%',
+                scrub: 1,
+                toggleActions: `play pause reverse pause`,
+            },
+            backgroundImage: `
+                radial-gradient(at 28% 83%, hsl(3, 80%, 68%) 0, transparent 59%), 
+                radial-gradient(at 0% 100%, hsla(3, 100%, 68%, .5) 0, transparent 55%)`,
+        });
+    })
 
     gsap.to(`.offer-item[data-no="4"] .offer-dash`, {
         scrollTrigger: {
@@ -177,22 +189,39 @@ onMounted(() => {
         height: '100%',
     });
 
-    const main = gsap.timeline();
-    main
-        .to(`.bubble-section .outro`, {scale: 0.75, opacity: 0})
-        .to(`.bubble-section .outro-button`, {pointerEvents: 'none'}, '<60%')
-        .to(`.bubble-section .bubble`, {scale: 1, opacity: 1}, "<40%")
-        
 
-    ScrollTrigger.create({
-        animation: main,
-        trigger: '.bubble-section',
-        endTrigger: '.bubble-section',
-        start: 'center center',
-        end: "+=2250",
-        scrub: .75,
-        pin: true,
-    });
+    /* Bubble section animations */
+
+    const main = gsap.timeline();
+        main
+            .to(`.bubble-section .outro`, {scale: 0.75, opacity: 0})
+            .to(`.bubble-section .outro-button`, {pointerEvents: 'none'}, '<60%')
+            .to(`.bubble-section .bubble`, {scale: 1, opacity: 1}, "<40%")
+            
+
+    mm.add(`${globalProps?.gsapBreakpoints.isTablet}, ${globalProps?.gsapBreakpoints.isDesktop}`, () => {
+        ScrollTrigger.create({
+            animation: main,
+            trigger: '.bubble-section',
+            endTrigger: '.bubble-section',
+            start: 'center center',
+            end: "+=2250",
+            scrub: .75,
+            pin: true,
+        });
+    })
+
+    mm.add(`${globalProps?.gsapBreakpoints.isMobile_Portrait}, ${globalProps?.gsapBreakpoints.isMobile_Landscape}`, () => {
+        ScrollTrigger.create({
+            animation: main,
+            trigger: '.bubble-section',
+            endTrigger: '.bubble-section',
+            start: 'center center',
+            end: "+=1000",
+            scrub: .75,
+            pin: true,
+        });
+    })
 
 })
 

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
-import { onMounted } from 'vue';
+import { onMounted, getCurrentInstance } from 'vue';
+
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -15,18 +16,25 @@ const observer = new IntersectionObserver((entries) => {
 gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
+
+    const globalProps = getCurrentInstance()?.appContext.config.globalProperties;
+    let mm = gsap.matchMedia();
+
     const quote_layout = document.querySelector(`.quote-layout`);
     quote_layout && observer.observe(quote_layout);
 
-    gsap.to(`#main-start`, {
-        scrollTrigger: {
-            trigger: `#main-start`,
-            start: '0% 0%',
-            end: '100% 0%',
-            scrub: 1,
-        },
-        y: '20vh',
+    mm.add(`${globalProps?.gsapBreakpoints.isTablet}, ${globalProps?.gsapBreakpoints.isDesktop}`, () => { 
+        gsap.to(`#main-start`, {
+            scrollTrigger: {
+                trigger: `#main-start`,
+                start: '0% 0%',
+                end: '100% 0%',
+                scrub: 1,
+            },
+            y: '20vh',
+        })
     })
+
 })
 
 </script>
@@ -152,12 +160,16 @@ onMounted(() => {
     }
 
     .quote-layout #text404 {
-        transition: all 1500ms ease-in;
+        transition: all 1500ms linear;
             stroke-dasharray: 0,121;
+            /* stroke-dasharray: 101,121; */
+            /* stroke-dasharray: 131,121; */
+            opacity: 0;
     }
 
     .quote-layout.show #text404 {
         stroke-dasharray: 131,121;
+        opacity: 1;
     }
 
 
@@ -175,6 +187,10 @@ onMounted(() => {
 
         #svg5 {
             scale: 1.6;
+        }
+
+        .quote-layout #text404 {
+            stroke-dasharray: 131,121;
         }
 
         .quote-box-text {
@@ -197,6 +213,10 @@ onMounted(() => {
     /* Lanscape mobiles */
 
     @media screen and (orientation: landscape) and (max-width: 986px) {
+
+        .quote-layout #text404 {
+            stroke-dasharray: 131,121;
+        }
         
         #svg5 {
             max-height: 33vh;

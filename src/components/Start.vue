@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
-import { onMounted } from 'vue';
+import { onMounted, getCurrentInstance } from 'vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,6 +25,9 @@ const navBurgerObserver = new IntersectionObserver((entries => {
 
 onMounted(() => {
 
+    const globalProps = getCurrentInstance()?.appContext.config.globalProperties;
+    let mm = gsap.matchMedia();
+
     const targetElems = [...document.querySelectorAll(`.main-layout`), ...document.querySelectorAll(`#navbar-top`)];
     targetElems && targetElems.forEach(el => observer.observe(el));
 
@@ -42,13 +45,25 @@ onMounted(() => {
         scale: 1.15,
     })
 
-    gsap.from(`.gridbox-letter`, {
-        opacity: 0,
-        scale: 0.5,
-        duration: 1,
-        stagger: 0.35,
-        ease: "power2.out",
+    mm.add(`${globalProps?.gsapBreakpoints.isTablet}, ${globalProps?.gsapBreakpoints.isDesktop}`, () => {
+        gsap.from(`.gridbox-letter`, {
+            opacity: 0,
+            scale: 0.5,
+            duration: 1,
+            stagger: 0.35,
+            ease: "power2.out",
+        })
     })
+
+    mm.add(`${globalProps?.gsapBreakpoints.isMobile_Portrait}, ${globalProps?.gsapBreakpoints.isMobile_Landscape}`, () => {
+        gsap.from(`.gridbox-letter`, {
+            opacity: 0,
+            scale: 0.75,
+            duration: 1.5,
+            ease: 'linear',
+        })
+    })
+
 
 });
 

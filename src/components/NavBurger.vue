@@ -80,7 +80,7 @@ function openNav() {
         left: calc(-1 * var(--ml-distance));
         background: #ddd;
         width: 100vw;
-        height: 100vh;
+        height: 100dvh;
     }
 
     .nav-menu {
@@ -88,7 +88,7 @@ function openNav() {
         align-items: center;
         justify-content: space-evenly;
         flex-flow: column;
-        height: 100vh;
+        height: 100dvh;
         padding-block: 7.5vh;
         width: 100%;
     }

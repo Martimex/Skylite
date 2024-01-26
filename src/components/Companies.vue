@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, getCurrentInstance } from 'vue';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 
@@ -9,20 +9,39 @@ gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
 
+    const globalProps = getCurrentInstance()?.appContext.config.globalProperties;
+    let mm = gsap.matchMedia();
+
     const t1 = gsap.timeline();
         t1.from(`.slide-1`, {xPercent: -110, opacity: 0.75})
             .from(`.slide-3`, {xPercent: 110, opacity: 0.75}, "<")
             .to(`.companies-introduction`, {scale: 0}, "<")
             .from(`.transition-layer`, {opacity: 0}, "<")
 
-    ScrollTrigger.create({
-        animation: t1,
-        trigger: `.main-box`,
-        start: 'top top',
-        end: '+=2000',
-        scrub: .5,
-        pin: true,
-    })
+
+    mm.add(`${globalProps?.gsapBreakpoints.isTablet}, ${globalProps?.gsapBreakpoints.isDesktop}`, () => {
+        ScrollTrigger.create({
+            animation: t1,
+            trigger: `.main-box`,
+            start: 'top top',
+            end: '+=2000',
+            scrub: .5,
+            pin: true,
+        })
+    });
+
+    mm.add(`${globalProps?.gsapBreakpoints.isMobile_Portrait}, ${globalProps?.gsapBreakpoints.isMobile_Landscape}`, () => {
+        ScrollTrigger.create({
+            animation: t1,
+            trigger: `.main-box`,
+            start: 'top top',
+            end: '+=850',
+            scrub: .8,
+            pin: true,
+        })
+    });
+
+
 
 })
 
@@ -138,7 +157,7 @@ onMounted(() => {
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh;
+        min-height: 100vh;
         background: #000;
     }
 

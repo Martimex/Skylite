@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, getCurrentInstance } from 'vue';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 
@@ -17,6 +17,9 @@ const observer2 = new IntersectionObserver((elements) => {
 
 onMounted(() => {
 
+    const globalProps = getCurrentInstance()?.appContext.config.globalProperties;
+    let mm = gsap.matchMedia();
+
     const section_text = document.querySelector(`.heading-title`);
     const collab_image = document.querySelector(`.collab-image`);
     section_text && observer.observe(section_text);
@@ -24,42 +27,128 @@ onMounted(() => {
 
     const t1 = gsap.timeline();
         t1.to(`.collab-desc-1`, {yPercent: 10, opacity: 1, scale: .8})
-            .to(`.collab-image`, {scale: 1.5, rotateZ: 0}, "<")
+            /* .to(`.collab-image`, {scale: 1.5, rotateZ: 0}, "<") */
             .to(`.collab-desc-1`, {opacity: 0})
-            .to(`.collab-image`, {scale: 2, rotateZ: 10}, "<")
+            /* .to(`.collab-image`, {scale: 2, rotateZ: 10}, "<") */
             .to(`.collab-desc-2`, {yPercent: 10, opacity: 1, scale: .8, delay: .5})
-            .to(`.collab-image`, {scale: 2.5, rotateZ: 20}, "<")
+            /* .to(`.collab-image`, {scale: 2.5, rotateZ: 20}, "<") */
             .to(`.collab-desc-2`, {opacity: 0})
-            .to(`.collab-image`, {scale: 3, rotateZ: 30}, "<")
+            /* .to(`.collab-image`, {scale: 3, rotateZ: 30}, "<") */
             .to(`.collab-desc-3`, {yPercent: 10, opacity: 1, scale: .8, delay: .5})
-            .to(`.collab-image`, {scale: 3.5}, "<")
+            /* .to(`.collab-image`, {scale: 3.5}, "<") */
             .to(`.collab-desc-3`, {opacity: 0})
-            .to(`.collab-image`, {scale: 4}, "<")
+            /* .to(`.collab-image`, {scale: 4}, "<") */
             .to(`.collab-image`, {opacity: 0})
             .from(`.collab-benefit`, {opacity: .5, filter: 'blur(1.5px)'}, "<50%")
 
-
-    ScrollTrigger.create({
-        animation: t1,
-        trigger: `.collab-box`,
-        start: 'top top',
-        end: '+=3000',
-        scrub: true,
-        pin: true,
-    })
-
-    gsap.to(`.collab-slider`, {
-        scrollTrigger: {
-            trigger: `.collab-presentation`,
-            start: `0% 0%`,
-            end: `+=3200`, /* Modifying this value might need some collab-presentation items width size fixes, especially for media queries ! */
-            scrub: 1,
+    mm.add(`${globalProps?.gsapBreakpoints.isTablet}, ${globalProps?.gsapBreakpoints.isDesktop}`, () => {
+        ScrollTrigger.create({
+            animation: t1,
+            trigger: `.collab-box`,
+            start: 'top top',
+            end: '+=3000',
+            scrub: true,
             pin: true,
-            toggleActions: 'play pause restart pause',
-        },
-        transform: 'translateX(-75%)',
+        })
+
+        gsap.to(`.collab-slider`, {
+            scrollTrigger: {
+                trigger: `.collab-presentation`,
+                start: `0% 0%`,
+                end: `+=3200`, /* Modifying this value might need some collab-presentation items width size fixes, especially for media queries ! */
+                scrub: 1,
+                pin: true,
+                toggleActions: 'play pause restart pause',
+            },
+            transform: 'translateX(-75%)',
+        });
     });
 
+    mm.add(`${globalProps?.gsapBreakpoints.isMobile_Portrait}, ${globalProps?.gsapBreakpoints.isMobile_Landscape}`, () => {
+
+        const sliderTarget = document.querySelector(`.collab-slider`);
+        const allSlidesCount = sliderTarget?.childNodes; // not a good replacement for "slides" variable, since childNodes counts comments as children aswell 
+
+        /* console.log(allSlidesCount);  */
+
+        interface CoordObj {
+            startX: number | undefined,
+            changeX: number | undefined,
+            totalX: number | undefined,
+        }
+
+        const coords: CoordObj = { startX: 0, changeX: 0, totalX: 0 }
+        const dragMinimumVal = 25; // value in pixels
+        const velocityDivider = 5;  // slows down the scroll impact on translateX property, so it feels slower and smoother
+        const slides = 5; // how many slides does a slider have
+
+        ScrollTrigger.create({
+            animation: t1,
+            trigger: `.collab-box`,
+            start: 'top top',
+            end: '+=1350',
+            scrub: true,
+            pin: true,
+        })
+
+        gsap.set(`.collab-slider`, {translateX: 0});
+
+        function slideHorizontally(isRightDir: Boolean) {
+            gsap.to(`.collab-slider`, {
+                translateX: (isRightDir)? `+=20%` : `-=20%`,
+                duration: .25,
+                ease: 'circ.out'
+            })
+        }
+
+        ScrollTrigger.observe({
+            target: `.collab-slider`,
+            type: "touch,pointer,wheel",
+            dragMinimum: dragMinimumVal,
+            onPress: (self: any) => {
+                if(typeof coords.startX === 'number' && typeof coords.changeX === 'number') {
+                    coords.changeX = 0;
+                    coords.startX = +self.x.toFixed(); 
+                };
+            },
+            onDrag: (self: any) => {
+                if(typeof coords.startX === 'number' && typeof coords.totalX === 'number') {
+                    coords.changeX = coords.startX - +self.x.toFixed();
+                    coords.totalX += coords.changeX;
+
+                    // Limit left slide pos to start pos as maximum value
+                    if(coords.totalX < 0) { coords.totalX = 0}
+
+                    // Limit right slide post to 4/5 of the slides as maximum value (4 slides hidden to the left, 1 remain is visible)
+                    if(sliderTarget instanceof Element && typeof coords.totalX === 'number') {
+                        if(coords.totalX > (((sliderTarget?.getBoundingClientRect().width * velocityDivider) / slides) * (slides - 1))) {
+                            coords.totalX =  (((sliderTarget?.getBoundingClientRect().width * velocityDivider) / slides) * (slides - 1));
+                        }
+                    }
+                }
+
+                gsap.to(self.target, {
+                    duration: .15,
+                    ease: 'none',
+                    translateX: (typeof coords.totalX === 'number')? (coords.totalX / velocityDivider) * -1  :  0,
+                })
+            },
+            onDragStart: (self) => {
+
+            },
+            onDragEnd: (self: any) => {
+                const slider = document.querySelector(`.collab-slider`);
+                /* console.log(slider instanceof Element  &&  slider?.getBoundingClientRect().width * velocityDivider); */
+                // slideHorizontally()
+                //console.log('selfX: ', +self.x.toFixed(),  '  startX: ', coords.startX);
+/*                 if(typeof coords.totalX === 'number' && typeof coords.changeX === 'number')  coords.totalX -= coords.changeX;
+                if(coords.changeX && (((dragMinimumVal * -1) < coords.changeX) && (coords.changeX < dragMinimumVal))) return; */
+                /* (coords.changeX && coords.totalX !== 0) && slideHorizontally(self.x > coords.changeX); */
+                
+                //coords.startX = 0;
+            },
+        })
+    });
 })
 
 </script>
@@ -68,7 +157,7 @@ onMounted(() => {
 
     <div class="bg-layer">
 
-        <p class="heading-title"> Collab with us </p>
+        <p class="heading-title"> Collab <span class="line-wrapper__mobile"> with us </span> </p>
 
         <div class="collab-box">
             <div class="collab-benefits-box">
@@ -309,7 +398,7 @@ onMounted(() => {
     }
 
     .collab-box {
-        height: 100vh;
+        min-height: 100vh;
         position: relative;
     }
 
@@ -317,7 +406,7 @@ onMounted(() => {
         position: absolute;
         top: 0;
         left: 0;
-        height: 100vh;
+        min-height: 100vh;
         width: 100%;
         display: grid;
         grid-template-columns: 33% 34% 33%;
@@ -418,6 +507,7 @@ onMounted(() => {
         text-transform: uppercase;
         -webkit-text-stroke: .12rem #111;
         color: #ddd;
+        white-space: nowrap;
 
         transition: all 800ms ease-in-out;
             opacity: 0;
@@ -507,6 +597,10 @@ onMounted(() => {
         .btn-action {
             font-size: 1.4rem;
             margin-top: 1.5em;
+        }
+
+        .line-wrapper__mobile {
+            display: block;
         }
 
     }

@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
-import { onMounted } from 'vue';
+import { onMounted, getCurrentInstance } from 'vue';
 
+gsap.registerPlugin(ScrollTrigger);
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => entry.target.classList.toggle("show", entry.isIntersecting));
@@ -19,28 +20,31 @@ const observer2 = new IntersectionObserver((entries) => {
 
 onMounted(() => {
 
+    const globalProps = getCurrentInstance()?.appContext.config.globalProperties;
+    let mm = gsap.matchMedia();
+
     const targets = document.querySelectorAll('.grid-container');
     targets && targets.forEach(target => observer.observe(target));
 
     const questionBox = document.querySelector(`.question-box`);
     questionBox && observer2.observe(questionBox);
 
-    gsap.registerPlugin(ScrollTrigger);
+    mm.add(`${globalProps?.gsapBreakpoints.isTablet}, ${globalProps?.gsapBreakpoints.isDesktop}`, () => {
+        const photos = document.querySelectorAll('.photo-content');
 
-    const photos = document.querySelectorAll('.photo-content');
-
-    photos && photos.forEach((el, i) => {
-        if(i < photos.length - 1) {
-            ScrollTrigger.create({
-                trigger: el,
-                start: "bottom bottom",
-                pin: true,
-                pinType: "fixed",
-                scrub: 1,
-                pinSpacing: false,
-            })
-        }
-    })
+        photos && photos.forEach((el, i) => {
+            if(i < photos.length - 1) {
+                ScrollTrigger.create({
+                    trigger: el,
+                    start: "bottom bottom",
+                    pin: true,
+                    pinType: "fixed",
+                    scrub: 1,
+                    pinSpacing: false,
+                })
+            }
+        })
+    });
 
     gsap.from(`.question-box`, {
         scrollTrigger: {
@@ -129,6 +133,10 @@ onMounted(() => {
         opacity: 1 !important;
     }
 
+    .grid-container.show {
+        filter: saturate(100%);
+    }
+
     .bg-layer-dark {
         background-color: #000000;
     }
@@ -144,11 +152,13 @@ onMounted(() => {
     .grid-container {
         position: relative;
         width: 100%;
-        height: 100vh;
+        min-height: 100vh;
         box-sizing: border-box;
         padding: 15vh 5vw 15vh 10vw;
         box-shadow: 0 0 2rem .2rem #111;
-        transition: all 400ms ease-in-out;
+
+        transition: all 750ms ease-in-out;
+            filter: saturate(30%);
     }
 
     .grid-img {
@@ -206,7 +216,7 @@ onMounted(() => {
         grid-template-columns: 1fr;
         grid-template-rows: 50% 50%;
         width: 100%;
-        height: 120vh; /* Adding extra 20vh helps dealing with GSAP pinning flicker issue when scrolling fast - do not modify this to 100vh, or else the glitch will reappear */
+        min-height: 120vh; /* Adding extra 20vh helps dealing with GSAP pinning flicker issue when scrolling fast - do not modify this to 100vh, or else the glitch will reappear */
         padding-inline: 10vw;
         box-shadow: 0 0 2rem .2rem #111;
     }

@@ -116,10 +116,11 @@ onMounted(() => {
 
     .section-name {
         font-size: 3rem;
-        color: #222;
+        color: #2220;
         text-shadow: .1rem .1rem .5rem #222;
         letter-spacing: -.1rem;
         -webkit-text-stroke: .05rem cyan;
+        backdrop-filter: blur(3px);
     }
 
     .footer {

@@ -23,7 +23,7 @@ onMounted(() => {
 
     <div class="contact-showcase-layer h-screen">
         <div class="contact-showcase-box h-screen">
-            <p class="contact-showcase-text cs-question"> Got more questions? </p>
+            <p class="contact-showcase-text cs-question"> Got more <span class="line-wrapper__mobile"> questions? </span> </p>
             <p class="contact-showcase-text cs-number"> (+1) 123 456 789 </p>
         </div>
     </div>
@@ -34,7 +34,7 @@ onMounted(() => {
 
     .contact-showcase-layer {
         position: relative;
-        height: calc(100vh - 5rem); /* Could be calc(100vh - 10rem) aswell  */
+        min-height: calc(100vh - 5rem); /* Could be calc(100vh - 10rem) aswell  */
     }
 
     .contact-showcase-box {
@@ -100,7 +100,7 @@ onMounted(() => {
     @media screen and (orientation: portrait)   {
 
         .contact-showcase-layer {
-            height: calc(100vh - 0rem);
+            min-height: calc(100vh - 0rem);
         }
         
         .cs-question {
@@ -111,12 +111,16 @@ onMounted(() => {
         .cs-number {
             font-size: 4rem;
         }
+
+        .line-wrapper__mobile {
+            display: block;
+        }
     }
 
 
     @media screen and (orientation: landscape) and (max-width: 986px) {
         .contact-showcase-layer {
-            height: calc(100vh - 0rem);
+            min-height: calc(100vh - 0rem);
         }
     }
 

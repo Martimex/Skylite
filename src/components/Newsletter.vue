@@ -26,7 +26,7 @@ onMounted(() => {
 <template>
 
     <div class="bg-layer">
-        <p class="news-heading"> Connect with us </p>
+        <p class="news-heading"> Connect <span class="line-wrapper__mobile"> with us </span> </p>
 
         <div class="news-box">
             <div class="news-content news-visual">
@@ -278,6 +278,10 @@ onMounted(() => {
         .content-cta {
             font-size: 1.25rem;
             margin-top: 2em;
+        }
+
+        .line-wrapper__mobile {
+            display: block;
         }
 
     }

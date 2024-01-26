@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, getCurrentInstance } from 'vue';
 import ReviewsBox from './ReviewsBox.vue';
 import ReviewsContent from '../assets/reviewsContent';
 
@@ -20,51 +20,93 @@ gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
 
+    const globalProps = getCurrentInstance()?.appContext.config.globalProperties;
+    let mm = gsap.matchMedia();
+
     const targets = document.querySelectorAll('.heading-content');
     targets && targets.forEach(target => observer.observe(target));
 
-    gsap.to(`.heading-wall`, {
-        scrollTrigger: {
-            trigger: `.heading-wall`,
-            start: '-50% 50%',
-            end: '25% 25%',
-            scrub: .8,
-            toggleActions: 'play reverse restart pause',
-        },
-        y: '100%',
-    });
-
     const [reviews_odd, reviews_even] = [document.querySelectorAll(`.reviews-block .weird-box:nth-child(odd)`), document.querySelectorAll(`.reviews-block .weird-box:nth-child(even)`)];
 
-    reviews_odd.forEach(review => {
-        gsap.to(review, {
-            scrollTrigger: {
-                trigger: review,
-                start: '-50% 0%',
-                end: '50% 0%',
-                scrub: 1,
-            },
-            x: '-15vw',
-            y: '-5vh',
-            scale: .8,
-            opacity: .65
-        })
-    })
+    mm.add(`${globalProps?.gsapBreakpoints.isTablet}, ${globalProps?.gsapBreakpoints.isDesktop}`, () => { 
 
-    reviews_even.forEach(review => {
-        gsap.to(review, {
+        gsap.to(`.heading-wall`, {
             scrollTrigger: {
-                trigger: review,
-                start: '-50% 0%',
-                end: '50% 0%',
-                scrub: 1,
+                trigger: `.heading-wall`,
+                start: '-50% 50%',
+                end: '25% 25%',
+                scrub: .8,
+                toggleActions: 'play reverse restart pause',
             },
-            x: '15vw',
-            y: '-5vh',
-            scale: .8,
-            opacity: .65
+            y: '100%',
+        });
+
+        reviews_odd.forEach(review => {
+            gsap.to(review, {
+                scrollTrigger: {
+                    trigger: review,
+                    start: '-50% 0%',
+                    end: '50% 0%',
+                    scrub: 1,
+                },
+                x: '-15vw',
+                y: '-5vh',
+                scale: .8,
+                opacity: .65
+            })
         })
-    })
+
+        reviews_even.forEach(review => {
+            gsap.to(review, {
+                scrollTrigger: {
+                    trigger: review,
+                    start: '-50% 0%',
+                    end: '50% 0%',
+                    scrub: 1,
+                },
+                x: '15vw',
+                y: '-5vh',
+                scale: .8,
+                opacity: .65
+            })
+        })
+    });
+
+    mm.add(`${globalProps?.gsapBreakpoints.isMobile_Portrait}, ${globalProps?.gsapBreakpoints.isMobile_Landscape}`, () => {
+
+        gsap.set(`.heading-wall`, {opacity: 0});
+
+        reviews_odd.forEach(review => {
+            gsap.to(review, {
+                scrollTrigger: {
+                    trigger: review,
+                    start: '25% 0%',
+                    end: '25% 0%',
+                    scrub: 2,
+                },
+                x: '-15vw',
+                y: '-5vh',
+                scale: .8,
+                opacity: .65
+            })
+        })
+
+        reviews_even.forEach(review => {
+            gsap.to(review, {
+                scrollTrigger: {
+                    trigger: review,
+                    start: '25% 0%',
+                    end: '25% 0%',
+                    scrub: 2,
+                },
+                x: '15vw',
+                y: '-5vh',
+                scale: .8,
+                opacity: .65
+            })
+        })
+    });
+    
 
 })
 
