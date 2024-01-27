@@ -5,6 +5,9 @@ import { onMounted, ref, getCurrentInstance } from 'vue';
 import ReviewsBox from './ReviewsBox.vue';
 import ReviewsContent from '../assets/reviewsContent';
 
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
+
 const data = ref(ReviewsContent);
 
 const options = {
@@ -15,8 +18,6 @@ const options = {
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => entry.target.classList.toggle("show", entry.isIntersecting));
 }, options);
-
-gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
 
@@ -129,7 +130,7 @@ onMounted(() => {
         </div>
     </div>
 
-    <div class="bg-layer component-layout-light-2 place-items-center grid grid-cols-1 lg:grid-cols-2 grid-rows-none">
+    <div class="bg-layer component-layout-light-1 place-items-center grid grid-cols-1 lg:grid-cols-2 grid-rows-none">
         <ul class="reviews-block" data-no="1">
             <ReviewsBox :data="data" :no="0" />
             <ReviewsBox :data="data" :no="1" />

@@ -4,6 +4,9 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 import { onMounted, getCurrentInstance } from 'vue';
 
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
+
 const emit = defineEmits(['redirectMessage']);
 
 const observer = new IntersectionObserver((entries) => {
@@ -17,8 +20,6 @@ onMounted(() => {
 
     const targets = [...document.querySelectorAll('.offer-item'), ...document.querySelectorAll('.bubble-section')];
     targets && targets.forEach(target => observer.observe(target));
-    
-    gsap.registerPlugin(ScrollTrigger);
 
     /* 1 */
 
@@ -928,19 +929,35 @@ onMounted(() => {
             min-width: max(9rem, 40%);
         }
 
-        .offer-item[data-no="1"] .offer-button {
+        .offer-item[data-no="1"] .neon-layer {
+            background: var(--green-lite);
+        }
+
+        .offer-item[data-no="1"] .button-get {
             border-color: var(--green-lite);
         }
 
-        .offer-item[data-no="2"] .offer-button {
+        .offer-item[data-no="2"] .neon-layer {
+            background: var(--yellow-lite);
+        }
+
+        .offer-item[data-no="2"] .button-get {
             border-color: var(--yellow-lite);
         }
 
-        .offer-item[data-no="3"] .offer-button {
+        .offer-item[data-no="3"] .neon-layer {
+            background: var(--blue-lite);
+        }
+
+        .offer-item[data-no="3"] .button-get {
             border-color: var(--blue-lite);
         }
 
-        .offer-item[data-no="4"] .offer-button {
+        .offer-item[data-no="4"] .neon-layer {
+            background: var(--red-lite);
+        }
+
+        .offer-item[data-no="4"] .button-get {
             border-color: var(--red-lite);
         }
 

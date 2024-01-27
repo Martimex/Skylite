@@ -100,6 +100,8 @@ function openNav() {
         align-items: center;
         width: 100%;
         height: 100%;
+
+        transition: all 350ms linear; /* Used for smooth height transition for mobiles - when menu is entered and address bar initially hidden, but user expands the address bar to appear on the screen */
     }
 
     .menu-layer::before {

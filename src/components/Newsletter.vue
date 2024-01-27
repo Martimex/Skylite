@@ -3,9 +3,10 @@ import { onMounted } from 'vue';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 
-const emit = defineEmits(['redirectMessage']);
-
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
+
+const emit = defineEmits(['redirectMessage']);
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {

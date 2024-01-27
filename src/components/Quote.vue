@@ -3,6 +3,8 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 import { onMounted, getCurrentInstance } from 'vue';
 
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -12,8 +14,6 @@ const observer = new IntersectionObserver((entries) => {
         }
     })   
 }, {threshold: .7});
-
-gsap.registerPlugin(ScrollTrigger);
 
 onMounted(() => {
 

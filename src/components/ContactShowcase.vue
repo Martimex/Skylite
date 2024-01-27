@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => entry.target.classList.toggle('show', entry.isIntersecting));

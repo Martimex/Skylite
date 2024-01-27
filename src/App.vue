@@ -59,7 +59,7 @@ const redirectPrompt = (dest_name: string) => {
     <TeamShowcase @redirect-message="(msg: string) => redirectPrompt(msg)" />
   </div>
   
-  <div class="component-layout-light-2">
+  <div class="component-layout-light-1">
     <Reviews />
     <Stats  @redirect-message="(msg: string) => redirectPrompt(msg)" />
     <Companies @redirect-message="(msg: string) => redirectPrompt(msg)" />

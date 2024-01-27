@@ -4,6 +4,9 @@ import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/src/ScrollTrigger';
 import { onMounted } from 'vue';
 
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
+
 const emit = defineEmits(['redirectMessage']);
 
 const observer = new IntersectionObserver((entries) => {
@@ -11,8 +14,6 @@ const observer = new IntersectionObserver((entries) => {
 }, {threshold: 0.5})
 
 onMounted(() => {
-
-    gsap.registerPlugin(ScrollTrigger);
 
     // Employees section observers
     const targets = document.querySelectorAll(`.emp-main .emp-bio`);

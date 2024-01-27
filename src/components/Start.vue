@@ -4,6 +4,7 @@ import ScrollTrigger from 'gsap/src/ScrollTrigger';
 import { onMounted, getCurrentInstance } from 'vue';
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 const emit = defineEmits(['redirectMessage']);
 
