@@ -44,7 +44,7 @@ As mentioned above, the whole project is a website and not an actual app. Becaus
 
 <br>
 
-1)
+1) Initial Landing Page screen
 
 <br>
 
@@ -54,7 +54,7 @@ As mentioned above, the whole project is a website and not an actual app. Becaus
 
 <br>
 
-2)
+2) Team Showcase profile
 
 <br>
 
@@ -64,7 +64,7 @@ As mentioned above, the whole project is a website and not an actual app. Becaus
 
 <br>
 
-3)
+3) Collaboration guidelines
 
 <br>
 
@@ -74,7 +74,7 @@ As mentioned above, the whole project is a website and not an actual app. Becaus
 
 <br>
 
-4)
+4) Website footer
 
 <br>
 
@@ -126,7 +126,7 @@ I highly encourage you to take a look at this website if you have not already. A
 
 This project has been made under MIT License. Follow this link for it's detailed content: 
 
-https://github.com/Martimex/sudoku/blob/main/LICENSE
+https://github.com/Martimex/Skylite/blob/main/LICENSE
 
 ## Tools
 

@@ -6,9 +6,20 @@
 
 <br><hr>
 
+**[1.0.5] Minor adjustments for README file**
+<br>
+_31.01.2024_
+
+* Made some minor changes for README file. This time, photos in
+the Overview subsection received a short description of what do
+they represent. Also applied a correct link to the LICENSE file
+in the License subsection.
+
+<br><hr>
+
 **[1.0.4] Include License and Changeolg, update README file**
 <br>
-_27.01.2024_
+_31.01.2024_
 
 * Included a license and changelog files for the project
 
